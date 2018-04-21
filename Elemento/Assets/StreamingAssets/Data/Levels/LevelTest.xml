@@ -1,1 +1,18 @@
-<Level Name="test level"/>
+<Level Name="test level"
+       Order="0"
+       ModelName="Plane10x10">
+  <TowerPlot Id="0" X="0" Y="0" Z="0" Editable="false">
+    <Tower Id="stronghold" Prototype="tower:stronghold"/>
+  </TowerPlot>
+  <TowerPlot Id="1" X="4" Y="0" Z="0" Editable="true"/>
+  <TowerPlot Id="2" X="4" Y="1" Z="4" Editable="true"/>
+  <SpawnPoint Id="0" X="10" Y="0" Z="10">
+    <DestinationPath>0</DestinationPath>
+  </SpawnPoint>
+  <MonsterPath Id="0" EndInStronghold="true">
+    <Checkpoint  X="10" Y="0" Z="10"/>
+    <Checkpoint  X="10" Y="0" Z="6"/>
+    <Checkpoint  X="6" Y="0" Z="6"/>
+    <Checkpoint  X="0" Y="0" Z="0"/>
+  </MonsterPath>
+</Level>

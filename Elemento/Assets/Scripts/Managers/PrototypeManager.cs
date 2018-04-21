@@ -2,10 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Assets.Scripts.Models;
 using Assets.Scripts.Serialization;
-using NUnit.Framework;
 using UnityEngine;
 
 namespace Assets.Scripts.Managers
@@ -15,15 +13,24 @@ namespace Assets.Scripts.Managers
     {
         public List<ProtoypeIndex> Index;
 
-        public Dictionary<string, Prototype> Prototypes;
+        //public Dictionary<string, IPrototype> Prototypes;
+        public List<LoadedPrototype> Prototypes;
 
+        [Serializable]
+        public class LoadedPrototype
+        {
+            public string Uri;
+            public IPrototype Prototype;
+        }
+        
         public bool Loaded = false;
 
-        private void RegisterPrototype(string uri, Prototype prototype)
+        private void RegisterPrototype(string uri, IPrototype prototype)
         {
             if (Prototypes == null)
             {
-                Prototypes = new Dictionary<string, Prototype>();
+                //Prototypes = new Dictionary<string, IPrototype>();
+                Prototypes = new List<LoadedPrototype>();
             }
 
             if (string.IsNullOrEmpty(uri))
@@ -36,11 +43,35 @@ namespace Assets.Scripts.Managers
                 throw new ArgumentNullException("prototype");
             }
 
-            if (Prototypes.ContainsKey(uri))
+            if (Prototypes.Any(lp => lp.Uri == uri))
             {
+                Debug.LogWarning("Double assignement for prototype: " + uri);
             }
 
-            Prototypes[uri] = prototype;
+            Prototypes.Add(new LoadedPrototype
+            {
+                Uri = uri,
+                Prototype = prototype
+            });
+        }
+
+        public T GetPrototype<T>(string uri) where T : class, IPrototype
+        {
+            var loadedProto = Prototypes.FirstOrDefault(lp => lp.Uri == uri);
+            if (loadedProto == null)
+            {
+                Debug.LogError("No prototype found for: " + uri + " (returning null)");
+                return default(T);
+            }
+
+            var proto = loadedProto.Prototype as T;
+            if(proto == null)
+            {
+                Debug.LogError("A prototype found for: " + uri + " but not of the type"+ typeof(T) +" (returning null)");
+                return default(T);
+            }
+
+            return proto;
         }
 
         public IEnumerator LoadPrototypes(Action onLoadCompleted)
@@ -65,6 +96,10 @@ namespace Assets.Scripts.Managers
                     default:
                         Debug.LogErrorFormat("PrototypeType not registered: {0}", index.ProtoypeType);
                         break;
+                }
+                foreach (var s in sub)
+                {
+                    yield return s;
                 }
             }
 
