@@ -24,6 +24,19 @@ namespace Assets.Scripts.Serialization
             }
         }
 
+        public IEnumerable LoadFromStreamingAssets<T>(string folder, string fileName, Action<T> store)
+            where T : class, new()
+        {
+            string dataPath = Path.Combine(Application.streamingAssetsPath, folder);
+            string filePath = Path.Combine(dataPath, fileName);
+
+            var sub = Load<T>(filePath, store);
+            foreach (var s in sub)
+            {
+                yield return s;
+            }
+        }
+
         public IEnumerable LoadFromAppData<T, TI>(T store, string folder, string fileName)
             where T : class, IList<TI>, new()
             where TI : class, new()
@@ -66,6 +79,33 @@ namespace Assets.Scripts.Serialization
                 {
                     store.Add(data);
                 }
+            }
+        }
+
+        public IEnumerable Load<T>(string fileName, Action<T> store)
+            where T : class, new()
+        {
+
+#if UNITY_WEBGL && !UNITY_EDITOR
+            var protocol = "";
+#else
+            var protocol = "file:///";
+#endif
+
+            //Debug.Log("Loading file: " + fileName);
+            var www = new WWW(protocol + fileName);
+            yield return www;
+
+            if (!string.IsNullOrEmpty(www.error))
+            {
+                Debug.LogError(www.error);
+                yield break;
+            }
+
+            using (var memoryStream = new MemoryStream(www.bytes))
+            {
+                var data = DeSerialize<T>(memoryStream);
+                store(data);
             }
         }
 

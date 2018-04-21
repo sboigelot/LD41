@@ -13,6 +13,8 @@ namespace Assets.Scripts.Managers
 
         public void Start()
         {
+            DontDestroyOnLoad(gameObject);
+
             //make the prototypeManager visible in unity inspector
             PrototypeManager = PrototypeManager.Instance;
             StartCoroutine(PrototypeManager.LoadPrototypes(NewGame));
