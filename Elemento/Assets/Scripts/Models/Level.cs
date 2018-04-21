@@ -16,6 +16,12 @@ namespace Assets.Scripts.Models
         [XmlAttribute]
         public string ModelName;
 
+        [XmlAttribute]
+        public int SizeX;
+
+        [XmlAttribute]
+        public int SizeZ;
+
         [XmlElement("TowerPlot")]
         public List<TowerPlot> TowerPlots;
         

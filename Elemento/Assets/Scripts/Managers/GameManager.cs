@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Assets.Scripts.Controllers.Game;
 using Assets.Scripts.Models;
 using Assets.Scripts.UI;
 using UnityEngine;
@@ -9,7 +10,6 @@ namespace Assets.Scripts.Managers
     {
         public Game Game;
         public PrototypeManager PrototypeManager;
-
 
         public void Start()
         {
@@ -35,6 +35,8 @@ namespace Assets.Scripts.Managers
 
             Game = new Game();
             Game.Initialize();
+            Game.CurrentLevel = PrototypeManager.GetPrototype<Level>("level:level_test");
+            MapRenderer.Instance.Build();
         }
 
         public void EndGame(bool win)
