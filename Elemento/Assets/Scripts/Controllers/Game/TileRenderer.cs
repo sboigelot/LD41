@@ -19,20 +19,31 @@ namespace Assets.Scripts.Controllers.Game
 
         public void Build(Level level, int[][] tiles)
         {
-            var prefab = PrefabManager.Instance.TilePrefabs[0];
-            if (!string.IsNullOrEmpty(level.TileString))
-            {
-                Debug.Log("rendering tile: " + tiles[X][Z]);
-                prefab = PrefabManager.Instance.TilePrefabs[OverideTileId != -1? OverideTileId: tiles[X][Z]];
-            }
-
             if (Visual != null)
             {
                 Destroy(Visual);
             }
 
+            var prefab = PrefabManager.Instance.TilePrefabs[0];
+            if (!string.IsNullOrEmpty(level.TileString))
+            {
+                var id = OverideTileId != -1 ? OverideTileId : tiles[X][Z];
+                prefab = PrefabManager.Instance.TilePrefabs[id];
+            }
+
+            float height = 0f;
+            if (!string.IsNullOrEmpty(level.HeightmapString))
+            {
+                height = level.Heightmap[X][Z];
+                if (Math.Abs(height) < 0.1f)
+                {
+                    return;
+                }
+                height -= 1f;
+            }
+
             Visual = GameObject.Instantiate(prefab, 
-                gameObject.transform.position, 
+                new Vector3(gameObject.transform.position.x, height, gameObject.transform.position.z), 
                 Quaternion.identity,
                 gameObject.transform);
         }

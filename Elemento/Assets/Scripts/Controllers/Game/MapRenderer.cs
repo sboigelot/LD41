@@ -100,19 +100,36 @@ namespace Assets.Scripts.Controllers.Game
                     InstanciatePlot(plot);
                 }
             }
+        }
 
+        private float GetHeight(int x, int z)
+        {
+            var level = GameManager.Instance.Game.CurrentLevel;
+            float height = 0f;
+            if (!string.IsNullOrEmpty(level.HeightmapString))
+            {
+                height = level.Heightmap[x][z];
+                if (Math.Abs(height) < 0.1f)
+                {
+                    return 0f;
+                }
+                height -= 1f;
+            }
+
+            return height;
         }
 
         private void InstanciateTower(TowerPlot plot)
         {
-            var position = new Vector3(plot.X * ModelScale, plot.Y * ModelScale, plot.Z * ModelScale);
+
+            var position = new Vector3(plot.X * ModelScale, GetHeight(plot.X, plot.Z), plot.Z * ModelScale);
             var tile = GameObject.Instantiate(PrefabManager.Instance.TowerPrefab, position, Quaternion.identity, gameObject.transform);
             CurrentTiles.Add(tile);
         }
 
         private void InstanciatePlot(TowerPlot plot)
         {
-            var position = new Vector3(plot.X * ModelScale, plot.Y * ModelScale, plot.Z * ModelScale);
+            var position = new Vector3(plot.X * ModelScale, GetHeight(plot.X, plot.Z), plot.Z * ModelScale);
             var tile = GameObject.Instantiate(PrefabManager.Instance.TowerPlotPrefab, position, Quaternion.identity, gameObject.transform);
             CurrentTiles.Add(tile);
         }

@@ -33,7 +33,7 @@ namespace Assets.Scripts.Models
             {
                 var tiles = new int[SizeX][];
 
-                var split = TileString.Replace(Environment.NewLine,"").Trim().Split(';').ToList();
+                var split = TileString.Replace(Environment.NewLine,"").Trim().Split(',').ToList();
 
                 var x = -1;
                 var z = 0;
@@ -47,6 +47,38 @@ namespace Assets.Scripts.Models
                     }
 
                     tiles[x][z] = int.Parse(tileChar);
+
+                    z = ++z % SizeZ;
+                }
+
+                return tiles;
+            }
+        }
+
+        [XmlElement]
+        public string HeightmapString;
+
+        [XmlIgnore]
+        public float[][] Heightmap
+        {
+            get
+            {
+                var tiles = new float[SizeX][];
+
+                var split = HeightmapString.Replace(Environment.NewLine, "").Trim().Split(',').ToList();
+
+                var x = -1;
+                var z = 0;
+
+                foreach (var tileChar in split)
+                {
+                    if (z == 0)
+                    {
+                        x++;
+                        tiles[x] = new float[SizeZ];
+                    }
+
+                    tiles[x][z] = float.Parse(tileChar);
 
                     z = ++z % SizeZ;
                 }
