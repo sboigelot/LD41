@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Xml.Serialization;
 
 namespace Assets.Scripts.Models
@@ -17,6 +18,13 @@ namespace Assets.Scripts.Models
         public int Z;
 
         [XmlElement("DestinationPath")]
-        public List<string> DestinationPaths;
+        public List<int> DestinationPaths;
+
+        public MonsterPath GetAnyDestinationPath(Level level)
+        {
+            return
+                level.MonsterPaths.FirstOrDefault(
+                    mp => mp.Id == DestinationPaths[UnityEngine.Random.Range(0, DestinationPaths.Count)]);
+        }
     }
 }

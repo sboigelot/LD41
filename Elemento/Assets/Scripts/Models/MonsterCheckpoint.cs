@@ -11,12 +11,9 @@ namespace Assets.Scripts.Models
         public int Id;
 
         [XmlAttribute]
-        public float X;
-
+        public int X;
+        
         [XmlAttribute]
-        public float Y;
-
-        [XmlAttribute]
-        public float Z;
+        public int Z;
     }
 }

@@ -5,6 +5,8 @@ using System.Text;
 using UnityEngine;
 using System.Collections;
 using Assets.Scripts.Controllers.Game;
+using Assets.Scripts.Managers;
+using Assets.Scripts.Models;
 using UnityEditor;
 
 namespace Assets.Editor

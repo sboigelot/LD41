@@ -12,14 +12,14 @@
     <DestinationPath>0</DestinationPath>
   </SpawnPoint>
   <MonsterPath Id="0" EndInStronghold="true">
-    <Checkpoint  X="10" Y="0" Z="10"/>
-    <Checkpoint  X="10" Y="0" Z="6"/>
-    <Checkpoint  X="6" Y="0" Z="6"/>
-    <Checkpoint  X="0" Y="0" Z="0"/>
+    <Checkpoint  X="10" Z="10"/>
+    <Checkpoint  X="15" Z="10"/>
+    <Checkpoint  X="13" Z="13"/>
+    <Checkpoint  X="15" Z="15"/>
   </MonsterPath>
   <MonsterWave SpawnpointId="0" 
-               TriggerDeltaTime="10" 
-               DeltaTimeBetweenSpawn="1">
+               TriggerDeltaTime="5" 
+               DeltaTimeBetweenSpawn="4">
     <Spawn MonsterPrototypeUri="monster:marshmallow"
            Count="3"/>
   </MonsterWave>

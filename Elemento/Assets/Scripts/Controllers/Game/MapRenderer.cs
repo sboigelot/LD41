@@ -6,6 +6,7 @@ using System.Text;
 using Assets.Scripts.Managers;
 using Assets.Scripts.Models;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 namespace Assets.Scripts.Controllers.Game
 {
@@ -162,5 +163,55 @@ namespace Assets.Scripts.Controllers.Game
             var tile = GameObject.Instantiate(PrefabManager.Instance.GetPrefab("spawnpoint"), position, Quaternion.identity, gameObject.transform);
             CurrentTiles.Add(tile);
         }
+
+        #region Gizmo
+        public void OnDrawGizmos()
+        {
+            var game = GameManager.Instance.Game;
+            if (game == null)
+                return;
+
+            var level = game.CurrentLevel;
+            if (level == null)
+                return;
+
+            var paths = level.MonsterPaths;
+            if (paths == null || !paths.Any())
+                return;
+
+            foreach (var monsterPath in paths)
+            {
+                DrawMonsterPathGizmmo(monsterPath);
+            }
+        }
+
+        private void DrawMonsterPathGizmmo(MonsterPath monsterPath)
+        {
+            if (monsterPath.MonsterCheckpoints == null)
+            {
+                return;
+            }
+
+            MonsterCheckpoint prev = null;
+            Vector3 prevPos = Vector3.zero;
+            foreach (var checkpoint in monsterPath.MonsterCheckpoints)
+            {
+                Gizmos.color = Color.magenta;
+                var ModelScale = MapRenderer.Instance.ModelScale;
+                var position = new Vector3(checkpoint.X * ModelScale,
+                    MapRenderer.Instance.GetHeight(checkpoint.X, checkpoint.Z) + 0.5f,
+                    checkpoint.Z * ModelScale);
+                Gizmos.DrawCube(position, new Vector3(1, 1, 1));
+                
+                if (prev != null)
+                {
+                    Gizmos.DrawLine(prevPos, position);
+                }
+
+                prev = checkpoint;
+                prevPos = position;
+            }
+        }
+        #endregion
     }
 }

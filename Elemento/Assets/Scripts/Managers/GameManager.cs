@@ -75,6 +75,8 @@ namespace Assets.Scripts.Managers
 
             var position = new Vector3(spawnPoint.X * ModelScale, MapRenderer.Instance.GetHeight(spawnPoint.X, spawnPoint.Z), spawnPoint.Z * ModelScale);
             var monster = GameObject.Instantiate(PrefabManager.Instance.GetPrefab(monsterPrototypeUri), position, Quaternion.identity);
+            var monsterController = monster.AddComponent<MonsterController>();
+            monsterController.CurrentPath = spawnPoint.GetAnyDestinationPath(Game.CurrentLevel);
             CurrentMonsters.Add(monster);
         }
     }

@@ -29,12 +29,19 @@ namespace Assets.Scripts.Models
         [XmlElement]
         public string TileString;
 
+        private int[][] tiles;
+
         [XmlIgnore]
         public int[][] Tiles
         {
             get
             {
-                var tiles = new int[SizeX][];
+                if (tiles != null)
+                {
+                    return tiles;
+                }
+
+                tiles = new int[SizeX][];
 
                 var split = TileString.Replace(Environment.NewLine,"").Trim().Split(',').ToList();
 
@@ -58,6 +65,8 @@ namespace Assets.Scripts.Models
             }
         }
 
+        private float[][] heightmap;
+
         [XmlElement]
         public string HeightmapString;
 
@@ -66,7 +75,12 @@ namespace Assets.Scripts.Models
         {
             get
             {
-                var tiles = new float[SizeX][];
+                if (heightmap != null)
+                {
+                    return heightmap;
+                }
+
+                heightmap = new float[SizeX][];
 
                 var split = HeightmapString.Replace(Environment.NewLine, "").Trim().Split(',').ToList();
 
@@ -78,15 +92,15 @@ namespace Assets.Scripts.Models
                     if (z == 0)
                     {
                         x++;
-                        tiles[x] = new float[SizeZ];
+                        heightmap[x] = new float[SizeZ];
                     }
 
-                    tiles[x][z] = float.Parse(tileChar);
+                    heightmap[x][z] = float.Parse(tileChar);
 
                     z = ++z % SizeZ;
                 }
 
-                return tiles;
+                return heightmap;
             }
         }
 
