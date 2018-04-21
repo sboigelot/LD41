@@ -3,26 +3,58 @@
        ModelName="Plane10x10"
        SizeX="30"
        SizeZ="30">
+  
   <TowerPlot Id="0" X="15" Z="15" Editable="false">
     <Tower Id="stronghold" Prototype="tower:stronghold"/>
   </TowerPlot>
+  
   <TowerPlot Id="1" X="4" Z="0" Editable="true"/>
   <TowerPlot Id="2" X="4" Z="4" Editable="true"/>
+  
   <SpawnPoint Id="0" X="10" Z="10">
     <DestinationPath>0</DestinationPath>
+    <DestinationPath>1</DestinationPath>
   </SpawnPoint>
+  
   <MonsterPath Id="0" EndInStronghold="true">
     <Checkpoint  X="10" Z="10"/>
     <Checkpoint  X="15" Z="10"/>
     <Checkpoint  X="13" Z="13"/>
     <Checkpoint  X="15" Z="15"/>
   </MonsterPath>
-  <MonsterWave SpawnpointId="0" 
-               TriggerDeltaTime="5" 
+  
+  <MonsterPath Id="1" EndInStronghold="false">
+    <Checkpoint  X="10" Z="10"/>
+    <Checkpoint  X="10" Z="5"/>
+    <Checkpoint  X="5" Z="8"/>
+    <DestinationPath>2</DestinationPath>
+    <DestinationPath>3</DestinationPath>
+  </MonsterPath>
+  
+  <MonsterPath Id="2" EndInStronghold="true">
+    <Checkpoint  X="5" Z="8"/>
+    <Checkpoint  X="8" Z="8"/>
+  </MonsterPath>
+  
+  <MonsterPath Id="3" EndInStronghold="true">
+    <Checkpoint  X="5" Z="8"/>
+    <Checkpoint  X="3" Z="3"/>
+  </MonsterPath>
+  
+  <MonsterWave SpawnpointId="0"
+               TriggerDeltaTime="5"
                DeltaTimeBetweenSpawn="4">
     <Spawn MonsterPrototypeUri="monster:marshmallow"
            Count="3"/>
   </MonsterWave>
+  
+  <MonsterWave SpawnpointId="0"
+               TriggerDeltaTime="20"
+               DeltaTimeBetweenSpawn="4">
+    <Spawn MonsterPrototypeUri="monster:marshmallow"
+           Count="5"/>
+  </MonsterWave>
+  
   <TileString>
     0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
     0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -55,6 +87,7 @@
     0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
     0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
   </TileString>
+  
   <HeightmapString>
     0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
     0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,1,1,0,

@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Models;
+﻿using Assets.Scripts.Managers;
+using Assets.Scripts.Models;
 using UnityEngine;
 
 namespace Assets.Scripts.Controllers.Game
@@ -8,7 +9,7 @@ namespace Assets.Scripts.Controllers.Game
         public MonsterPrototype MonsterPrototype;
         public MonsterPath CurrentPath;
         public int CurrentCheckpointIndex;
-        public float Speed = 0.35f;
+        public float Speed = 0.7f;
         public float DestinationReachedThreshold = 0.40f;
 
         private CharacterController controller;
@@ -20,7 +21,18 @@ namespace Assets.Scripts.Controllers.Game
 
         public void ReachDestination()
         {
-            //TODO
+            if (CurrentPath.EndInStronghold)
+            {
+                //TODO
+                Debug.Log("Monster reached stronghold - not implemented");
+                CurrentPath = null;
+                Destroy(gameObject);
+            }
+            else
+            {
+                CurrentPath = CurrentPath.GetAnyDestinationPath(GameManager.Instance.Game.CurrentLevel);
+                CurrentCheckpointIndex = 0;
+            }
         }
 
         public void FixedUpdate()
@@ -31,10 +43,15 @@ namespace Assets.Scripts.Controllers.Game
                 return;
             }
 
+            if (CurrentPath.MonsterCheckpoints == null)
+            {
+                Debug.LogWarningFormat("CurrentPath has null CurrentPath.MonsterCheckpoints: {0}", CurrentPath.Id);
+                return;
+            }
+
             if (CurrentCheckpointIndex >= CurrentPath.MonsterCheckpoints.Count)
             {
                 ReachDestination();
-                CurrentPath = null;
                 return;
             }
 
