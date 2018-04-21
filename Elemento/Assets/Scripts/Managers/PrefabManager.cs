@@ -10,6 +10,6 @@ namespace Assets.Scripts.Managers
     {
         public GameObject TowerSlotPrefab;
         public GameObject TowerPrefab;
-        public GameObject TilePrefab;
+        public List<GameObject> TilePrefabs;
     }
 }

@@ -11,6 +11,8 @@ namespace Assets.Scripts.Controllers.Game
 {
     public class MapRenderer : MonoBehaviourSingleton<MapRenderer>
     {
+        public float ModelScale = 2f;
+
         public List<GameObject> CurrentTiles;
 
         public Dictionary<string, GameObject> CurrentTowers;
@@ -63,21 +65,24 @@ namespace Assets.Scripts.Controllers.Game
         private void RenderTiles()
         {
             var level = GameManager.Instance.Game.CurrentLevel;
+            var tiles = level.Tiles;
 
             for (int x = 0; x < level.SizeX; x++)
             {
                 for (int z = 0; z < level.SizeZ; z++)
                 {
-                    InstanciateTile(x, z);
+                    var position = new Vector3(x * ModelScale, -.3f, z * ModelScale);
+                    var tile = new GameObject("Tile("+x+","+z+")");
+                    tile.transform.position = position;
+                    tile.transform.SetParent(gameObject.transform);
+                    var tileRenderer = tile.AddComponent<TileRenderer>();
+                    tileRenderer.X = x;
+                    tileRenderer.Z = z;
+                    tileRenderer.Build(level, tiles);
+
+                    CurrentTiles.Add(tile);
                 }
             }
-        }
-
-        private void InstanciateTile(int x, int z)
-        {
-            var position = new Vector3(x, 0, z);
-            var tile = GameObject.Instantiate(PrefabManager.Instance.TilePrefab, position, Quaternion.identity, gameObject.transform);
-            CurrentTiles.Add(tile);
         }
 
         private void RenderTowers()
@@ -96,7 +101,7 @@ namespace Assets.Scripts.Controllers.Game
 
         private void InstanciateTower(TowerPlot plot)
         {
-            var position = new Vector3(plot.X, plot.Y, plot.Z);
+            var position = new Vector3(plot.X * ModelScale, plot.Y * ModelScale, plot.Z * ModelScale);
             var tile = GameObject.Instantiate(PrefabManager.Instance.TowerPrefab, position, Quaternion.identity, gameObject.transform);
             CurrentTiles.Add(tile);
         }

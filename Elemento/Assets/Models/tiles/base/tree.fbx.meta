@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: c09474ded67e8444f96748a35c780984
-timeCreated: 1524320285
+guid: 7476097a70010454e89b5ebed5865b3c
+timeCreated: 1524328567
 licenseType: Pro
 ModelImporter:
   serializedVersion: 21
@@ -10,7 +10,6 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: Matrix
-    4300002: Matrix_1
   materials:
     importMaterials: 1
     materialName: 0

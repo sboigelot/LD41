@@ -446,6 +446,7 @@ MonoBehaviour:
       ModelName: 
       SizeX: 0
       SizeZ: 0
+      TileString: 
       TowerPlots: []
       SpawnPoints: []
       MonsterPaths: []
@@ -466,8 +467,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TowerSlotPrefab: {fileID: 0}
-  TowerPrefab: {fileID: 0}
-  TilePrefab: {fileID: 1881183226395348, guid: 156b6a69497e7ba47905c022a6352cb9, type: 2}
+  TowerPrefab: {fileID: 100000, guid: 57e90048093d4474fa3c9691fb9c1b46, type: 3}
+  TilePrefabs:
+  - {fileID: 100000, guid: c09474ded67e8444f96748a35c780984, type: 3}
+  - {fileID: 100000, guid: 7476097a70010454e89b5ebed5865b3c, type: 3}
 --- !u!1 &1474482930
 GameObject:
   m_ObjectHideFlags: 0
@@ -495,6 +498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f766216bed45ed4787921bf90285c24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ModelScale: 2
   CurrentTiles: []
 --- !u!4 &1474482932
 Transform:

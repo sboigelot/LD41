@@ -25,14 +25,7 @@ namespace Assets.Scripts.Managers
             // StartScreenPanel.SetActive(true);
             // GameOverPanel.SetActive(false);
             // GameWonPanel.SetActive(false);
-
-            // DailyReportWindowController.Instance.gameObject.SetActive(false);
-            // ProcessWindowConstroller.Instance.gameObject.SetActive(false);
-            // ContactWindowController.Instance.gameObject.SetActive(false);
-            // StartMenu.SetActive(false);
-            // Notepad.SetActive(false);
-            // ControlPanel.SetActive(false);
-
+            
             Game = new Game();
             Game.Initialize();
             Game.CurrentLevel = PrototypeManager.GetPrototype<Level>("level:level_test");
