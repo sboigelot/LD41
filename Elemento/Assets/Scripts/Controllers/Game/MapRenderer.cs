@@ -95,6 +95,10 @@ namespace Assets.Scripts.Controllers.Game
                 {
                     InstanciateTower(plot);
                 }
+                else
+                {
+                    InstanciatePlot(plot);
+                }
             }
 
         }
@@ -103,6 +107,13 @@ namespace Assets.Scripts.Controllers.Game
         {
             var position = new Vector3(plot.X * ModelScale, plot.Y * ModelScale, plot.Z * ModelScale);
             var tile = GameObject.Instantiate(PrefabManager.Instance.TowerPrefab, position, Quaternion.identity, gameObject.transform);
+            CurrentTiles.Add(tile);
+        }
+
+        private void InstanciatePlot(TowerPlot plot)
+        {
+            var position = new Vector3(plot.X * ModelScale, plot.Y * ModelScale, plot.Z * ModelScale);
+            var tile = GameObject.Instantiate(PrefabManager.Instance.TowerPlotPrefab, position, Quaternion.identity, gameObject.transform);
             CurrentTiles.Add(tile);
         }
     }

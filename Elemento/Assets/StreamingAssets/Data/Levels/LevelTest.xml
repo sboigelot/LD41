@@ -7,7 +7,7 @@
     <Tower Id="stronghold" Prototype="tower:stronghold"/>
   </TowerPlot>
   <TowerPlot Id="1" X="4" Y="0" Z="0" Editable="true"/>
-  <TowerPlot Id="2" X="4" Y="1" Z="4" Editable="true"/>
+  <TowerPlot Id="2" X="4" Y="0" Z="4" Editable="true"/>
   <SpawnPoint Id="0" X="10" Y="0" Z="10">
     <DestinationPath>0</DestinationPath>
   </SpawnPoint>

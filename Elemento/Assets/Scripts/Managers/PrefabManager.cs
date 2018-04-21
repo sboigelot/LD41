@@ -8,7 +8,7 @@ namespace Assets.Scripts.Managers
 {
     public class PrefabManager : MonoBehaviourSingleton<PrefabManager>
     {
-        public GameObject TowerSlotPrefab;
+        public GameObject TowerPlotPrefab;
         public GameObject TowerPrefab;
         public List<GameObject> TilePrefabs;
     }
