@@ -1,2 +1,2 @@
-# LD41
-Ludum Dare 41
+# LD40
+Game made for the gamejam LudumDare41
