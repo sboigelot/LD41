@@ -21,5 +21,15 @@ namespace Assets.Scripts.Models
 
         [XmlElement("Tower")]
         public Tower Tower;
+
+        public void Update(float deltaTime)
+        {
+            if (Tower == null)
+            {
+                return;
+            }
+
+            Tower.Update(deltaTime);
+        }
     }
 }

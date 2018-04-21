@@ -93,6 +93,9 @@ namespace Assets.Scripts.Managers
                     case "level":
                         sub = Load<Level>(protoypeIndex.Path, (data) => RegisterPrototype(index.Uri, data));
                         break;
+                    case "monster":
+                        sub = Load<MonsterPrototype>(protoypeIndex.Path, (data) => RegisterPrototype(index.Uri, data));
+                        break;
                     default:
                         Debug.LogErrorFormat("PrototypeType not registered: {0}", index.ProtoypeType);
                         break;

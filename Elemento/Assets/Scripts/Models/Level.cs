@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Serialization;
+using Assets.Scripts.Controllers.Game;
+using Assets.Scripts.Managers;
+using UnityEngine;
 
 namespace Assets.Scripts.Models
 {
@@ -98,5 +101,33 @@ namespace Assets.Scripts.Models
 
         [XmlElement("MonsterWave")]
         public List<MonsterWaves> MonsterWaves;
+
+        public void Update(float deltaTime)
+        {
+            UpdateMonsterWaves(deltaTime);
+            UpdateTowerPlots(deltaTime);
+        }
+
+        private void UpdateMonsterWaves(float deltaTime)
+        {
+            if (MonsterWaves != null)
+            {
+                foreach (var monsterWaves in MonsterWaves)
+                {
+                    monsterWaves.Update(deltaTime);
+                }
+            }
+        }
+
+        private void UpdateTowerPlots(float deltaTime)
+        {
+            if (TowerPlots != null)
+            {
+                foreach (var plot in TowerPlots)
+                {
+                    plot.Update(deltaTime);
+                }
+            }
+        }
     }
 }

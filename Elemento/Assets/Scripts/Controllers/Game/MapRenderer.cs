@@ -17,6 +17,8 @@ namespace Assets.Scripts.Controllers.Game
 
         public Dictionary<string, GameObject> CurrentTowers;
 
+        public Dictionary<string, GameObject> CurrentSpawnPoint;
+
         public Dictionary<string, GameObject> CurrentMonsters;
 
         public void Resert()
@@ -37,6 +39,14 @@ namespace Assets.Scripts.Controllers.Game
                 }
             }
 
+            if (CurrentSpawnPoint != null)
+            {
+                foreach (var go in CurrentSpawnPoint.Values)
+                {
+                    Destroy(go);
+                }
+            }
+
             if (CurrentMonsters != null)
             {
                 foreach (var go in CurrentMonsters.Values)
@@ -48,6 +58,7 @@ namespace Assets.Scripts.Controllers.Game
             CurrentTiles = new List<GameObject>();
             CurrentTowers = new Dictionary<string, GameObject>();
             CurrentMonsters = new Dictionary<string, GameObject>();
+            CurrentSpawnPoint = new Dictionary<string, GameObject>();
         }
 
         public void Start()
@@ -60,6 +71,7 @@ namespace Assets.Scripts.Controllers.Game
 
             RenderTiles();
             RenderTowers();
+            RenderSpawnPoints();
         }
 
         private void RenderTiles()
@@ -102,7 +114,17 @@ namespace Assets.Scripts.Controllers.Game
             }
         }
 
-        private float GetHeight(int x, int z)
+        public void RenderSpawnPoints()
+        {
+            var level = GameManager.Instance.Game.CurrentLevel;
+
+            foreach (var spawnPoint in level.SpawnPoints)
+            {
+                InstanciateSpawnPoint(spawnPoint);
+            }
+        }
+
+        public float GetHeight(int x, int z)
         {
             var level = GameManager.Instance.Game.CurrentLevel;
             float height = 0f;
@@ -121,16 +143,23 @@ namespace Assets.Scripts.Controllers.Game
 
         private void InstanciateTower(TowerPlot plot)
         {
-
             var position = new Vector3(plot.X * ModelScale, GetHeight(plot.X, plot.Z), plot.Z * ModelScale);
-            var tile = GameObject.Instantiate(PrefabManager.Instance.TowerPrefab, position, Quaternion.identity, gameObject.transform);
+            var tile = GameObject.Instantiate(PrefabManager.Instance.GetPrefab("tower"), position, Quaternion.identity, gameObject.transform);
             CurrentTiles.Add(tile);
         }
 
         private void InstanciatePlot(TowerPlot plot)
         {
             var position = new Vector3(plot.X * ModelScale, GetHeight(plot.X, plot.Z), plot.Z * ModelScale);
-            var tile = GameObject.Instantiate(PrefabManager.Instance.TowerPlotPrefab, position, Quaternion.identity, gameObject.transform);
+            var tile = GameObject.Instantiate(PrefabManager.Instance.GetPrefab("towerplot"), position, Quaternion.identity, gameObject.transform);
+            CurrentTiles.Add(tile);
+        }
+
+
+        private void InstanciateSpawnPoint(SpawnPoint spawnPoint)
+        {
+            var position = new Vector3(spawnPoint.X * ModelScale, GetHeight(spawnPoint.X, spawnPoint.Z), spawnPoint.Z * ModelScale);
+            var tile = GameObject.Instantiate(PrefabManager.Instance.GetPrefab("spawnpoint"), position, Quaternion.identity, gameObject.transform);
             CurrentTiles.Add(tile);
         }
     }

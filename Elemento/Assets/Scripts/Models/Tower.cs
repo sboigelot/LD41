@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Xml.Serialization;
+using UnityEngine;
 
 namespace Assets.Scripts.Models
 {
@@ -11,5 +12,11 @@ namespace Assets.Scripts.Models
 
         [XmlAttribute]
         public string Prototype;
+
+        public void Update(float deltaTime)
+        {
+            // TODO
+            //Debug.LogWarning("Level.SpawnMonster Not Implemented");
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Assets.Scripts.Controllers.Game;
 using Assets.Scripts.Models;
 using Assets.Scripts.UI;
@@ -10,6 +11,8 @@ namespace Assets.Scripts.Managers
     {
         public Game Game;
         public PrototypeManager PrototypeManager;
+
+        public List<GameObject> CurrentMonsters;
 
         public void Start()
         {
@@ -25,7 +28,8 @@ namespace Assets.Scripts.Managers
             // StartScreenPanel.SetActive(true);
             // GameOverPanel.SetActive(false);
             // GameWonPanel.SetActive(false);
-            
+
+            CurrentMonsters = new List<GameObject>();
             Game = new Game();
             Game.Initialize();
             Game.CurrentLevel = PrototypeManager.GetPrototype<Level>("level:level_test");
@@ -51,6 +55,27 @@ namespace Assets.Scripts.Managers
             {
                 Game.Update(Time.deltaTime);
             }
+        }
+        
+        public void SpawnMonster(int spawnpointId, string monsterPrototypeUri)
+        {
+            var monsterPrefab = PrefabManager.Instance.GetPrefab(monsterPrototypeUri);
+            var spawnPoint = Game.CurrentLevel.SpawnPoints.FirstOrDefault(s => s.Id == spawnpointId);
+
+            if (monsterPrefab == null || spawnPoint == null)
+            {
+                Debug.LogWarning("Level.SpawnMonster ccoun't find monster prefab " +
+                    monsterPrototypeUri +
+                    "or spawnpoint " +
+                    spawnpointId);
+                return;
+            }
+
+            var ModelScale = MapRenderer.Instance.ModelScale;
+
+            var position = new Vector3(spawnPoint.X * ModelScale, MapRenderer.Instance.GetHeight(spawnPoint.X, spawnPoint.Z), spawnPoint.Z * ModelScale);
+            var monster = GameObject.Instantiate(PrefabManager.Instance.GetPrefab(monsterPrototypeUri), position, Quaternion.identity);
+            CurrentMonsters.Add(monster);
         }
     }
 }

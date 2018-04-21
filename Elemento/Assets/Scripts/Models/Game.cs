@@ -22,9 +22,10 @@ namespace Assets.Scripts.Models
 
         public void Update(float deltaTime)
         {
-            if (!Paused && PrototypeManager.Instance.Loaded)
+            if (!Paused && PrototypeManager.Instance.Loaded && CurrentLevel != null)
             {
                 GameTime += Time.deltaTime;
+                CurrentLevel.Update(deltaTime);
             }
         }      
     }

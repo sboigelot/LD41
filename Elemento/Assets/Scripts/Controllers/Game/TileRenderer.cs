@@ -31,16 +31,16 @@ namespace Assets.Scripts.Controllers.Game
                 prefab = PrefabManager.Instance.TilePrefabs[id];
             }
 
-            float height = 0f;
-            if (!string.IsNullOrEmpty(level.HeightmapString))
-            {
-                height = level.Heightmap[X][Z];
-                if (Math.Abs(height) < 0.1f)
-                {
-                    return;
-                }
-                height -= 1f;
-            }
+            float height = MapRenderer.Instance.GetHeight(X,Z) - .3f;
+            //if (!string.IsNullOrEmpty(level.HeightmapString))
+            //{
+            //    height = level.Heightmap[X][Z];
+            //    if (Math.Abs(height) < 0.1f)
+            //    {
+            //        return;
+            //    }
+            //    height -= 1.3f;
+            //}
 
             Visual = GameObject.Instantiate(prefab, 
                 new Vector3(gameObject.transform.position.x, height, gameObject.transform.position.z), 

@@ -2,4 +2,6 @@
 
   <ProtoypeIndex Uri="level:level_test" Path="Levels/LevelTest.xml"/>
 
+  <ProtoypeIndex Uri="monster:marshmallow" Path="Monsters/Marshmallow.xml"/>
+  
 </ArrayOfProtoypeIndex>
