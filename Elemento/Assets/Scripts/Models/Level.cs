@@ -18,8 +18,8 @@ namespace Assets.Scripts.Models
         public int Order;
 
         [XmlAttribute]
-        public string ModelName;
-
+        public float StrongholdHp;
+        
         [XmlAttribute]
         public int SizeX;
 

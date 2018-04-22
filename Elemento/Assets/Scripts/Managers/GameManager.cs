@@ -5,6 +5,7 @@ using Assets.Scripts.Models;
 using Assets.Scripts.UI;
 using Assets.Scripts.UI.Controls.ContextualMenu;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.Scripts.Managers
 {
@@ -14,6 +15,8 @@ namespace Assets.Scripts.Managers
         public PrototypeManager PrototypeManager;
 
         public List<GameObject> CurrentMonsters;
+
+        public Slider HpSlider;
 
         public void Start()
         {
@@ -47,8 +50,17 @@ namespace Assets.Scripts.Managers
             Game = new Game();
             Game.Initialize();
             Game.CurrentLevel = PrototypeManager.GetPrototype<Level>("level:level_test");
+
             LoadPlayer();
+
             MapRenderer.Instance.Build();
+
+            if (HpSlider != null)
+            {
+                HpSlider.maxValue = Game.CurrentLevel.StrongholdHp;
+                HpSlider.minValue = 0;
+                HpSlider.value = HpSlider.maxValue;
+            }
         }
 
         public void EndGame(bool win)
@@ -104,6 +116,21 @@ namespace Assets.Scripts.Managers
             monsterController.Speed = monsterPrototype.Speed;
             monsterController.Hp = monsterPrototype.Hp;
             CurrentMonsters.Add(monster);
+        }
+
+        public void StrongholdDamage(float amount)
+        {
+            Game.CurrentLevel.StrongholdHp -= amount;
+
+            if(HpSlider != null)
+            {
+                HpSlider.value = Game.CurrentLevel.StrongholdHp;
+            }
+
+            if (Game.CurrentLevel.StrongholdHp <= 0)
+            {
+                EndGame(false);
+            }
         }
     }
 }

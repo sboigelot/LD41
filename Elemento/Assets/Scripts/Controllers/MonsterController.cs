@@ -31,8 +31,7 @@ namespace Assets.Scripts.Controllers.Game
         {
             if (CurrentPath.EndInStronghold)
             {
-                //TODO
-                Debug.Log("Monster reached stronghold - not implemented");
+                GameManager.Instance.StrongholdDamage(MonsterPrototype.DamageOnStronghold);
                 CurrentPath = null;
                 GameObject.Destroy(gameObject);
             }

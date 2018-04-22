@@ -2,7 +2,8 @@
        Order="0"
        ModelName="Plane10x10"
        SizeX="30"
-       SizeZ="30">
+       SizeZ="30"
+       StrongholdHp="10">
   
   <TowerPlot Id="0" X="15" Z="15" Editable="false">
     <Tower IsStronghold="true"/>
@@ -62,12 +63,12 @@
            Count="1"/>
   </MonsterWave>
   
-  <!--<MonsterWave SpawnpointId="0"
+  <MonsterWave SpawnpointId="0"
                TriggerDeltaTime="20"
                DeltaTimeBetweenSpawn="4">
     <Spawn MonsterPrototypeUri="monster:marshmallow"
            Count="5"/>
-  </MonsterWave>-->
+  </MonsterWave>
 
   <StartingElement Uri="element:water" Count="5"/>
   <StartingElement Uri="element:earth" Count="4"/>
