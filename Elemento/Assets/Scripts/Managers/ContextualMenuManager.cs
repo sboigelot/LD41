@@ -68,7 +68,11 @@ namespace Assets.Scripts.Managers
                             OnClick = (contextualMenu, gameObject, vector3) =>
                             {
                                 //TODO from player remove
-                                plotController.AddElement(element);
+                                plotController.AddElement(new Element
+                                {
+                                    Count = 1,
+                                    Uri = element.Uri
+                                });
                             }
                         };
                     }

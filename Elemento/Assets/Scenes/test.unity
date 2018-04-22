@@ -1583,6 +1583,21 @@ Prefab:
       propertyPath: m_Animations.Array.data[3]
       value: 
       objectReference: {fileID: 7400000, guid: 79afa648230ec10498d2f1d501a4d1ae, type: 2}
+    - target: {fileID: 114760031996166742, guid: bf17c9c90620ebe4ab7ee31a8138476f,
+        type: 2}
+      propertyPath: m_Colors.m_DisabledColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114760031996166742, guid: bf17c9c90620ebe4ab7ee31a8138476f,
+        type: 2}
+      propertyPath: m_Colors.m_DisabledColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114760031996166742, guid: bf17c9c90620ebe4ab7ee31a8138476f,
+        type: 2}
+      propertyPath: m_Colors.m_DisabledColor.b
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bf17c9c90620ebe4ab7ee31a8138476f, type: 2}
   m_IsPrefabParent: 0

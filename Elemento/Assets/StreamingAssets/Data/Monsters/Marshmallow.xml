@@ -1,6 +1,6 @@
 <MonsterPrototype PrefabName="marshmallow"
-                  Speed="3"
-                  Hp="5"
+                  Speed="1.8"
+                  Hp="7"
                   DamageOnStronghold="0.6">
   <Armor DamageType="Burning" FlatAmount="0.3" Percent="0"/>
   <Loot Uri="element:water" Count="1"/>

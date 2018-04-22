@@ -18,7 +18,7 @@
         DamageType="Burning"
         DamageAmount="3"
         SpeedBonus="5"
-        RangeBonus="1"
+        RangeBonus="-2"
         AmmoSpeedBonus="35"
         ModelPrefab="tower:weapon"/>
   <Stat InSlot="Enchant"

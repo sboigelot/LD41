@@ -17,6 +17,7 @@
            EnchantElementUri=""/>
   </TowerPlot>
   <TowerPlot Id="2" X="10" Z="13" Editable="true"/>
+  <TowerPlot Id="2" X="9" Z="15" Editable="true"/>
 
   <ElementalNode ElementUri="element:earth" 
                  X="17"
@@ -57,14 +58,14 @@
   </MonsterPath>
   
   <MonsterWave SpawnpointId="0"
-               TriggerDeltaTime="1"
-               DeltaTimeBetweenSpawn="1">
+               TriggerDeltaTime="5"
+               DeltaTimeBetweenSpawn="2">
     <Spawn MonsterPrototypeUri="monster:marshmallow"
-           Count="1"/>
+           Count="2"/>
   </MonsterWave>
   
   <MonsterWave SpawnpointId="0"
-               TriggerDeltaTime="20"
+               TriggerDeltaTime="30"
                DeltaTimeBetweenSpawn="4">
     <Spawn MonsterPrototypeUri="monster:marshmallow"
            Count="5"/>

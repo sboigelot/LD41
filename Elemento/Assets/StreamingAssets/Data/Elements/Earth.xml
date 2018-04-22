@@ -4,14 +4,14 @@
         DamageType="Blunt"
         DamageAmount="1"
         SpeedBonus="0"
-        RangeBonus="10"
+        RangeBonus="5"
         AmmoSpeedBonus="0"
         ModelPrefab="tower:base"/>
   <Stat InSlot="Body"
         DamageType="Blunt"
         DamageAmount="-1"
         SpeedBonus="0"
-        RangeBonus="1"
+        RangeBonus="5"
         AmmoSpeedBonus="0"
         ModelPrefab="tower:body"/>
   <Stat InSlot="Weapon"

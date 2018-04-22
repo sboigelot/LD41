@@ -29,6 +29,13 @@ namespace Assets.Scripts.Controllers
         {
             if (Plot.Tower == null)
             {
+                if (!GameManager.Instance.Game.Player.HasElement(element))
+                {
+                    return;
+                }
+                GameManager.Instance.Game.Player.RemoveElement(element);
+                UiManager.Instance.ElementList.ReBuild();
+
                 BuildingElements.Add(element.Uri);
                 if (BuildingElements.Count >= 3)
                 {
@@ -94,7 +101,7 @@ namespace Assets.Scripts.Controllers
             if (visible)
             {
                 var range = Plot.Tower.GetRange();
-                rangeSphere.transform.localScale = new Vector3(range, range, range);
+                rangeSphere.transform.localScale = new Vector3(range, range, range) * 2;
             }
         }
 
