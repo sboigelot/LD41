@@ -24,7 +24,7 @@ namespace Assets.Scripts.Models
 
         [XmlAttribute]
         public string EnchantElementUri;
-
+        
         private float lastShot;
 
         public Dictionary<DamageType, int> GetDamage()
@@ -93,11 +93,7 @@ namespace Assets.Scripts.Models
                 }
             }
         }
-
-        public void Update(Vector3 worldPosition)
-        {
-        }
-
+        
         public GameObject FindTarget(Vector3 worldPosition)
         {
             var range = GetRange();

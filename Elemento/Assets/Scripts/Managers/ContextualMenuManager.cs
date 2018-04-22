@@ -63,11 +63,14 @@ namespace Assets.Scripts.Managers
                         {
                             Image = SpriteManager.Instance.GetChached("Images/Elements", prototype.SpritePath),
                             IsEnable = () => element.Count > 0,
-                            Name = "AddElement"+prototype.Name,
+                            Name = "AddElement" + prototype.Name,
                             TooltipText = "Add Element " + prototype.Name,
-                            OnClick = (contextualMenu, gameObject, vector3) => { plotController.AddElement(element); }
+                            OnClick = (contextualMenu, gameObject, vector3) =>
+                            {
+                                //TODO from player remove
+                                plotController.AddElement(element);
+                            }
                         };
-
                     }
                 }
             }
@@ -85,11 +88,6 @@ namespace Assets.Scripts.Managers
                 return hit.collider.gameObject;
             }
             return null;
-        }
-
-        private void LogClick(Scripts.ContextualMenu menu, GameObject instanciator, Vector3 position)
-        {
-            Debug.Log("click on ctx menu item");
         }
     }
 }

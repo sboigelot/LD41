@@ -119,6 +119,9 @@ namespace Assets.Scripts.Models
         [XmlElement("MonsterWave")]
         public List<MonsterWaves> MonsterWaves;
 
+        [XmlElement("ElementalNode")]
+        public List<ElementalNode> ElementalNodes;
+
         public void Update(float deltaTime)
         {
             UpdateMonsterWaves(deltaTime);

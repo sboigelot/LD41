@@ -8,14 +8,22 @@
     <Tower IsStronghold="true"/>
   </TowerPlot>
   
-  <TowerPlot Id="2" X="16" Z="13" Editable="false">
+  <TowerPlot Id="2" X="16" Z="13" Editable="true">
     <Tower IsStronghold="false"
            BaseElementUri="element:earth"
            BodyElementUri="element:earth"
            WeaponElementUri="element:fire"
            EnchantElementUri=""/>
   </TowerPlot>
-  
+  <TowerPlot Id="2" X="10" Z="13" Editable="true"/>
+
+  <ElementalNode ElementUri="element:earth" 
+                 X="17"
+                 Z="17"
+                 SpawnStart="2"
+                 MaxSpawn="10"
+                 QuantityPerSpawn="3" 
+                 SpawnDelay="5"/>
   
   <SpawnPoint Id="0" X="10" Z="10">
     <DestinationPath>0</DestinationPath>

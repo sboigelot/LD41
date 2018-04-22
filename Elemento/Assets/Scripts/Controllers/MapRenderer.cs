@@ -14,58 +14,21 @@ namespace Assets.Scripts.Controllers.Game
     {
         public float ModelScale = 2f;
 
-        public List<GameObject> CurrentTiles;
-
-        public Dictionary<string, GameObject> CurrentTowers;
-
-        public Dictionary<string, GameObject> CurrentSpawnPoint;
-
-        public Dictionary<string, GameObject> CurrentMonsters;
-
+        public List<GameObject> MapChildren;
+        
         public void Resert()
         {
-            if (CurrentTiles != null)
+            if (MapChildren != null)
             {
-                foreach (var go in CurrentTiles)
+                foreach (var go in MapChildren)
                 {
                     Destroy(go);
                 }
             }
-
-            if (CurrentTowers != null)
-            {
-                foreach (var go in CurrentTowers.Values)
-                {
-                    Destroy(go);
-                }
-            }
-
-            if (CurrentSpawnPoint != null)
-            {
-                foreach (var go in CurrentSpawnPoint.Values)
-                {
-                    Destroy(go);
-                }
-            }
-
-            if (CurrentMonsters != null)
-            {
-                foreach (var go in CurrentMonsters.Values)
-                {
-                    Destroy(go);
-                }
-            }
-
-            CurrentTiles = new List<GameObject>();
-            CurrentTowers = new Dictionary<string, GameObject>();
-            CurrentMonsters = new Dictionary<string, GameObject>();
-            CurrentSpawnPoint = new Dictionary<string, GameObject>();
+            
+            MapChildren = new List<GameObject>();
         }
-
-        public void Start()
-        {
-        }
-
+        
         public void Build()
         {
             Resert();
@@ -73,6 +36,7 @@ namespace Assets.Scripts.Controllers.Game
             RenderTiles();
             RenderTowers();
             RenderSpawnPoints();
+            RenderElementalNodes();
         }
 
         private void RenderTiles()
@@ -93,7 +57,7 @@ namespace Assets.Scripts.Controllers.Game
                     tileRenderer.Z = z;
                     tileRenderer.Build(level, tiles);
 
-                    CurrentTiles.Add(tile);
+                    MapChildren.Add(tile);
                 }
             }
         }
@@ -125,6 +89,16 @@ namespace Assets.Scripts.Controllers.Game
             }
         }
 
+        private void RenderElementalNodes()
+        {
+            var level = GameManager.Instance.Game.CurrentLevel;
+
+            foreach (var elementalNode in level.ElementalNodes)
+            {
+                InstanciateElementalNode(elementalNode);
+            }
+        }
+
         public float GetHeight(int x, int z)
         {
             var level = GameManager.Instance.Game.CurrentLevel;
@@ -142,7 +116,7 @@ namespace Assets.Scripts.Controllers.Game
             return height;
         }
 
-        private void InstanciateTower(TowerPlot plot)
+        public void InstanciateTower(TowerPlot plot)
         {
             var position = new Vector3(plot.X * ModelScale, GetHeight(plot.X, plot.Z), plot.Z * ModelScale);
 
@@ -150,24 +124,34 @@ namespace Assets.Scripts.Controllers.Game
             var instance = GameObject.Instantiate(prefab, position, Quaternion.identity, gameObject.transform);
             var plotController = instance.AddComponent<TowerPlotController>();
             plotController.Plot = plot;
-            CurrentTiles.Add(instance);
+            MapChildren.Add(instance);
         }
 
-        private void InstanciatePlot(TowerPlot plot)
+        public void InstanciatePlot(TowerPlot plot)
         {
             var position = new Vector3(plot.X * ModelScale, GetHeight(plot.X, plot.Z), plot.Z * ModelScale);
             var instance = GameObject.Instantiate(PrefabManager.Instance.GetPrefab("towerplot"), position, Quaternion.identity, gameObject.transform);
             var plotController = instance.AddComponent<TowerPlotController>();
             plotController.Plot = plot;
-            CurrentTiles.Add(instance);
+            MapChildren.Add(instance);
         }
 
 
         private void InstanciateSpawnPoint(SpawnPoint spawnPoint)
         {
             var position = new Vector3(spawnPoint.X * ModelScale, GetHeight(spawnPoint.X, spawnPoint.Z), spawnPoint.Z * ModelScale);
-            var tile = GameObject.Instantiate(PrefabManager.Instance.GetPrefab("spawnpoint"), position, Quaternion.identity, gameObject.transform);
-            CurrentTiles.Add(tile);
+            var spawn = GameObject.Instantiate(PrefabManager.Instance.GetPrefab("spawnpoint"), position, Quaternion.identity, gameObject.transform);
+            MapChildren.Add(spawn);
+        }
+
+
+        private void InstanciateElementalNode(ElementalNode elementalNode)
+        {
+            var position = new Vector3(elementalNode.X * ModelScale, GetHeight(elementalNode.X, elementalNode.Z), elementalNode.Z * ModelScale);
+            var node = GameObject.Instantiate(PrefabManager.Instance.GetPrefab("elementalnode"), position, Quaternion.identity, gameObject.transform);
+            var nodeController = node.AddComponent<ElementalNodeController>();
+            nodeController.ElementalNode = elementalNode;
+            MapChildren.Add(node);
         }
 
         #region Gizmo
@@ -219,5 +203,17 @@ namespace Assets.Scripts.Controllers.Game
             }
         }
         #endregion
+
+        public GameObject InstanciateFloatingElement(Vector3 position, Element element, bool collectOnMouseOver)
+        {
+            var prefab = PrefabManager.Instance.GetPrefab("floatingelement");
+            var floating = Instantiate(prefab, position, Quaternion.identity, transform);
+            var floatingController = floating.GetComponent<FloatingElementController>();
+            floatingController.ElementPrototype = PrototypeManager.Instance.GetPrototype<ElementPrototype>(element.Uri);
+            floatingController.Element = element;
+            floatingController.CollectOnMouseOver = collectOnMouseOver;
+            floatingController.Build();
+            return floating;
+        }
     }
 }

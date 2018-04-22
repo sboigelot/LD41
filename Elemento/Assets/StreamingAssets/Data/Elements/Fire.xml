@@ -17,7 +17,7 @@
         DamageAmount="3"
         SpeedBonus="2"
         RangeBonus="1"
-        AmmoSpeedBonus="0"/>
+        AmmoSpeedBonus="15"/>
   <Stat InSlot="Enchant"
         DamageType="Blunt"
         DamageAmount="1"

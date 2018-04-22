@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Assets.Scripts.Controllers.Game;
 using Assets.Scripts.Managers;
 using Assets.Scripts.Models;
 using UnityEngine;
@@ -11,14 +13,57 @@ namespace Assets.Scripts.Controllers
 
         private GameObject rangeSphere;
 
+        public List<string> BuildingElements = new List<string>();
+
+        public List<GameObject> FloatingElements = new List<GameObject>();
+
         public void DestroyTower()
         {
-            
+            Destroy(gameObject);
+            Plot.Tower = null;
+            MapRenderer.Instance.InstanciatePlot(Plot);
         }
 
         public void AddElement(Element element)
         {
-            
+            if (Plot.Tower == null)
+            {
+                BuildingElements.Add(element.Uri);
+                if (BuildingElements.Count >= 3)
+                {
+                    Plot.Tower = new Tower
+                    {
+                        BaseElementUri = BuildingElements[0],
+                        BodyElementUri = BuildingElements[1],
+                        WeaponElementUri = BuildingElements[2]
+                    };
+
+                    foreach (var floatingElement in FloatingElements)
+                    {
+                        Destroy(floatingElement);
+                    }
+                    Destroy(gameObject);
+                    MapRenderer.Instance.InstanciateTower(Plot);
+                }
+                else
+                {
+                    AddFloatingElement(element);
+                }
+            }
+            else
+            {
+                Plot.Tower.EnchantElementUri = element.Uri;
+            }
+        }
+
+        private void AddFloatingElement(Element element)
+        {
+            var position = new Vector3(
+                transform.position.x,
+                transform.position.y + 1.5f * FloatingElements.Count + 1f,
+                transform.position.z);
+            var floating = MapRenderer.Instance.InstanciateFloatingElement(position, element, false);
+            FloatingElements.Add(floating);
         }
 
         public void Update()
@@ -71,7 +116,7 @@ namespace Assets.Scripts.Controllers
             hit = new RaycastHit();
             if (!Physics.Raycast(ray, out hit, 1000/*, layermask*/))
             {
-                Debug.LogWarning("Raycast failed");
+                //Debug.LogWarning("Raycast failed");
                 return false;
             }
             return true;

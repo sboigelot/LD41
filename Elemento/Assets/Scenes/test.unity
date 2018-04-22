@@ -2321,6 +2321,7 @@ MonoBehaviour:
       SpawnPoints: []
       MonsterPaths: []
       MonsterWaves: []
+      ElementalNodes: []
   PrototypeManager:
     Index: []
     Prototypes: []
@@ -2355,6 +2356,10 @@ MonoBehaviour:
     Prefab: {fileID: 1374930492476098, guid: 2b933b493cdba444595ff250ed547811, type: 2}
   - Name: rangesphere
     Prefab: {fileID: 1606715815794558, guid: dcaca02caacde4643bb0bdd205eadc3e, type: 2}
+  - Name: floatingelement
+    Prefab: {fileID: 1733122908997906, guid: 548d8f3d42d49214f803e4e33e207a39, type: 2}
+  - Name: elementalnode
+    Prefab: {fileID: 1793972286366998, guid: f0e9c24a3c8f173499fcc7e9fc8de1a7, type: 2}
 --- !u!114 &1291442213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2794,7 +2799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ModelScale: 2
-  CurrentTiles: []
+  MapChildren: []
 --- !u!4 &1474482932
 Transform:
   m_ObjectHideFlags: 0
