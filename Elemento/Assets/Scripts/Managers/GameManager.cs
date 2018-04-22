@@ -3,16 +3,19 @@ using System.Linq;
 using Assets.Scripts.Controllers.Game;
 using Assets.Scripts.Models;
 using Assets.Scripts.UI;
+using Assets.Scripts.UI.Controls.ContextualMenu;
 using UnityEngine;
 
 namespace Assets.Scripts.Managers
 {
-    public class GameManager : MonoBehaviourSingleton<GameManager>
+    public class GameManager : MonoBehaviourSingleton<GameManager>, IContextualMenuItemInfoProvider
     {
         public Game Game;
         public PrototypeManager PrototypeManager;
 
         public List<GameObject> CurrentMonsters;
+
+        public Sprite DefaultContextualMenuItemSprite;
 
         public void Start()
         {
@@ -93,6 +96,58 @@ namespace Assets.Scripts.Managers
             var monsterController = monster.AddComponent<MonsterController>();
             monsterController.CurrentPath = spawnPoint.GetAnyDestinationPath(Game.CurrentLevel);
             CurrentMonsters.Add(monster);
+        }
+
+        private bool RaycastAll(Ray ray, out RaycastHit hit)
+        {
+            // LayerMask layermask = new LayerMask {value = terrainGameObject.layer};
+
+            hit = new RaycastHit();
+            if (!Physics.Raycast(ray, out hit, 1000/*, layermask*/))
+            {
+                Debug.LogWarning("Raycast failed");
+                return false;
+            }
+            return true;
+        }
+
+        public virtual IEnumerable<ContextualMenuItemInfo> GetContextualMenuInfo()
+        {
+            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+      
+            if (RaycastAll(ray, out hit))
+            yield return new ContextualMenuItemInfo
+            {
+                Image = DefaultContextualMenuItemSprite,
+                IsEnable = () => true,
+                Name = "Item 1",
+                TooltipText = "Item 1",
+                OnClick = LogClick
+            };
+
+            yield return new ContextualMenuItemInfo
+            {
+                Image = DefaultContextualMenuItemSprite,
+                IsEnable = () => true,
+                Name = "Item 2",
+                TooltipText = "Item 2",
+                OnClick = LogClick
+            };
+
+            yield return new ContextualMenuItemInfo
+            {
+                Image = DefaultContextualMenuItemSprite,
+                IsEnable = () => true,
+                Name = "Item 3",
+                TooltipText = "Item 3",
+                OnClick = LogClick
+            };
+        }
+
+        private void LogClick(Scripts.ContextualMenu menu, GameObject instanciator, Vector3 position)
+        {
+            Debug.Log("click on ctx menu item");
         }
     }
 }

@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 
 namespace Assets.Scripts.Controllers.Framework.ContextualMenu
 {
-    public class ContextualMenuHost : MonoBehaviour, IContextualMenuItemInfoProvider, IPointerDownHandler, IPointerUpHandler
+    public class ContextualMenuHost : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         public Scripts.ContextualMenu Menu;
         private PointerEventData pressEventData;
@@ -42,41 +42,6 @@ namespace Assets.Scripts.Controllers.Framework.ContextualMenu
                     Menu.Open(gameObject, pressEventData, pressEventData.position, null);
                 }
             }
-        }
-        
-        public virtual IEnumerable<ContextualMenuItemInfo> GetContextualMenuInfo()
-        {
-            yield return new ContextualMenuItemInfo
-            {
-                Image = DefaultItemSprite,
-                IsEnable = () => true,
-                Name = "Item 1",
-                TooltipText = "Item 1",
-                OnClick = LogClick
-            };
-
-            yield return new ContextualMenuItemInfo
-            {
-                Image = DefaultItemSprite,
-                IsEnable = () => true,
-                Name = "Item 2",
-                TooltipText = "Item 2",
-                OnClick = LogClick
-            };
-
-            yield return new ContextualMenuItemInfo
-            {
-                Image = DefaultItemSprite,
-                IsEnable = () => true,
-                Name = "Item 3",
-                TooltipText = "Item 3",
-                OnClick = LogClick
-            };
-        }
-
-        private void LogClick(Scripts.ContextualMenu menu, GameObject instanciator, Vector3 position)
-        {
-            Debug.Log("click on ctx menu item");
         }
     }
 }
