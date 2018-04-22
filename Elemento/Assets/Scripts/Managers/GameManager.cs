@@ -81,26 +81,27 @@ namespace Assets.Scripts.Managers
             }
         }
         
-        public void SpawnMonster(int spawnpointId, string monsterPrototypeUri)
+        public void SpawnMonster(int spawnpointId, MonsterPrototype monsterPrototype)
         {
-            var monsterPrefab = PrefabManager.Instance.GetPrefab(monsterPrototypeUri);
+            var monsterPrefab = PrefabManager.Instance.GetPrefab(monsterPrototype.PrefabName);
             var spawnPoint = Game.CurrentLevel.SpawnPoints.FirstOrDefault(s => s.Id == spawnpointId);
 
             if (monsterPrefab == null || spawnPoint == null)
             {
                 Debug.LogWarning("Level.SpawnMonster ccoun't find monster prefab " +
-                    monsterPrototypeUri +
+                    monsterPrototype.PrefabName +
                     "or spawnpoint " +
                     spawnpointId);
                 return;
             }
-
+            
             var ModelScale = MapRenderer.Instance.ModelScale;
 
             var position = new Vector3(spawnPoint.X * ModelScale, MapRenderer.Instance.GetHeight(spawnPoint.X, spawnPoint.Z), spawnPoint.Z * ModelScale);
-            var monster = GameObject.Instantiate(PrefabManager.Instance.GetPrefab(monsterPrototypeUri), position, Quaternion.identity);
+            var monster = GameObject.Instantiate(monsterPrefab, position, Quaternion.identity);
             var monsterController = monster.AddComponent<MonsterController>();
             monsterController.CurrentPath = spawnPoint.GetAnyDestinationPath(Game.CurrentLevel);
+            monsterController.Speed = monsterPrototype.Speed;
             CurrentMonsters.Add(monster);
         }
     }

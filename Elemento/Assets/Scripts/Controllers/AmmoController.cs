@@ -31,22 +31,37 @@ namespace Assets.Scripts.Controllers
             transform.rotation = newRotation;
 
             Vector3 dir = (AmmoInfo.Target.transform.position - transform.position).normalized;
-            dir *= (AmmoInfo.Speed/10f) * Time.fixedDeltaTime * /*TimeLineManager.Current.SimulationSpeed*/ 1;
+            dir *= AmmoInfo.Speed * Time.fixedDeltaTime * /*TimeLineManager.Current.SimulationSpeed*/ 1;
 
-            transform.Translate(dir);
+            transform.position = transform.position + dir;
         }
 
         private void ApplyDamage()
         {
-            
+            if (AmmoInfo.Target == null)
+            {
+                return;
+            }
         }
 
         private bool ReachedTarget()
         {
+            if (AmmoInfo.Target == null)
+            {
+                return true;
+            }
+
             return Vector3.Distance(
                        AmmoInfo.Target.transform.position,
-                       transform.position) >
+                       transform.position) <
                    reachedTargetThreshold;
+        }
+
+        public void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            if(AmmoInfo.Target != null)
+                Gizmos.DrawLine(transform.position, AmmoInfo.Target.transform.position);
         }
     }
 }

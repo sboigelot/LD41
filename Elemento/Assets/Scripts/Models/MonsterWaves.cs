@@ -53,7 +53,7 @@ namespace Assets.Scripts.Models
                         return;
                     }
 
-                    GameManager.Instance.SpawnMonster(SpawnpointId, monsterPrototype.PrefabName);
+                    GameManager.Instance.SpawnMonster(SpawnpointId, monsterPrototype);
                     monsterSpawn.CountSpawned++;
                     nextSpawnTime = gameTime + DeltaTimeBetweenSpawn;
                     break;

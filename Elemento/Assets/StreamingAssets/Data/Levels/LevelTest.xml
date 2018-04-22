@@ -19,7 +19,7 @@
   
   <SpawnPoint Id="0" X="10" Z="10">
     <DestinationPath>0</DestinationPath>
-    <DestinationPath>1</DestinationPath>
+    <!--<DestinationPath>1</DestinationPath>-->
   </SpawnPoint>
   
   <MonsterPath Id="0" EndInStronghold="true">
@@ -48,18 +48,18 @@
   </MonsterPath>
   
   <MonsterWave SpawnpointId="0"
-               TriggerDeltaTime="5"
-               DeltaTimeBetweenSpawn="4">
+               TriggerDeltaTime="1"
+               DeltaTimeBetweenSpawn="1">
     <Spawn MonsterPrototypeUri="monster:marshmallow"
-           Count="3"/>
+           Count="1"/>
   </MonsterWave>
   
-  <MonsterWave SpawnpointId="0"
+  <!--<MonsterWave SpawnpointId="0"
                TriggerDeltaTime="20"
                DeltaTimeBetweenSpawn="4">
     <Spawn MonsterPrototypeUri="monster:marshmallow"
            Count="5"/>
-  </MonsterWave>
+  </MonsterWave>-->
 
   <StartingElement Uri="element:water" Count="5"/>
   <StartingElement Uri="element:earth" Count="4"/>

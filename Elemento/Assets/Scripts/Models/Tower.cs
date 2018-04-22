@@ -120,6 +120,11 @@ namespace Assets.Scripts.Models
 
         private bool MonsterIsInRange(float range, Vector3 worldPosition, GameObject monster)
         {
+            if (monster == null)
+            {
+                return false;
+            }
+
             var distance = Vector3.Distance(monster.transform.position, worldPosition);
             return distance <= range;
         }

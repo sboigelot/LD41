@@ -10,13 +10,16 @@ namespace Assets.Scripts.Controllers.Game
         public MonsterPath CurrentPath;
         public int CurrentCheckpointIndex;
         public float Speed = 0.7f;
-        public float DestinationReachedThreshold = 0.40f;
+        public float DestinationReachedThreshold = 0.4f;
 
         private CharacterController controller;
 
         public void Start()
         {
             controller = gameObject.AddComponent<CharacterController>();
+            controller.height = 0.1f;
+            controller.radius = 0.1f;
+            controller.detectCollisions = false;
         }
 
         public void ReachDestination()
@@ -26,7 +29,7 @@ namespace Assets.Scripts.Controllers.Game
                 //TODO
                 Debug.Log("Monster reached stronghold - not implemented");
                 CurrentPath = null;
-                Destroy(gameObject);
+                GameObject.Destroy(gameObject);
             }
             else
             {

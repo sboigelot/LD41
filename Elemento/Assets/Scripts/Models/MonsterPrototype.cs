@@ -8,5 +8,8 @@ namespace Assets.Scripts.Models
     {
         [XmlAttribute]
         public string PrefabName;
+
+        [XmlAttribute]
+        public float Speed;
     }
 }

@@ -1,1 +1,2 @@
-<MonsterPrototype PrefabName="marshmallow"/>
+<MonsterPrototype PrefabName="marshmallow" 
+                  Speed="2"/>
