@@ -40,6 +40,7 @@ namespace Assets.Scripts.Controllers.Game
                     return;
                 }
                 height -= 1.3f;
+                height += UnityEngine.Random.Range(-0.1f, +0.1f);
             }
 
             Visual = GameObject.Instantiate(prefab, 
