@@ -145,15 +145,19 @@ namespace Assets.Scripts.Controllers.Game
         private void InstanciateTower(TowerPlot plot)
         {
             var position = new Vector3(plot.X * ModelScale, GetHeight(plot.X, plot.Z), plot.Z * ModelScale);
-            var tile = GameObject.Instantiate(PrefabManager.Instance.GetPrefab("tower"), position, Quaternion.identity, gameObject.transform);
-            CurrentTiles.Add(tile);
+            var instance = GameObject.Instantiate(PrefabManager.Instance.GetPrefab("tower"), position, Quaternion.identity, gameObject.transform);
+            var plotController = instance.AddComponent<TowerPlotController>();
+            plotController.Plot = plot;
+            CurrentTiles.Add(instance);
         }
 
         private void InstanciatePlot(TowerPlot plot)
         {
             var position = new Vector3(plot.X * ModelScale, GetHeight(plot.X, plot.Z), plot.Z * ModelScale);
-            var tile = GameObject.Instantiate(PrefabManager.Instance.GetPrefab("towerplot"), position, Quaternion.identity, gameObject.transform);
-            CurrentTiles.Add(tile);
+            var instance = GameObject.Instantiate(PrefabManager.Instance.GetPrefab("towerplot"), position, Quaternion.identity, gameObject.transform);
+            var plotController = instance.AddComponent<TowerPlotController>();
+            plotController.Plot = plot;
+            CurrentTiles.Add(instance);
         }
 
 

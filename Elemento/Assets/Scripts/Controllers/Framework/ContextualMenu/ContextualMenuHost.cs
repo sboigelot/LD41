@@ -15,8 +15,6 @@ namespace Assets.Scripts.Controllers.Framework.ContextualMenu
         private Vector2 pressStartPosition;
         private float pressStart = float.MaxValue;
         private float pressActionThreshold = .4f;
-
-        public Sprite DefaultItemSprite;
         
         public void OnPointerDown(PointerEventData eventData)
         {

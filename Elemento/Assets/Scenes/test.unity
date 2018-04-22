@@ -2269,6 +2269,7 @@ GameObject:
   - component: {fileID: 1291442211}
   - component: {fileID: 1291442213}
   - component: {fileID: 1291442212}
+  - component: {fileID: 1291442214}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -2325,8 +2326,6 @@ MonoBehaviour:
     Prototypes: []
     Loaded: 0
   CurrentMonsters: []
-  DefaultContextualMenuItemSprite: {fileID: 21300000, guid: d208dd3a25af65048a660acd233a41bd,
-    type: 3}
 --- !u!114 &1291442212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2362,6 +2361,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ElementList: {fileID: 1147262256}
+--- !u!114 &1291442214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1291442209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a65bd8c71dd1e14392fecee4daa7399, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultContextualMenuItemSprite: {fileID: 21300000, guid: d208dd3a25af65048a660acd233a41bd,
+    type: 3}
 --- !u!1 &1347434932
 GameObject:
   m_ObjectHideFlags: 0
@@ -3746,7 +3758,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Menu: {fileID: 1611660041}
-  DefaultItemSprite: {fileID: 21300000, guid: d208dd3a25af65048a660acd233a41bd, type: 3}
 --- !u!114 &1803162663
 MonoBehaviour:
   m_ObjectHideFlags: 0

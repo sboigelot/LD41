@@ -64,6 +64,13 @@ namespace Assets.Scripts.Managers
             }
         }
 
+        //Will not work if sprite not loaded before
+        public Sprite GetChached(string folder, string key)
+        {
+            var fullpath = Path.Combine(Path.Combine(Application.streamingAssetsPath, folder), key + ".png");
+            return sprites[fullpath];
+        }
+
         public static IEnumerator Set(Image image, string folder, string key)
         {
             return Set(sprite =>
