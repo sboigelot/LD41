@@ -9,6 +9,8 @@ namespace Assets.Scripts.Controllers
     {
         public TowerPlot Plot;
 
+        private GameObject rangeSphere;
+
         public void DestroyTower()
         {
             
@@ -19,6 +21,62 @@ namespace Assets.Scripts.Controllers
             
         }
 
+        public void Update()
+        {
+            if (!PrototypeManager.Instance.Loaded ||
+                Plot == null ||
+                Plot.Tower == null ||
+                Plot.Tower.IsStronghold)
+            {
+                return;
+            }
+
+            DisplayRangeSphere();
+        }
+
+        private void DisplayRangeSphere()
+        {
+            var visible = IsThisUnderMouse();
+
+            if (rangeSphere == null)
+            {
+                rangeSphere = Instantiate(PrefabManager.Instance.GetPrefab("rangesphere"), transform);
+            }
+
+            rangeSphere.SetActive(visible);
+
+            if (visible)
+            {
+                var range = Plot.Tower.GetRange();
+                rangeSphere.transform.localScale = new Vector3(range, range, range);
+            }
+        }
+
+        private bool IsThisUnderMouse()
+        {
+            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (RaycastAll(ray, out hit))
+            {
+                return hit.collider.gameObject == gameObject;
+            }
+            return false;
+        }
+
+        private bool RaycastAll(Ray ray, out RaycastHit hit)
+        {
+            // LayerMask layermask = new LayerMask {value = terrainGameObject.layer};
+
+            hit = new RaycastHit();
+            if (!Physics.Raycast(ray, out hit, 1000/*, layermask*/))
+            {
+                Debug.LogWarning("Raycast failed");
+                return false;
+            }
+            return true;
+        }
+        
         public void FixedUpdate()
         {
             if (GameManager.Instance.Game == null ||

@@ -2353,6 +2353,8 @@ MonoBehaviour:
     Prefab: {fileID: 1877271924049738, guid: e91c717265fa7c948bdd2899bda1de40, type: 2}
   - Name: defaultammo
     Prefab: {fileID: 1374930492476098, guid: 2b933b493cdba444595ff250ed547811, type: 2}
+  - Name: rangesphere
+    Prefab: {fileID: 1606715815794558, guid: dcaca02caacde4643bb0bdd205eadc3e, type: 2}
 --- !u!114 &1291442213
 MonoBehaviour:
   m_ObjectHideFlags: 0
