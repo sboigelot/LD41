@@ -18,9 +18,23 @@ namespace Assets.Scripts.Managers
         {
             DontDestroyOnLoad(gameObject);
 
+
             //make the prototypeManager visible in unity inspector
             PrototypeManager = PrototypeManager.Instance;
             StartCoroutine(PrototypeManager.LoadPrototypes(NewGame));
+        }
+
+        private void LoadPlayer()
+        {
+            Debug.Log("GameManager.LoadPlayer is mocked for now");
+            Game.Player = new Player();
+
+            foreach (var element in Game.CurrentLevel.StartingElements)
+            {
+                Game.Player.AddElement(element);
+            }
+
+            UiManager.Instance.ElementList.ReBuild();
         }
 
         public void NewGame()
@@ -33,6 +47,7 @@ namespace Assets.Scripts.Managers
             Game = new Game();
             Game.Initialize();
             Game.CurrentLevel = PrototypeManager.GetPrototype<Level>("level:level_test");
+            LoadPlayer();
             MapRenderer.Instance.Build();
         }
 

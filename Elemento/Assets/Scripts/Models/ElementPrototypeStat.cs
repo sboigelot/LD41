@@ -1,20 +1,34 @@
 ﻿using System;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace Assets.Scripts.Models
 {
     [Serializable]
     public class ElementPrototypeStat
     {
+        [XmlAttribute]
         public TowerSlotType InSlot;
 
-        public DamageType ArmorBonus;
+        [XmlAttribute]
+        public bool IsArmorBonus;
 
-        public DamageType DamageBonus;
+        [XmlAttribute]
+        public bool IsDamageBonus;
 
+        [XmlAttribute]
+        public DamageType DamageType;
+
+        [XmlAttribute]
+        public int Amount;
+
+        [XmlAttribute]
         public int HpBonus;
 
-        public int TargetBonus;
+        [XmlAttribute]
+        public int SpeedBonus;
 
+        [XmlAttribute]
         public int RangeBonus;
     }
 }

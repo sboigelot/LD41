@@ -47,7 +47,7 @@ namespace Assets.Scripts.Managers
             {
                 Debug.LogWarning("Double assignement for prototype: " + uri);
             }
-
+            
             Prototypes.Add(new LoadedPrototype
             {
                 Uri = uri,
@@ -92,6 +92,9 @@ namespace Assets.Scripts.Managers
                 {
                     case "level":
                         sub = Load<Level>(protoypeIndex.Path, (data) => RegisterPrototype(index.Uri, data));
+                        break;
+                    case "element":
+                        sub = Load<ElementPrototype>(protoypeIndex.Path, (data) => RegisterPrototype(index.Uri, data));
                         break;
                     case "monster":
                         sub = Load<MonsterPrototype>(protoypeIndex.Path, (data) => RegisterPrototype(index.Uri, data));

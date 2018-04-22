@@ -54,6 +54,11 @@
     <Spawn MonsterPrototypeUri="monster:marshmallow"
            Count="5"/>
   </MonsterWave>
+
+  <StartingElement Uri="element:water" Count="5"/>
+  <StartingElement Uri="element:earth" Count="4"/>
+  <StartingElement Uri="element:fire" Count="2"/>
+  <StartingElement Uri="element:air" Count="6"/>
   
   <TileString>
     0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,

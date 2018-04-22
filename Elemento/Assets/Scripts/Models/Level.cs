@@ -26,6 +26,9 @@ namespace Assets.Scripts.Models
         [XmlAttribute]
         public int SizeZ;
 
+        [XmlElement("StartingElement")]
+        public List<Element> StartingElements;
+
         [XmlElement]
         public string TileString;
 

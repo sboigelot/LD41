@@ -3,5 +3,9 @@
   <ProtoypeIndex Uri="level:level_test" Path="Levels/LevelTest.xml"/>
 
   <ProtoypeIndex Uri="monster:marshmallow" Path="Monsters/Marshmallow.xml"/>
-  
+
+  <ProtoypeIndex Uri="element:water" Path="Elements/Water.xml"/>
+  <ProtoypeIndex Uri="element:earth" Path="Elements/Earth.xml"/>
+  <ProtoypeIndex Uri="element:fire" Path="Elements/Fire.xml"/>
+  <ProtoypeIndex Uri="element:air" Path="Elements/Air.xml"/>
 </ArrayOfProtoypeIndex>

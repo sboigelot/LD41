@@ -11,7 +11,7 @@ namespace Assets.Scripts.Models
         public string Name;
 
         [XmlAttribute]
-        public int SpritePath;
+        public string SpritePath;
 
         [XmlElement("Receipe")]
         public List<ElementPrototypeReceipe> ElementReceipes;
