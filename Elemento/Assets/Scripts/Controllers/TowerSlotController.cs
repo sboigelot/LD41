@@ -30,8 +30,26 @@ namespace Assets.Scripts.Controllers
             {
                 return;
             }
+            
+            if (!Plot.Tower.ReadyToShoot)
+            {
+                return;
+            }
 
-            Plot.Tower.Update(transform.position);
+            var ennemyInRange = Plot.Tower.FindTarget(transform.position);
+            if (ennemyInRange == null)
+            {
+                return;
+            }
+
+            const float towerHeight = 1f;
+            var ammoInfo = Plot.Tower.ShootAtTarget(ennemyInRange);
+            ammoInfo.Origin = new Vector3(transform.position.x, transform.position.y + towerHeight, transform.position.z);
+
+            var prefab = PrefabManager.Instance.GetPrefab(ammoInfo.PrefabName);
+            var ammoObject = Instantiate(prefab, ammoInfo.Origin, Quaternion.identity);
+            var ammoController = ammoObject.AddComponent<AmmoController>();
+            ammoController.AmmoInfo = ammoInfo;
         }
     }
 }

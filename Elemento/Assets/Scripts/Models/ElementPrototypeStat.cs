@@ -24,5 +24,8 @@ namespace Assets.Scripts.Models
 
         [XmlAttribute]
         public int AmmoSpeedBonus;
+
+        [XmlAttribute]
+        public string AmmoPrefabName = "defaultammo";
     }
 }

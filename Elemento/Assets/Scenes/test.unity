@@ -2351,6 +2351,8 @@ MonoBehaviour:
     Prefab: {fileID: 1020179498820966, guid: 4e615a94c7f771043ad3a7099bb52519, type: 2}
   - Name: tower
     Prefab: {fileID: 1877271924049738, guid: e91c717265fa7c948bdd2899bda1de40, type: 2}
+  - Name: defaultammo
+    Prefab: {fileID: 1374930492476098, guid: 2b933b493cdba444595ff250ed547811, type: 2}
 --- !u!114 &1291442213
 MonoBehaviour:
   m_ObjectHideFlags: 0

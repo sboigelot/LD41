@@ -25,6 +25,8 @@ namespace Assets.Scripts.Models
         [XmlAttribute]
         public string EnchantElementUri;
 
+        private float lastShot;
+
         public Dictionary<DamageType, int> GetDamage()
         {
             var dictionary = new Dictionary<DamageType, int>();
@@ -71,6 +73,11 @@ namespace Assets.Scripts.Models
             AggregateSingleElement(onStat, EnchantElementUri, TowerSlotType.Enchant);
         }
 
+        public bool ReadyToShoot
+        {
+            get { return lastShot + GetSpeed() < GameManager.Instance.Game.GameTime; }
+        }
+
         private static void AggregateSingleElement(Action<ElementPrototypeStat> onStat, string uri, TowerSlotType slot)
         {
             if (!string.IsNullOrEmpty(uri))
@@ -89,15 +96,26 @@ namespace Assets.Scripts.Models
 
         public void Update(Vector3 worldPosition)
         {
+        }
+
+        public GameObject FindTarget(Vector3 worldPosition)
+        {
             var range = GetRange();
-            var ennemyInRange = GameManager.Instance.CurrentMonsters.FirstOrDefault(m => MonsterIsInRange(range, worldPosition, m));
+            return GameManager.Instance.CurrentMonsters.FirstOrDefault(m => MonsterIsInRange(range, worldPosition, m));
+        }
 
-            if (ennemyInRange == null)
+        public AmmoSpawnInfo ShootAtTarget(GameObject ennemyInRange)
+        {
+            lastShot = GameManager.Instance.Game.GameTime;
+            var prototype = PrototypeManager.Instance.GetPrototype<ElementPrototype>(WeaponElementUri);
+            var stat = prototype.ElementStats.First(s => s.InSlot == TowerSlotType.Weapon);
+            return new AmmoSpawnInfo
             {
-                return;
-            }
-
-            Debug.LogError("Found ennemy but not implemented");
+                Damage = GetDamage(),
+                Target = ennemyInRange,
+                Speed = GetAmmoSpeed(),
+                PrefabName = stat.AmmoPrefabName
+            };
         }
 
         private bool MonsterIsInRange(float range, Vector3 worldPosition, GameObject monster)
