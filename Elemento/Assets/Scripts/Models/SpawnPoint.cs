@@ -24,7 +24,7 @@ namespace Assets.Scripts.Models
         public MonsterPath GetAnyDestinationPath(Level level)
         {
             var pathId = DestinationPaths[UnityEngine.Random.Range(0, DestinationPaths.Count)];
-            Debug.LogFormat("Request next path provided id {0}", pathId);
+            //Debug.LogFormat("Request next path provided id {0}", pathId);
             if (!level.MonsterPaths.Any(mp => mp.Id == pathId))
             {
                 Debug.LogErrorFormat("Request next path provided id {0} but this id is not found", pathId);
