@@ -12,10 +12,7 @@ namespace Assets.Scripts.Models
 
         [XmlAttribute]
         public string SpritePath;
-
-        [XmlElement("Receipe")]
-        public List<ElementPrototypeReceipe> ElementReceipes;
-
+        
         [XmlElement("Stat")]
         public List<ElementPrototypeStat> ElementStats;
 

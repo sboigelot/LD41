@@ -1,5 +1,5 @@
 <ElementPrototype Name="Earth" 
-                  SpritePath="Elements/earth">
+                  SpritePath="earth">
   <Stat InSlot="Base"
         IsArmorBonus="true"
         IsDamageBonus="false"

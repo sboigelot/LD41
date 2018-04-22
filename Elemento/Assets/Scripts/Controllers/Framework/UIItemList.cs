@@ -15,15 +15,15 @@ namespace Assets.Scripts.Controllers.Framework
 
         public void ReBuild()
         {
-            var datas = GetData();
+            var datas = GetData().ToList();
 
             for (var i = 0; i < ItemPanel.childCount; i++)
             {
                 var child = ItemPanel.GetChild(i);
-                var childHolder = child.GetComponent<UiItemListItem<T>>();
-                if (childHolder != null && datas.Contains(childHolder.Data))
+                var childHolder = child.GetComponent<UiItemListItem>();
+                if (childHolder != null && datas.Contains((T)childHolder.Data))
                 {
-                    datas.Remove(childHolder.Data);
+                    datas.Remove((T)childHolder.Data);
                 }
                 else
                 {
@@ -34,8 +34,8 @@ namespace Assets.Scripts.Controllers.Framework
             foreach (T data in datas)
             {
                 var itemObject = Instantiate(ItemTemplate, Vector3.zero, Quaternion.identity, ItemPanel);
-                //var itemHolder = itemObject.AddComponent<UiItemListItem<T>>();
-                //itemHolder.Data = data;
+                var itemHolder = itemObject.AddComponent<UiItemListItem>();
+                itemHolder.Data = data;
                 Prepare(itemObject, data);
             }
         }

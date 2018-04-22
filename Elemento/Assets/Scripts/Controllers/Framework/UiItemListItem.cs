@@ -2,8 +2,8 @@ using UnityEngine;
 
 namespace Assets.Scripts.Controllers.Framework
 {
-    public class UiItemListItem<T> : MonoBehaviour
+    public class UiItemListItem : MonoBehaviour
     {
-        public T Data;
+        public object Data;
     }
 }

@@ -22,15 +22,16 @@ namespace Assets.Scripts.Controllers.Game.UI
                 return new List<Element>();
             }
 
-            return GameManager.Instance.Game.Player.Elements;
+            return GameManager.Instance.Game.Player.Elements.OrderBy(e => e.Uri).ToList();
         }
 
         protected override void Prepare(GameObject itemObject, Element data)
         {
-            itemObject.GetComponentInChildren<Text>().text = "" + data.Count;
             var elementPrototype = PrototypeManager.Instance.GetPrototype<ElementPrototype>(data.Uri);
-            SpriteManager.Set(itemObject.GetComponentInChildren<Image>(), "Images", elementPrototype.SpritePath);
-            itemObject.AddComponent<Draggable>();
+            StartCoroutine(SpriteManager.Set(itemObject.GetComponentInChildren<Image>(), "Images/Elements", elementPrototype.SpritePath));
+            var itemController = itemObject.AddComponent<ElementListItemController>();
+            itemController.Element = data;
+            itemController.Text = itemObject.GetComponentInChildren<Text>();
         }
     }
 }

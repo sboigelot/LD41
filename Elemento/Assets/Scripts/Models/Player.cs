@@ -42,7 +42,7 @@ namespace Assets.Scripts.Models
             }
 
             var existing = Elements.First(el => el.Uri == e.Uri);
-            existing.Count += e.Count;
+            existing.Count -= e.Count;
             return true;
         }
 
@@ -54,7 +54,7 @@ namespace Assets.Scripts.Models
                 return false;
             }
 
-            if (existing.Count >= e.Count)
+            if (existing.Count < e.Count)
             {
                 return false;
             }

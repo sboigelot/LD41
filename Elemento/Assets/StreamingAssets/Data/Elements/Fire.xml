@@ -1,5 +1,5 @@
 <ElementPrototype Name="Fire" 
-                  SpritePath="Elements/fire">
+                  SpritePath="fire">
   <Stat InSlot="Base"
         IsArmorBonus="true"
         IsDamageBonus="false"

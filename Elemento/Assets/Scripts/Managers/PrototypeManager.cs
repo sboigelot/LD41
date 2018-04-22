@@ -74,6 +74,11 @@ namespace Assets.Scripts.Managers
             return proto;
         }
 
+        public List<T> GetAllPrototypes<T>()
+        {
+            return Prototypes.Where(p => p.Prototype is T).Select(p => (T) p.Prototype).ToList();
+        }
+
         public IEnumerator LoadPrototypes(Action onLoadCompleted)
         {
             Index = new List<ProtoypeIndex>();
@@ -95,6 +100,9 @@ namespace Assets.Scripts.Managers
                         break;
                     case "element":
                         sub = Load<ElementPrototype>(protoypeIndex.Path, (data) => RegisterPrototype(index.Uri, data));
+                        break;
+                    case "receipe":
+                        sub = Load<ElementPrototypeReceipe>(protoypeIndex.Path, (data) => RegisterPrototype(index.Uri, data));
                         break;
                     case "monster":
                         sub = Load<MonsterPrototype>(protoypeIndex.Path, (data) => RegisterPrototype(index.Uri, data));

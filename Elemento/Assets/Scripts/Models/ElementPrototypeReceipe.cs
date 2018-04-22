@@ -5,9 +5,15 @@ using System.Xml.Serialization;
 namespace Assets.Scripts.Models
 {
     [Serializable]
-    public class ElementPrototypeReceipe
+    public class ElementPrototypeReceipe : IPrototype
     {
-        [XmlElement("Ingredient")]
-        public List<string> Ingredients;
+        [XmlAttribute]
+        public string Element1;
+
+        [XmlAttribute]
+        public string Element2;
+
+        [XmlAttribute]
+        public string ElementResult;
     }
 }

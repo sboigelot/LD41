@@ -1,5 +1,5 @@
-<ElementPrototype Name="Water" 
-                  SpritePath="water">
+<ElementPrototype Name="Clay" 
+                  SpritePath="clay">
   <Stat InSlot="Base"
         IsArmorBonus="true"
         IsDamageBonus="false"

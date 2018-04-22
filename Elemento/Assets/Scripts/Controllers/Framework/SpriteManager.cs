@@ -9,14 +9,6 @@ namespace Assets.Scripts.Managers
 {
     public class SpriteManager : Singleton<SpriteManager>
     {
-        public const string TileFolder = "Images/Tiles";
-
-        public const string WeaponFolder = "Images/Weapon";
-
-        public const string ItemFolder = "Images/Items";
-
-        public const string MonsterFolder = "Images/Monsters";
-
         private readonly Sprite notFoundSprite;
 
         private readonly int pixelsPerUnit = 100;
@@ -51,6 +43,7 @@ namespace Assets.Scripts.Managers
         {
             var fullpath = Path.Combine(Path.Combine(Application.streamingAssetsPath, folder), key + ".png");
 
+            //Debug.Log("SpriteManager Set: " + fullpath);
             if (!Instance.sprites.ContainsKey(fullpath))
             {
                 var sub = Instance.LoadImage(fullpath);
@@ -75,6 +68,7 @@ namespace Assets.Scripts.Managers
         {
             return Set(sprite =>
             {
+                //Debug.Log("SpriteManager Set<Image>: " + key);
                 image.sprite = sprite;
                 image.enabled = true;
             }, folder, key);
@@ -91,6 +85,7 @@ namespace Assets.Scripts.Managers
 
         private IEnumerable LoadImage(string fullpath)
         {
+            //Debug.Log("SpriteManager LoadInmage: " + fullpath);
 #if UNITY_WEBGL && !UNITY_EDITOR
             var protocol = "";
 #else

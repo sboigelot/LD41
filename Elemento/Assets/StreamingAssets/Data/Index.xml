@@ -8,4 +8,8 @@
   <ProtoypeIndex Uri="element:earth" Path="Elements/Earth.xml"/>
   <ProtoypeIndex Uri="element:fire" Path="Elements/Fire.xml"/>
   <ProtoypeIndex Uri="element:air" Path="Elements/Air.xml"/>
+
+  <ProtoypeIndex Uri="receipe:clay" Path="Receipes/Clay.xml"/>
+  <ProtoypeIndex Uri="element:clay" Path="Elements/Clay.xml"/>
+
 </ArrayOfProtoypeIndex>

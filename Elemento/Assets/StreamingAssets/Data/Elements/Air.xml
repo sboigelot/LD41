@@ -1,5 +1,5 @@
 <ElementPrototype Name="Air" 
-                  SpritePath="Elements/air">
+                  SpritePath="air">
   <Stat InSlot="Base"
         IsArmorBonus="true"
         IsDamageBonus="false"
