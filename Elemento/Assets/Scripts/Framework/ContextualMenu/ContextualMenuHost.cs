@@ -14,7 +14,7 @@ namespace Assets.Scripts.Controllers.Framework.ContextualMenu
         private PointerEventData pressEventData;
         private Vector2 pressStartPosition;
         private float pressStart = float.MaxValue;
-        private float pressActionThreshold = .4f;
+        private float pressActionThreshold = .25f;
         
         public void OnPointerDown(PointerEventData eventData)
         {
