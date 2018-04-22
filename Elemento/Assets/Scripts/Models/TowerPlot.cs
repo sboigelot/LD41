@@ -14,22 +14,11 @@ namespace Assets.Scripts.Models
         
         [XmlAttribute]
         public int Z;
-        
 
         [XmlAttribute]
         public bool Editable;
 
         [XmlElement("Tower")]
         public Tower Tower;
-
-        public void Update(float deltaTime)
-        {
-            if (Tower == null)
-            {
-                return;
-            }
-
-            Tower.Update(deltaTime);
-        }
     }
 }

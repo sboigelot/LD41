@@ -11,24 +11,18 @@ namespace Assets.Scripts.Models
         public TowerSlotType InSlot;
 
         [XmlAttribute]
-        public bool IsArmorBonus;
-
-        [XmlAttribute]
-        public bool IsDamageBonus;
-
-        [XmlAttribute]
         public DamageType DamageType;
 
         [XmlAttribute]
-        public int Amount;
-
-        [XmlAttribute]
-        public int HpBonus;
-
+        public int DamageAmount;
+        
         [XmlAttribute]
         public int SpeedBonus;
 
         [XmlAttribute]
         public int RangeBonus;
+
+        [XmlAttribute]
+        public int AmmoSpeedBonus;
     }
 }

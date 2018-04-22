@@ -5,11 +5,17 @@
        SizeZ="30">
   
   <TowerPlot Id="0" X="15" Z="15" Editable="false">
-    <Tower Id="stronghold" Prototype="tower:stronghold"/>
+    <Tower IsStronghold="true"/>
   </TowerPlot>
   
-  <TowerPlot Id="1" X="4" Z="0" Editable="true"/>
-  <TowerPlot Id="2" X="4" Z="4" Editable="true"/>
+  <TowerPlot Id="2" X="16" Z="13" Editable="false">
+    <Tower IsStronghold="false"
+           BaseElementUri="element:earth"
+           BodyElementUri="element:earth"
+           WeaponElementUri="element:fire"
+           EnchantElementUri=""/>
+  </TowerPlot>
+  
   
   <SpawnPoint Id="0" X="10" Z="10">
     <DestinationPath>0</DestinationPath>

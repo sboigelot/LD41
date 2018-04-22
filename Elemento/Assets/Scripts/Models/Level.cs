@@ -122,7 +122,6 @@ namespace Assets.Scripts.Models
         public void Update(float deltaTime)
         {
             UpdateMonsterWaves(deltaTime);
-            UpdateTowerPlots(deltaTime);
         }
 
         private void UpdateMonsterWaves(float deltaTime)
@@ -132,17 +131,6 @@ namespace Assets.Scripts.Models
                 foreach (var monsterWaves in MonsterWaves)
                 {
                     monsterWaves.Update(deltaTime);
-                }
-            }
-        }
-
-        private void UpdateTowerPlots(float deltaTime)
-        {
-            if (TowerPlots != null)
-            {
-                foreach (var plot in TowerPlots)
-                {
-                    plot.Update(deltaTime);
                 }
             }
         }

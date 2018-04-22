@@ -2343,12 +2343,14 @@ MonoBehaviour:
   Prefabs:
   - Name: towerplot
     Prefab: {fileID: 1003953868161976, guid: 07bbcf1692221e84c92de7febf6ff0f8, type: 2}
-  - Name: tower
+  - Name: stronghold
     Prefab: {fileID: 1781952391542880, guid: d92795d209c0b58488111bc17e8a1ced, type: 2}
   - Name: spawnpoint
     Prefab: {fileID: 1719905709118596, guid: 5cf4470186dff464a88b90508d55e529, type: 2}
   - Name: marshmallow
     Prefab: {fileID: 1020179498820966, guid: 4e615a94c7f771043ad3a7099bb52519, type: 2}
+  - Name: tower
+    Prefab: {fileID: 1877271924049738, guid: e91c717265fa7c948bdd2899bda1de40, type: 2}
 --- !u!114 &1291442213
 MonoBehaviour:
   m_ObjectHideFlags: 0

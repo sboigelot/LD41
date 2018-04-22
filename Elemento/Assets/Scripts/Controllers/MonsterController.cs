@@ -87,5 +87,10 @@ namespace Assets.Scripts.Controllers.Game
             //dir.y = 0f;
             controller.Move(dir);
         }
+
+        public void OnDestroy()
+        {
+            GameManager.Instance.UnRegisterMonster(this);
+        }
     }
 }

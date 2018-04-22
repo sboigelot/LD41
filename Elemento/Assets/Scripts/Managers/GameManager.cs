@@ -72,6 +72,14 @@ namespace Assets.Scripts.Managers
                 Game.Update(Time.deltaTime);
             }
         }
+
+        public void UnRegisterMonster(MonsterController monster)
+        {
+            if (CurrentMonsters != null && CurrentMonsters.Contains(monster.gameObject))
+            {
+                CurrentMonsters.Remove(monster.gameObject);
+            }
+        }
         
         public void SpawnMonster(int spawnpointId, string monsterPrototypeUri)
         {

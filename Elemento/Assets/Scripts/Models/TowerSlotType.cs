@@ -6,7 +6,7 @@ namespace Assets.Scripts.Models
     public enum TowerSlotType
     {
         Base,
-        Tower,
+        Body,
         Weapon,
         Enchant
     }
