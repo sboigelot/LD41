@@ -121,7 +121,7 @@ namespace Assets.Scripts.Models
 
         [XmlElement("ElementalNode")]
         public List<ElementalNode> ElementalNodes;
-
+        
         public void Update(float deltaTime)
         {
             UpdateMonsterWaves(deltaTime);
@@ -129,11 +129,21 @@ namespace Assets.Scripts.Models
 
         private void UpdateMonsterWaves(float deltaTime)
         {
+            var allEnded = true;
             if (MonsterWaves != null)
             {
-                foreach (var monsterWaves in MonsterWaves)
+                foreach (var monsterWave in MonsterWaves)
                 {
-                    monsterWaves.Update(deltaTime);
+                    monsterWave.Update(deltaTime);
+                    allEnded &= monsterWave.Done;
+                }
+            }
+
+            if (allEnded)
+            {
+                if (GameManager.Instance.CurrentMonsters.Count == 0)
+                {
+                    GameManager.Instance.EndGame(true);
                 }
             }
         }

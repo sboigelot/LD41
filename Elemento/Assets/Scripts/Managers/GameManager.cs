@@ -66,6 +66,7 @@ namespace Assets.Scripts.Managers
         public void EndGame(bool win)
         {
             Game.Paused = true;
+            Debug.LogWarningFormat("EndGame(win:{0})", win);
             if (win)
             {
                 // GameWonPanel.GetComponent<EndGamePanel>().Open();

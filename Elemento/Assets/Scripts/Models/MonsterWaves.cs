@@ -22,14 +22,14 @@ namespace Assets.Scripts.Models
         public List<MonsterSpawn> Spawns;
 
         private float nextSpawnTime;
-        private bool done;
+        public bool Done;
 
         public void Update(float deltaTime)
         {
             var gameTime = GameManager.Instance.Game.GameTime;
 
             if (gameTime < TriggerDeltaTime ||
-                done ||
+                Done ||
                 nextSpawnTime > gameTime ||
                 Spawns == null)
             {
@@ -47,7 +47,7 @@ namespace Assets.Scripts.Models
 
                     if (monsterPrototype == null)
                     {
-                        done = true;
+                        Done = true;
                         Debug.LogError("MonsterWave coudn't find the monster prototype: " +
                                        monsterSpawn.MonsterPrototypeUri);
                         return;
@@ -59,7 +59,7 @@ namespace Assets.Scripts.Models
                     break;
                 }
             }
-            done = allDone;
+            Done = allDone;
         }
     }
 }
