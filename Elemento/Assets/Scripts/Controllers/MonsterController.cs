@@ -1,4 +1,7 @@
-﻿using Assets.Scripts.Managers;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using Assets.Scripts.Managers;
 using Assets.Scripts.Models;
 using UnityEngine;
 
@@ -8,9 +11,11 @@ namespace Assets.Scripts.Controllers.Game
     {
         public MonsterPrototype MonsterPrototype;
         public MonsterPath CurrentPath;
+
         public int CurrentCheckpointIndex;
         public float Speed = 0.7f;
         public float DestinationReachedThreshold = 0.4f;
+        public float Hp;
 
         private CharacterController controller;
 
@@ -94,6 +99,63 @@ namespace Assets.Scripts.Controllers.Game
         public void OnDestroy()
         {
             GameManager.Instance.UnRegisterMonster(this);
+        }
+
+        public void TakeDamages(Dictionary<DamageType, float> damages)
+        {
+            foreach (var damage in damages)
+            {
+                TakeDamage(damage.Key, damage.Value);
+            }
+        }
+
+        public void TakeDamage(DamageType damageType, float amount)
+        {
+            var realDamage = CompensateArmor(damageType, amount);
+            Hp -= realDamage;
+
+            if (Hp < 0)
+            {
+                Die();
+            }
+        }
+
+        private float CompensateArmor(DamageType damageType, float amount)
+        {
+            if (MonsterPrototype == null ||
+                MonsterPrototype.Armors == null)
+            {
+                return amount;
+            }
+
+            var armor = MonsterPrototype.Armors.FirstOrDefault(a => a.DamageType == damageType);
+            if (armor == null)
+            {
+                return amount;
+            }
+
+            amount -= armor.FlatAmount;
+            amount -= (armor.Percent / 100f * amount);
+
+            return amount;
+        }
+
+        private void Die()
+        {
+            Destroy(gameObject);
+            if (MonsterPrototype.Loots == null)
+            {
+                return;
+            }
+
+            foreach (var loot in MonsterPrototype.Loots)
+            {
+                var position = new Vector3(
+                  transform.position.x,
+                  transform.position.y + 1f,
+                  transform.position.z);
+                MapRenderer.Instance.InstanciateFloatingElement(position, loot, true);
+            }
         }
     }
 }

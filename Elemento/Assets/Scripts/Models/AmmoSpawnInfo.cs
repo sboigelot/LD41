@@ -11,6 +11,6 @@ namespace Assets.Scripts.Models
         public Vector3 Origin;
         public GameObject Target;
         public float Speed;
-        public Dictionary<DamageType, int> Damage;
+        public Dictionary<DamageType, float> Damage;
     }
 }

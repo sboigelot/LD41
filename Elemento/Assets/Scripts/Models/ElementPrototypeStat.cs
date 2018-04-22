@@ -14,16 +14,16 @@ namespace Assets.Scripts.Models
         public DamageType DamageType;
 
         [XmlAttribute]
-        public int DamageAmount;
+        public float DamageAmount;
         
         [XmlAttribute]
-        public int SpeedBonus;
+        public float SpeedBonus;
 
         [XmlAttribute]
-        public int RangeBonus;
+        public float RangeBonus;
 
         [XmlAttribute]
-        public int AmmoSpeedBonus;
+        public float AmmoSpeedBonus;
 
         [XmlAttribute]
         public string AmmoPrefabName = "defaultammo";

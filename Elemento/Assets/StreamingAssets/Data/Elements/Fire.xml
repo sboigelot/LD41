@@ -13,7 +13,7 @@
         RangeBonus="1"
         AmmoSpeedBonus="0"/>
   <Stat InSlot="Weapon"
-        DamageType="Blunt"
+        DamageType="Burning"
         DamageAmount="3"
         SpeedBonus="2"
         RangeBonus="1"

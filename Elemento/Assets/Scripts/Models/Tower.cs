@@ -27,9 +27,9 @@ namespace Assets.Scripts.Models
         
         private float lastShot;
 
-        public Dictionary<DamageType, int> GetDamage()
+        public Dictionary<DamageType, float> GetDamage()
         {
-            var dictionary = new Dictionary<DamageType, int>();
+            var dictionary = new Dictionary<DamageType, float>();
 
             Aggregate(s =>
             {

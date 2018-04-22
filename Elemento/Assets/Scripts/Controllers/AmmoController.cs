@@ -1,3 +1,4 @@
+using Assets.Scripts.Controllers.Game;
 using Assets.Scripts.Models;
 using UnityEngine;
 
@@ -42,6 +43,14 @@ namespace Assets.Scripts.Controllers
             {
                 return;
             }
+
+            var monsterController = AmmoInfo.Target.GetComponent<MonsterController>();
+            if (monsterController == null)
+            {
+                return;
+            }
+
+            monsterController.TakeDamages(AmmoInfo.Damage);
         }
 
         private bool ReachedTarget()

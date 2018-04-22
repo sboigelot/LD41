@@ -34,7 +34,7 @@ namespace Assets.Scripts.Controllers.Game
             {
                 Count = ElementalNode.QuantityPerSpawn, Uri = ElementalNode.ElementUri
             };
-            var floating = MapRenderer.Instance.InstanciateFloatingElement(position, element, true);
+            MapRenderer.Instance.InstanciateFloatingElement(position, element, true);
 
             Done = Spawned == ElementalNode.MaxSpawn;
         }
