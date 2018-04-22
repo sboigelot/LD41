@@ -16,6 +16,7 @@ namespace Assets.Scripts.Controllers
         public List<string> BuildingElements = new List<string>();
 
         public List<GameObject> FloatingElements = new List<GameObject>();
+        public GameObject Weapon;
 
         public void DestroyTower()
         {
@@ -134,18 +135,25 @@ namespace Assets.Scripts.Controllers
                 return;
             }
             
-            if (!Plot.Tower.ReadyToShoot)
-            {
-                return;
-            }
-
             var ennemyInRange = Plot.Tower.FindTarget(transform.position);
             if (ennemyInRange == null)
             {
                 return;
             }
 
-            const float towerHeight = 1f;
+            Quaternion newRotation =
+                Quaternion.LookRotation(ennemyInRange.transform.position - transform.position,
+                Vector3.forward);
+            newRotation.x = 0;
+            newRotation.z = 0;
+            Weapon.transform.rotation = newRotation;
+
+            if (!Plot.Tower.ReadyToShoot)
+            {
+                return;
+            }
+
+            const float towerHeight = 2.5f;
             var ammoInfo = Plot.Tower.ShootAtTarget(ennemyInRange);
             ammoInfo.Origin = new Vector3(transform.position.x, transform.position.y + towerHeight, transform.position.z);
 

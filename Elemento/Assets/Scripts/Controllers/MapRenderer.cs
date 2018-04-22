@@ -120,11 +120,29 @@ namespace Assets.Scripts.Controllers.Game
         {
             var position = new Vector3(plot.X * ModelScale, GetHeight(plot.X, plot.Z), plot.Z * ModelScale);
 
-            var prefab = PrefabManager.Instance.GetPrefab(plot.Tower.IsStronghold ? "stronghold" : "tower");
-            var instance = GameObject.Instantiate(prefab, position, Quaternion.identity, gameObject.transform);
+
+            var prefab = PrefabManager.Instance.GetPrefab(plot.Tower.IsStronghold ? "stronghold": "tower");
+           
+            var instance = Instantiate(prefab, position, Quaternion.identity);
+
             var plotController = instance.AddComponent<TowerPlotController>();
             plotController.Plot = plot;
+
+            if (!plot.Tower.IsStronghold)
+            {
+                AddTowerPart(plot.Tower.BaseElementUri, TowerSlotType.Base, position, instance);
+                AddTowerPart(plot.Tower.BaseElementUri, TowerSlotType.Body, position + new Vector3(0, 1, 0), instance);
+                plotController.Weapon = AddTowerPart(plot.Tower.BaseElementUri, TowerSlotType.Weapon, position + new Vector3(0, 2, 0), instance);
+            }
+            
             MapChildren.Add(instance);
+        }
+
+        private GameObject AddTowerPart(string elementuri, TowerSlotType slotType, Vector3 position, GameObject instance)
+        {
+            var elementPrototype = PrototypeManager.Instance.GetPrototype<ElementPrototype>(elementuri);
+            var prefab = PrefabManager.Instance.GetPrefab(elementPrototype.ElementStats.First(s => s.InSlot == slotType).ModelPrefab);
+            return Instantiate(prefab, position, Quaternion.identity, instance.transform);
         }
 
         public void InstanciatePlot(TowerPlot plot)

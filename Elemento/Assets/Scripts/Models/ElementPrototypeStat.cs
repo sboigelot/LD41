@@ -27,5 +27,8 @@ namespace Assets.Scripts.Models
 
         [XmlAttribute]
         public string AmmoPrefabName = "defaultammo";
+
+        [XmlAttribute]
+        public string ModelPrefab;
     }
 }

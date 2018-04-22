@@ -742,6 +742,48 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 304540759}
+--- !u!1001 &323360586
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4780246745197104, guid: 51f5c106f2905734dab95cadcf29b4fa, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.049999952
+      objectReference: {fileID: 0}
+    - target: {fileID: 4780246745197104, guid: 51f5c106f2905734dab95cadcf29b4fa, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.6999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 4780246745197104, guid: 51f5c106f2905734dab95cadcf29b4fa, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.14999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 4780246745197104, guid: 51f5c106f2905734dab95cadcf29b4fa, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4780246745197104, guid: 51f5c106f2905734dab95cadcf29b4fa, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4780246745197104, guid: 51f5c106f2905734dab95cadcf29b4fa, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4780246745197104, guid: 51f5c106f2905734dab95cadcf29b4fa, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4780246745197104, guid: 51f5c106f2905734dab95cadcf29b4fa, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 51f5c106f2905734dab95cadcf29b4fa, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &328897145
 GameObject:
   m_ObjectHideFlags: 0
@@ -2746,7 +2788,7 @@ MonoBehaviour:
   - Name: marshmallow
     Prefab: {fileID: 1020179498820966, guid: 4e615a94c7f771043ad3a7099bb52519, type: 2}
   - Name: tower
-    Prefab: {fileID: 1877271924049738, guid: e91c717265fa7c948bdd2899bda1de40, type: 2}
+    Prefab: {fileID: 1244738410420330, guid: 51f5c106f2905734dab95cadcf29b4fa, type: 2}
   - Name: defaultammo
     Prefab: {fileID: 1374930492476098, guid: 2b933b493cdba444595ff250ed547811, type: 2}
   - Name: rangesphere
@@ -2755,6 +2797,12 @@ MonoBehaviour:
     Prefab: {fileID: 1733122908997906, guid: 548d8f3d42d49214f803e4e33e207a39, type: 2}
   - Name: elementalnode
     Prefab: {fileID: 1793972286366998, guid: f0e9c24a3c8f173499fcc7e9fc8de1a7, type: 2}
+  - Name: tower:base
+    Prefab: {fileID: 1877271924049738, guid: e91c717265fa7c948bdd2899bda1de40, type: 2}
+  - Name: tower:body
+    Prefab: {fileID: 1877271924049738, guid: e91c717265fa7c948bdd2899bda1de40, type: 2}
+  - Name: tower:weapon
+    Prefab: {fileID: 1877271924049738, guid: e91c717265fa7c948bdd2899bda1de40, type: 2}
 --- !u!114 &1291442213
 MonoBehaviour:
   m_ObjectHideFlags: 0
