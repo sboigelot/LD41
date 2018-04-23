@@ -19,6 +19,9 @@ namespace Assets.Scripts.Managers
 
         public Slider HpSlider;
 
+        public QuitDialogController GameWonPanel;
+        public QuitDialogController GameOverPanel;
+
         public void Start()
         {
             DontDestroyOnLoad(gameObject);
@@ -67,14 +70,13 @@ namespace Assets.Scripts.Managers
         public void EndGame(bool win)
         {
             Game.Paused = true;
-            Debug.LogWarningFormat("EndGame(win:{0})", win);
             if (win)
             {
-                // GameWonPanel.GetComponent<EndGamePanel>().Open();
+                GameWonPanel.OpenDialog();
             }
             else
             {
-                // GameOverPanel.GetComponent<EndGamePanel>().Open();
+                GameOverPanel.OpenDialog();
             }
         }
 
