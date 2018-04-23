@@ -1,12 +1,26 @@
 <ElementPrototype Name="Wood"
                   SpritePath="wood">
+  <Stat InSlot="Base"
+        DamageType="Blunt"
+        DamageAmount="0.2"
+        SpeedBonus="5"
+        RangeBonus="3"
+        AmmoSpeedBonus="0"
+        ModelPrefab="tower:base:wood"/>
+  <Stat InSlot="Body"
+        DamageType="Blunt"
+        DamageAmount="0.2"
+        SpeedBonus="1"
+        RangeBonus="3"
+        AmmoSpeedBonus="0"
+        ModelPrefab="tower:body:wood"/>
   <Stat InSlot="Weapon"
         DamageType="Blunt"
         DamageAmount="7"
         SpeedBonus="2"
         RangeBonus="6"
-        AmmoSpeedBonus="45"
-        ModelPrefab="tower:weapon:fire"/>
+        AmmoSpeedBonus="55"
+        ModelPrefab="tower:weapon:wood"/>
 </ElementPrototype>
 
 

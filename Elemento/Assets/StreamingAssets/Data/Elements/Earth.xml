@@ -1,4 +1,4 @@
-²<ElementPrototype Name="Earth" 
+<ElementPrototype Name="Earth" 
                   SpritePath="earth">
   <Stat InSlot="Base"
         DamageType="Blunt"

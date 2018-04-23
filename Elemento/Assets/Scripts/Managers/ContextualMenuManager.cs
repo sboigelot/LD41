@@ -18,6 +18,8 @@ namespace Assets.Scripts.Managers
 
         private GameObject lastInteractable;
 
+        public Sprite DestroySprite;
+
         private bool RaycastAll(Ray ray, out RaycastHit hit)
         {
             // LayerMask layermask = new LayerMask {value = terrainGameObject.layer};
@@ -54,7 +56,7 @@ namespace Assets.Scripts.Managers
                 {
                     yield return new ContextualMenuItemInfo
                     {
-                        Image = DefaultContextualMenuItemSprite,
+                        Image = DestroySprite,
                         IsEnable = () => plot.Editable,
                         Name = "Destroy",
                         TooltipText = "Destroy Tower",

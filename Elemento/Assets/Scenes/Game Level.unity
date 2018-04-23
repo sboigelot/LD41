@@ -5375,11 +5375,11 @@ MonoBehaviour:
   - Name: tower:weapon
     Prefab: {fileID: 1877271924049738, guid: e91c717265fa7c948bdd2899bda1de40, type: 2}
   - Name: tower:base:dirt
-    Prefab: {fileID: 100000, guid: e14bff4a535c8084aaf378f6822e7a3c, type: 3}
+    Prefab: {fileID: 100000, guid: 8a4b74d3821e3204b9812935c178014d, type: 3}
   - Name: tower:body:dirt
-    Prefab: {fileID: 100000, guid: fb1918024ff3dff4dafb46b8d65b922c, type: 3}
+    Prefab: {fileID: 100000, guid: 606aa4c870621c647be882083c4ec0f9, type: 3}
   - Name: tower:weapon:fire
-    Prefab: {fileID: 100000, guid: a3b0b16d7af08c74d9c7513fbc87a2b7, type: 3}
+    Prefab: {fileID: 100000, guid: 7b14c90ae073611478a22f15a429f01a, type: 3}
   - Name: marshmallow:green
     Prefab: {fileID: 1246047951027622, guid: db5410fe59cd70644ace6fc479694150, type: 2}
   - Name: marshmallow:blue
@@ -5396,6 +5396,42 @@ MonoBehaviour:
     Prefab: {fileID: 1506342939409656, guid: 1ab268c9af2d17a4e9551adab05dc146, type: 2}
   - Name: deamon
     Prefab: {fileID: 1869117126684390, guid: 175ee347173dfd047846359392024aef, type: 2}
+  - Name: tower:base:brick
+    Prefab: {fileID: 100000, guid: b5df0c450fafa7c42ae76102f0ed440d, type: 3}
+  - Name: tower:base:clay
+    Prefab: {fileID: 100000, guid: 0bc71d85e5558fa47a992380d47ed933, type: 3}
+  - Name: tower:base:metal
+    Prefab: {fileID: 100000, guid: 4a7c65a7662ec0647ae4810b00c88148, type: 3}
+  - Name: tower:base:obsidian
+    Prefab: {fileID: 100000, guid: 4722bc155d25fb04aafb1cf9b68328c3, type: 3}
+  - Name: tower:base:stone
+    Prefab: {fileID: 100000, guid: a8e0c7bc11246224f9452db8a479c43f, type: 3}
+  - Name: tower:base:wood
+    Prefab: {fileID: 100000, guid: c17f4519958210743991ad0141c717b5, type: 3}
+  - Name: tower:body:brick
+    Prefab: {fileID: 100000, guid: ae5d4c09cded5334fb9831042346443b, type: 3}
+  - Name: tower:body:clay
+    Prefab: {fileID: 100000, guid: a936f6f50cc2c404b92cbdfb580b5aca, type: 3}
+  - Name: tower:body:metal
+    Prefab: {fileID: 100000, guid: 8554d650ba2179a47af180b54483e9ad, type: 3}
+  - Name: tower:body:obsidian
+    Prefab: {fileID: 100000, guid: ef9c6effd7784ff4583f6e1bc4467412, type: 3}
+  - Name: tower:body:stone
+    Prefab: {fileID: 100000, guid: 7bcb2f18bcee39245a901644ceaf4806, type: 3}
+  - Name: tower:body:wood
+    Prefab: {fileID: 100000, guid: 148371f956b09f24b98d9f3a6f0be574, type: 3}
+  - Name: tower:weapon:death
+    Prefab: {fileID: 100000, guid: e5836258e387c394e81ff3e91674bfc1, type: 3}
+  - Name: tower:weapon:electricity
+    Prefab: {fileID: 100000, guid: 7b9cc86c45439cd4080d1a14c8a5fc7b, type: 3}
+  - Name: tower:weapon:lava
+    Prefab: {fileID: 100000, guid: 12f5fc82d20e4be418c1fda8b31ab53a, type: 3}
+  - Name: tower:weapon:life
+    Prefab: {fileID: 100000, guid: 683750068c0499d4c8ba2534ab6ae902, type: 3}
+  - Name: tower:weapon:stone
+    Prefab: {fileID: 100000, guid: 152850bcfc29ba04d9ed4e842f8ea9f0, type: 3}
+  - Name: tower:weapon:wood
+    Prefab: {fileID: 100000, guid: 23a8b2efd5b106e4d9a448dd2097c5a5, type: 3}
 --- !u!114 &1291442213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5423,6 +5459,7 @@ MonoBehaviour:
   DefaultContextualMenuItemSprite: {fileID: 21300000, guid: d208dd3a25af65048a660acd233a41bd,
     type: 3}
   ContextualMenuHost: {fileID: 1803162662}
+  DestroySprite: {fileID: 21300000, guid: b76463d37e60e1144974f51d57ad62f0, type: 3}
 --- !u!114 &1291442215
 MonoBehaviour:
   m_ObjectHideFlags: 0

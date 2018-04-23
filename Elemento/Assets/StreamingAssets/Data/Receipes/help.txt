@@ -40,7 +40,7 @@ Fire			5			-2			5			Burning		35
 Lava			5			-1			7			Burning		35
 Life			6			2			8			Magic		45
 Stone			2.5			0			3			Blunt		30			
-Wood			6			2			7			Blunt		45
+Wood			6			2			7			Blunt		55
 Death			4			1			10			Magic		15
 Electricity		4			-5			20			Zap			100
 

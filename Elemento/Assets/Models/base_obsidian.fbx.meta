@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: a3b0b16d7af08c74d9c7513fbc87a2b7
-timeCreated: 1524448861
+guid: 4722bc155d25fb04aafb1cf9b68328c3
+timeCreated: 1524509727
 licenseType: Pro
 ModelImporter:
   serializedVersion: 21
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: treetile_4
+    4300000: treetile_9
   materials:
     importMaterials: 1
     materialName: 0

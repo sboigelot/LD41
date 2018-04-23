@@ -6,14 +6,14 @@
         SpeedBonus="2"
         RangeBonus="3"
         AmmoSpeedBonus="0"
-        ModelPrefab="tower:base"/>
+        ModelPrefab="tower:base:brick"/>
   <Stat InSlot="Body"
         DamageType="Blunt"
         DamageAmount="0.6"
         SpeedBonus="1"
         RangeBonus="3"
         AmmoSpeedBonus="0"
-        ModelPrefab="tower:body"/>
+        ModelPrefab="tower:body:brick"/>
 </ElementPrototype>
 
 

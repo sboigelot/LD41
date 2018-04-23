@@ -6,7 +6,7 @@
         SpeedBonus="-5"
         RangeBonus="4"
         AmmoSpeedBonus="100"
-        ModelPrefab="tower:weapon:fire"/>
+        ModelPrefab="tower:weapon:electricity"/>
 </ElementPrototype>
 
 

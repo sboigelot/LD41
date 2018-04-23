@@ -111,9 +111,17 @@ namespace Assets.Scripts.Serialization
 
         public T DeSerialize<T>(Stream stream) where T : class
         {
-            var extraTypes = GetExtraTypes();
-            var serializer = new XmlSerializer(typeof(T), extraTypes);
-            return serializer.Deserialize(stream) as T;
+            try
+            {
+                var extraTypes = GetExtraTypes();
+                var serializer = new XmlSerializer(typeof(T), extraTypes);
+                return serializer.Deserialize(stream) as T;
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("Error deserializin object of type " + typeof(T) + Environment.NewLine + e);
+                throw;
+            }
         }
 
         private Type[] GetExtraTypes()
