@@ -79,8 +79,13 @@ namespace Assets.Scripts.Managers
             return Prototypes.Where(p => p.Prototype is T).Select(p => (T) p.Prototype).ToList();
         }
 
-        public IEnumerator LoadPrototypes(Action onLoadCompleted)
+        public IEnumerator LoadPrototypes(Action onLoadCompleted, Func<string, bool> filter = null)
         {
+            if (filter == null)
+            {
+                filter = (type) => true;
+            }
+
             Index = new List<ProtoypeIndex>();
             var sub = Load<List<ProtoypeIndex>, ProtoypeIndex>(Index, "Index.xml");
             foreach (var s in sub)
@@ -88,7 +93,7 @@ namespace Assets.Scripts.Managers
                 yield return s;
             }
 
-            foreach (var protoypeIndex in Index)
+            foreach (var protoypeIndex in Index.Where(i=>filter(i.ProtoypeType)))
             {
                 var index = protoypeIndex;
 
@@ -96,7 +101,11 @@ namespace Assets.Scripts.Managers
                 switch (index.ProtoypeType)
                 {
                     case "level":
-                        sub = Load<Level>(protoypeIndex.Path, (data) => RegisterPrototype(index.Uri, data));
+                        sub = Load<Level>(protoypeIndex.Path, (data) =>
+                        {
+                            data.Uri = index.Uri;
+                            RegisterPrototype(index.Uri, data);
+                        });
                         break;
                     case "element":
                         sub = Load<ElementPrototype>(protoypeIndex.Path, (data) => RegisterPrototype(index.Uri, data));

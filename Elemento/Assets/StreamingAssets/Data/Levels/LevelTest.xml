@@ -1,4 +1,5 @@
-<Level Name="test level"
+<Level Name="Tutorial"
+       PreviewPicPath="LevelTest"
        Order="0"
        ModelName="Plane10x10"
        SizeX="30"

@@ -11,8 +11,13 @@ namespace Assets.Scripts.Models
     [Serializable]
     public class Level : IPrototype
     {
+        public string Uri;
+
         [XmlAttribute]
         public string Name;
+
+        [XmlAttribute]
+        public string PreviewPicPath;
 
         [XmlAttribute]
         public int Order;
@@ -106,6 +111,7 @@ namespace Assets.Scripts.Models
                 return heightmap;
             }
         }
+
 
         [XmlElement("TowerPlot")]
         public List<TowerPlot> TowerPlots;

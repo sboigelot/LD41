@@ -24,8 +24,6 @@ namespace Assets.Scripts.Managers
 
         public void Start()
         {
-            DontDestroyOnLoad(gameObject);
-
             //make the prototypeManager visible in unity inspector
             PrototypeManager = PrototypeManager.Instance;
             StartCoroutine(PrototypeManager.LoadPrototypes(NewGame));
@@ -53,7 +51,9 @@ namespace Assets.Scripts.Managers
             CurrentMonsters = new List<GameObject>();
             Game = new Game();
             Game.Initialize();
-            Game.CurrentLevel = PrototypeManager.GetPrototype<Level>("level:level_test");
+
+            var levelHolder = FindObjectOfType<LevelDataHolder>();
+            Game.CurrentLevel = PrototypeManager.GetPrototype<Level>(levelHolder!=null? levelHolder.Level.Uri : "level:level_test");
 
             LoadPlayer();
 
