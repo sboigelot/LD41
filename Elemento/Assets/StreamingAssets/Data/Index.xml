@@ -1,6 +1,6 @@
 <ArrayOfProtoypeIndex>
 
-  <ProtoypeIndex Uri="level:level_test" Path="Levels/LevelTest.xml"/>
+  <ProtoypeIndex Uri="level:tutorial" Path="Levels/Tutorial.xml"/>
   <ProtoypeIndex Uri="level:sample" Path="Levels/Sample.xml"/>
   
   <ProtoypeIndex Uri="monster:marshmallow" Path="Monsters/Marshmallow.xml"/>

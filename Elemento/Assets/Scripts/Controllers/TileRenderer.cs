@@ -14,10 +14,11 @@ namespace Assets.Scripts.Controllers.Game
         public int Z;
         public int TileId;
         public int OverideTileId = -1;
-        
+        public int OverideTileHeigth = -1;
+
         public GameObject Visual;
 
-        public void Build(Level level, int[][] tiles)
+        public void Build(Level level)
         {
             if (Visual != null)
             {
@@ -27,14 +28,18 @@ namespace Assets.Scripts.Controllers.Game
             var prefab = PrefabManager.Instance.TilePrefabs[0];
             if (!string.IsNullOrEmpty(level.TileString))
             {
-                var id = OverideTileId != -1 ? OverideTileId : tiles[X][Z];
+                var id = OverideTileId != -1 ? OverideTileId : level.Tiles[X][Z];
+                level.Tiles[X][Z] = id;
+
                 prefab = PrefabManager.Instance.TilePrefabs[id];
             }
 
             float height = 0;//MapRenderer.Instance.GetHeight(X,Z) - .3f;
             if (!string.IsNullOrEmpty(level.HeightmapString))
             {
-                height = level.Heightmap[X][Z];
+                height = OverideTileHeigth != -1 ? OverideTileHeigth : level.Heightmap[X][Z];
+                level.Heightmap[X][Z] = height;
+
                 if (height < 0.1f)
                 {
                     return;

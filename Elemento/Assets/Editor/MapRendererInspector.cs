@@ -23,6 +23,10 @@ namespace Assets.Editor
             {
                 myScript.Build();
             }
+            if (GUILayout.Button("Export to string"))
+            {
+                myScript.ExportMap();
+            }
         }
     }
 }

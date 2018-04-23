@@ -16,6 +16,8 @@ namespace Assets.Scripts.Controllers.Game
         public float ModelScale = 2f;
 
         public List<GameObject> MapChildren;
+
+        public string ExportMapString;
         
         public void Resert()
         {
@@ -43,20 +45,19 @@ namespace Assets.Scripts.Controllers.Game
         private void RenderTiles()
         {
             var level = GameManager.Instance.Game.CurrentLevel;
-            var tiles = level.Tiles;
 
             for (int x = 0; x < level.SizeX; x++)
             {
                 for (int z = 0; z < level.SizeZ; z++)
                 {
-                    var position = new Vector3(x * ModelScale, -.3f, z * ModelScale);
                     var tile = new GameObject("Tile("+x+","+z+")");
+                    var position = new Vector3(x * ModelScale, -.3f, z * ModelScale);
                     tile.transform.position = position;
                     tile.transform.SetParent(gameObject.transform);
                     var tileRenderer = tile.AddComponent<TileRenderer>();
                     tileRenderer.X = x;
                     tileRenderer.Z = z;
-                    tileRenderer.Build(level, tiles);
+                    tileRenderer.Build(level);
 
                     MapChildren.Add(tile);
                 }
@@ -254,6 +255,26 @@ namespace Assets.Scripts.Controllers.Game
             floatingController.CollectOnMouseClick = collectOnMouseClick;
             floatingController.Build();
             return floating;
+        }
+
+        public void ExportMap()
+        {
+            ExportMapString =
+                "<TileString>" + Environment.NewLine +
+                "{0}" + Environment.NewLine +
+                "</TileString>" + Environment.NewLine +
+                "<HeightmapString>" + Environment.NewLine +
+                "{1}" + Environment.NewLine +
+                "</HeightmapString>";
+            
+            var level = GameManager.Instance.Game.CurrentLevel;
+            var tiles = level.Tiles;
+            var tilesString = string.Join("," + Environment.NewLine, tiles.Select(z => string.Join(",", z.Select(i => "" + i).ToArray())).ToArray());
+
+            var heighs = level.Heightmap;
+            var heigthString = string.Join("," + Environment.NewLine, heighs.Select(z => string.Join(",", z.Select(i => "" + i).ToArray())).ToArray());
+
+            ExportMapString = string.Format(ExportMapString, tilesString, heigthString);
         }
     }
 }

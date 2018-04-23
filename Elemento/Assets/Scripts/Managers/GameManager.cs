@@ -56,7 +56,7 @@ namespace Assets.Scripts.Managers
             Game.Initialize();
 
             var levelHolder = FindObjectOfType<LevelDataHolder>();
-            Game.CurrentLevel = PrototypeManager.GetPrototype<Level>(levelHolder!=null? levelHolder.Level.Uri : "level:level_test");
+            Game.CurrentLevel = PrototypeManager.GetPrototype<Level>(levelHolder!=null? levelHolder.Level.Uri : "level:tutorial");
 
             LoadPlayer();
 
@@ -80,7 +80,7 @@ namespace Assets.Scripts.Managers
 
             foreach (var path in allImages)
             {
-                Debug.Log("Preloading image: " + path);
+                //Debug.Log("Preloading image: " + path);
                 StartCoroutine(SpriteManager.Set(sprite => { }, "Images/Elements", path));
                 yield return null;
             }

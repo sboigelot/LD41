@@ -15,7 +15,7 @@ namespace Assets.Editor
             TileRenderer myScript = (TileRenderer)target;
             if (GUILayout.Button("Re-Render"))
             {
-                myScript.Build(GameManager.Instance.Game.CurrentLevel, GameManager.Instance.Game.CurrentLevel.Tiles);
+                myScript.Build(GameManager.Instance.Game.CurrentLevel);
             }
         }
     }
