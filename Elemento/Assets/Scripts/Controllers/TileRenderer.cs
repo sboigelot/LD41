@@ -14,7 +14,7 @@ namespace Assets.Scripts.Controllers.Game
         public int Z;
         public int TileId;
         public int OverideTileId = -1;
-        public int OverideTileHeigth = -1;
+        public float OverideTileHeigth = -1;
 
         public GameObject Visual;
 
@@ -30,6 +30,7 @@ namespace Assets.Scripts.Controllers.Game
             {
                 var id = OverideTileId != -1 ? OverideTileId : level.Tiles[X][Z];
                 level.Tiles[X][Z] = id;
+                OverideTileId = id;
 
                 prefab = PrefabManager.Instance.TilePrefabs[id];
             }
@@ -39,6 +40,7 @@ namespace Assets.Scripts.Controllers.Game
             {
                 height = OverideTileHeigth != -1 ? OverideTileHeigth : level.Heightmap[X][Z];
                 level.Heightmap[X][Z] = height;
+                OverideTileHeigth = height;
 
                 if (height < 0.1f)
                 {

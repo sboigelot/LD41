@@ -47,7 +47,7 @@ namespace Assets.Scripts.Models
         public float GetSpeed()
         {
             float value = 10f;
-            Aggregate(s => value -= s.SpeedBonus);
+            Aggregate(s => value -= (s.SpeedBonus*1.5f));
             return value >= 0.1f ? value : 0.1f;
         }
 

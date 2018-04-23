@@ -3167,7 +3167,7 @@ Prefab:
     - target: {fileID: 114760031996166742, guid: bf17c9c90620ebe4ab7ee31a8138476f,
         type: 2}
       propertyPath: m_Colors.m_DisabledColor.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114760031996166742, guid: bf17c9c90620ebe4ab7ee31a8138476f,
         type: 2}
@@ -3269,6 +3269,20 @@ Prefab:
       propertyPath: FdAnimationCurve.m_Curve.Array.data[3].outSlope
       value: 0.33772355
       objectReference: {fileID: 0}
+    - target: {fileID: 1941142446512836, guid: bf17c9c90620ebe4ab7ee31a8138476f, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114760031996166742, guid: bf17c9c90620ebe4ab7ee31a8138476f,
+        type: 2}
+      propertyPath: m_Colors.m_DisabledColor.a
+      value: 0.547
+      objectReference: {fileID: 0}
+    - target: {fileID: 114760031996166742, guid: bf17c9c90620ebe4ab7ee31a8138476f,
+        type: 2}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bf17c9c90620ebe4ab7ee31a8138476f, type: 2}
   m_IsPrefabParent: 0
@@ -3294,7 +3308,7 @@ MonoBehaviour:
   Popup: {fileID: 8300000, guid: 909c65c4854016b44bbc5e985ed5e54f, type: 3}
   Scan: {fileID: 8300000, guid: eadc4ae9e66e03b4d94e8ce0eea3dd60, type: 3}
   Build: {fileID: 8300000, guid: 579fc2caeb45d77439659bd37ec3dee0, type: 3}
-  Water: {fileID: 0}
+  Water: {fileID: 8300000, guid: 9eff66f01de22764199938bd7d95990b, type: 3}
   ControlledAudioSource: {fileID: 690586814}
 --- !u!1 &806695124
 GameObject:
@@ -5642,6 +5656,8 @@ MonoBehaviour:
   - {fileID: 100000, guid: 7476097a70010454e89b5ebed5865b3c, type: 3}
   - {fileID: 100000, guid: 0ecc68a30925c4243b992a3aa1c1d97c, type: 3}
   - {fileID: 100000, guid: 17564717db87cbd409b9710952551c1e, type: 3}
+  - {fileID: 100000, guid: 756e01c1796704b44a75d1f75ac29c31, type: 3}
+  - {fileID: 100000, guid: 7410c5a5e41fc0b42be5755275bbd8fd, type: 3}
   Prefabs:
   - Name: towerplot
     Prefab: {fileID: 1003953868161976, guid: 07bbcf1692221e84c92de7febf6ff0f8, type: 2}
@@ -6181,6 +6197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ModelScale: 2
   MapChildren: []
+  ExportMapString: 
 --- !u!4 &1474482932
 Transform:
   m_ObjectHideFlags: 0

@@ -3,7 +3,7 @@
   <Stat InSlot="Base"
         DamageType="Blunt"
         DamageAmount="0.2"
-        SpeedBonus="5"
+        SpeedBonus="2.5"
         RangeBonus="3"
         AmmoSpeedBonus="0"
         ModelPrefab="tower:base:wood"/>

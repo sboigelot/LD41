@@ -86,8 +86,14 @@ namespace Assets.Scripts.Managers
             }
         }
 
+        private bool alreadyEnded = false;
         public void EndGame(bool win)
         {
+            if (alreadyEnded)
+            {
+                return;
+            }
+            alreadyEnded = true;
             Game.Paused = true;
             if (win)
             {

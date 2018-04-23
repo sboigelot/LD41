@@ -75,7 +75,7 @@ namespace Assets.Scripts.Managers
                         {TowerSlotType.Body, "body"},
                         {TowerSlotType.Weapon, "weapon"},
                     };
-                    foreach (var element in GameManager.Instance.Game.Player.Elements)
+                    foreach (var element in GameManager.Instance.Game.Player.Elements.Where(e=>e.Count>0))
                     {
                         var prototype = PrototypeManager.Instance.GetPrototype<ElementPrototype>(element.Uri);
 
@@ -85,19 +85,29 @@ namespace Assets.Scripts.Managers
                             continue;
                         }
 
+                        var count = element.Count;
+                        var playerHasElement = count > 0;
+
+                        var element1 = element;
                         yield return new ContextualMenuItemInfo
                         {
                             Image = SpriteManager.Instance.GetChached("Images/Elements", prototype.SpritePath),
-                            IsEnable = () => element.Count > 0,
+                            IsEnable = () => playerHasElement,
                             Name = "AddElement" + prototype.Name,
                             TooltipText = "Infuse " + prototype.Name + " as "+ partNames[buildingStage],
-                            OnClick = (contextualMenu, gameObject, vector3) =>
+                            OnClick = (contextualMenu, go, vector3) =>
                             {
-                                plotController.AddElement(new Element
+                                if (!GameManager.Instance.Game.Player.HasElement(element1))
+                                {
+                                    return;
+                                }
+                                var cost = new Element
                                 {
                                     Count = 1,
-                                    Uri = element.Uri
-                                });
+                                    Uri = element1.Uri
+                                };
+                                plotController.AddElement(cost);
+                                GameManager.Instance.Game.Player.RemoveElement(cost);
                                 if (plotController.Plot.Tower == null)
                                 {
                                     ContextualMenuHost.ReOpen();
