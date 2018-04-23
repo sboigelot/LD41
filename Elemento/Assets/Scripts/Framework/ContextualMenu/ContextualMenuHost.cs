@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,8 @@ namespace Assets.Scripts.Controllers.Framework.ContextualMenu
         private Vector2 pressStartPosition;
         private float pressStart = float.MaxValue;
         private float pressActionThreshold = .25f;
-        
+        public Vector3 prevPosition;
+
         public void OnPointerDown(PointerEventData eventData)
         {
             pressStartPosition = Input.mousePosition;
@@ -35,10 +37,20 @@ namespace Assets.Scripts.Controllers.Framework.ContextualMenu
                 pressStartPosition.y == Input.mousePosition.y)
             {
                 pressStart = float.MaxValue;
+                prevPosition = pressEventData.position;
                 if (Menu != null)
                 {
-                    Menu.Open(gameObject, pressEventData, pressEventData.position, null);
+                    Menu.Open(gameObject, pressEventData, pressEventData.position, null, false);
                 }
+            }
+        }
+
+        public void ReOpen()
+        {
+            if (Menu != null)
+            {
+                Menu.Open(gameObject, pressEventData, prevPosition, null, true);
+                Menu.gameObject.SetActive(true);
             }
         }
     }

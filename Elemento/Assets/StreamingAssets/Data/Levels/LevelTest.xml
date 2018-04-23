@@ -48,7 +48,7 @@
                 StartTime="0"
                 IsJanitor="true"
                 IsBook="false"
-                Text="Get use to your surrounding! You can use WASD or the rigth mouse button to move around. QE or a click on mouse wheel to rotate. Scrolling will zoom!"/>
+                Text="Get use to your surrounding! Use WASD or the rigth mouse button to move around. Use QE or a click on mouse wheel to rotate. Scrolling will zoom!"/>
 
   <TutorialStep Index="3"
                 StartTime="0"
@@ -72,13 +72,13 @@
                 StartTime="0"
                 IsJanitor="false"
                 IsBook="true"
-                Text="On the rigth side of this book, the young apprentice will find all elements he knows and store"/>
+                Text="On the rigth side of this book, the young apprentice (you) will find all elements he knows and store"/>
 
   <TutorialStep Index="7"
                 StartTime="0"
                 IsJanitor="false"
                 IsBook="true"
-                Text="He will be able to use those to create structures in the world, but starting elements are weak. The easiest way to have better structures is to combine elements to create new ones!"/>
+                Text="He will be able to use those to create towers in the world, but starting elements are weak. The easiest way to have better towers is to combine elements and create improved ones!"/>
 
   <TutorialStep Index="8"
                 StartTime="0"
@@ -90,25 +90,25 @@
                 StartTime="3"
                 IsJanitor="true"
                 IsBook="false"
-                Text="Did you already finished reading? Wow, well I let you train a bit. Ho and, I saw some element in the wild, you may want to catch them if you see them. (mouse over element on the map to collect)"/>
+                Text="Did you already finished reading? Wow, well I let you train a bit. Ho and, I saw some element in the wild, you may want to catch them if you see them. (click over the element elements floating on the map to collect)"/>
 
   <TutorialStep Index="10"
                 StartTime="17"
                 IsJanitor="true"
                 IsBook="false"
-                Text="HEEEELP!!! Using elements again awoke the nearby portal, monsters are comming to attack us!"/>
+                Text="HEEEELP!!! Using elements again awoke the nearby portal, monsters are coming to attack us!"/>
 
   <TutorialStep Index="11"
                 StartTime="17"
                 IsJanitor="true"
                 IsBook="false"
-                Text="Hopefully we still have a defencive tower nearby, but it may not suffice in the future. There is some tower bases around the Academy, you should build more towers!"/>
+                Text="Hopefully we still have a defencive tower nearby, but it may not suffice in the future. There is some tower plots around the Academy, you should build more towers!"/>
 
   <TutorialStep Index="12"
                 StartTime="17"
                 IsJanitor="false"
                 IsBook="true"
-                Text="To build a Tower, you need to infuse a tower base with 3 elements: the fondation, the body and the weapon. (Long click on a tower base to add elements to it)"/>
+                Text="To build a Tower, you need to infuse a tower plot with 3 elements: the fondation, the body and the weapon. (Long click on a tower plot to add elements to it)"/>
 
   <TutorialStep Index="13"
                 StartTime="17"

@@ -245,3 +245,7 @@ MonoBehaviour:
     UnlockTowerTemplate: 
   FrontFace: {fileID: 23150067980402386}
   BackFace: {fileID: 23287224472250212}
+  Collected: 0
+  FloatUpOnCollectedTime: 0.5
+  FloatUpOnCollectedSpeed: 35
+  CollectOnMouseClick: 0

@@ -22,8 +22,16 @@ namespace Assets.Scripts
         public AnimationCurve FdAnimationCurve;
         public float EstimatedMaxChildren;
 
+        public float ReopenTime;
+        public float ReopenTollerance = 1f;
+
         public void OnPointerExit(PointerEventData eventData)
         {
+            if (ReopenTime > Time.time - ReopenTime)
+            {
+                return;
+            }
+
             gameObject.SetActive(false);
             if (OnClose != null)
             {
@@ -40,8 +48,13 @@ namespace Assets.Scripts
             itemPanel.gameObject.SetActive(true);
         }
 
-        public void Open(GameObject instanciator, PointerEventData eventData, Vector3 position, Action onClose)
+        public void Open(GameObject instanciator, PointerEventData eventData, Vector3 position, Action onClose, bool reopen)
         {
+            if (reopen)
+            {
+                ReopenTime = Time.time;
+            }
+
             Instanciator = instanciator;
             OnClose = onClose;
             gameObject.SetActive(false);
@@ -49,11 +62,11 @@ namespace Assets.Scripts
             if (OverrideProvider != null)
             {
                 var overrideInterface = OverrideProvider.GetComponent<IContextualMenuItemInfoProvider>();
-                ContextualMenuItemInfos = overrideInterface.GetContextualMenuInfo().ToList();
+                ContextualMenuItemInfos = overrideInterface.GetContextualMenuInfo(reopen).ToList();
             }
             else
             {
-                ScanForContextualMenuItemInfoProvider(eventData);
+                ScanForContextualMenuItemInfoProvider(eventData, reopen);
             }
 
             RebuildChildren();
@@ -67,7 +80,7 @@ namespace Assets.Scripts
             transform.SetAsLastSibling();
         }
 
-        private void ScanForContextualMenuItemInfoProvider(PointerEventData eventData)
+        private void ScanForContextualMenuItemInfoProvider(PointerEventData eventData, bool reopen)
         {
             var gameObjectsUnderMouse = new List<RaycastResult>();
             EventSystem.current.RaycastAll(eventData, gameObjectsUnderMouse);
@@ -84,7 +97,7 @@ namespace Assets.Scripts
                 var components =
                     firstGameObjectUnderMouse.gameObject.GetComponents(typeof(IContextualMenuItemInfoProvider));
                 var contextualItems =
-                    components.SelectMany(c => ((IContextualMenuItemInfoProvider) c).GetContextualMenuInfo()).ToList();
+                    components.SelectMany(c => ((IContextualMenuItemInfoProvider) c).GetContextualMenuInfo(reopen)).ToList();
                 ContextualMenuItemInfos.AddRange(contextualItems);
             }
         }

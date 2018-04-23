@@ -39,48 +39,18 @@ namespace PyralisStudio.TheCorp.Engine.Camera
 
         public void Update()
         {
-            // panning     
-            if (Input.GetMouseButton(1))
-            {
-                transform.Translate(
-                    Vector3.right * Time.deltaTime * PanSpeed * (Input.mousePosition.x - Screen.width * 0.5f) /
-                    (Screen.width * 0.5f),
-                    Space.World);
-                transform.Translate(
-                    Vector3.forward * Time.deltaTime * PanSpeed * (Input.mousePosition.y - Screen.height * 0.5f) /
-                    (Screen.height * 0.5f),
-                    Space.World);
-            }
+            Pan();
+            Rotate();
+            Zoom();
+        }
 
-            var scrollEdge = ScrollEdge;
-#if UNITY_EDITOR
-            scrollEdge = 0;
-#endif
-
-            var haxisValue = Input.GetAxis(horizontalAxis);
-            if (haxisValue > 0 || scrollEdge != 0 && Input.mousePosition.x >= Screen.width * (1 - scrollEdge))
-            {
-                transform.Translate(Vector3.right * Time.deltaTime * PanSpeed, Space.Self);
-            }
-            else if (haxisValue < 0 || scrollEdge != 0 && Input.mousePosition.x <= Screen.width * scrollEdge)
-            {
-                transform.Translate(Vector3.right * Time.deltaTime * -PanSpeed, Space.Self);
-            }
-
-            var vaxisValue = Input.GetAxis(verticalAxis);
-            if (vaxisValue > 0 || scrollEdge != 0 && Input.mousePosition.y >= Screen.height * (1 - scrollEdge))
-            {
-                transform.Translate(Vector3.forward * Time.deltaTime * PanSpeed, Space.Self);
-            }
-            else if (vaxisValue < 0 || scrollEdge != 0 && Input.mousePosition.y <= Screen.height * scrollEdge)
-            {
-                transform.Translate(Vector3.forward * Time.deltaTime * -PanSpeed, Space.Self);
-            }
-
+        private void Rotate()
+        {
             if (Input.GetMouseButton(2))
             {
                 var left = Input.mousePosition.x < Screen.width / 2;
-                transform.Rotate(Vector3.up * Time.deltaTime * (left ? -rotateSpeed : rotateSpeed), Space.World);
+                var amount = (Input.mousePosition.x - Screen.width * 0.5f) / (Screen.width * 0.5f);
+                transform.Rotate(Vector3.up * Time.deltaTime * rotateSpeed * amount, Space.World);
             }
             if (Input.GetKey("q"))
             {
@@ -90,7 +60,10 @@ namespace PyralisStudio.TheCorp.Engine.Camera
             {
                 transform.Rotate(Vector3.up * Time.deltaTime * rotateSpeed, Space.World);
             }
+        }
 
+        private void Zoom()
+        {
             // zoom in/out
             CurrentZoom -= Input.GetAxis("Mouse ScrollWheel") * Time.deltaTime * 1000 * ZoomZpeed;
 
@@ -110,6 +83,48 @@ namespace PyralisStudio.TheCorp.Engine.Camera
             transform.eulerAngles = new Vector3(x, transform.eulerAngles.y, transform.eulerAngles.z);
 
             transform.position = boundingBox.ClosestPoint(transform.position);
+        }
+
+        private void Pan()
+        {
+            // panning
+            if (Input.GetMouseButton(1))
+            {
+                transform.Translate(
+                    Vector3.right * Time.deltaTime * PanSpeed * (Input.mousePosition.x - Screen.width * 0.5f) /
+                    (Screen.width * 0.5f),
+                    Space.World);
+                transform.Translate(
+                    Vector3.forward * Time.deltaTime * PanSpeed * (Input.mousePosition.y - Screen.height * 0.5f) /
+                    (Screen.height * 0.5f),
+                    Space.World);
+
+                var panEdge = ScrollEdge;
+#if UNITY_EDITOR
+                panEdge = 0;
+#endif
+
+                var haxisValue = Input.GetAxis(horizontalAxis);
+                if (haxisValue > 0 || panEdge != 0 && Input.mousePosition.x >= Screen.width * (1 - panEdge))
+                {
+                    transform.Translate(Vector3.right * Time.deltaTime * PanSpeed, Space.Self);
+                }
+                else if (haxisValue < 0 || panEdge != 0 && Input.mousePosition.x <= Screen.width * panEdge)
+                {
+                    transform.Translate(Vector3.right * Time.deltaTime * -PanSpeed, Space.Self);
+                }
+
+                var vaxisValue = Input.GetAxis(verticalAxis);
+                if (vaxisValue > 0 || panEdge != 0 && Input.mousePosition.y >= Screen.height * (1 - panEdge))
+                {
+                    transform.Translate(Vector3.forward * Time.deltaTime * PanSpeed, Space.Self);
+                }
+                else if (vaxisValue < 0 || panEdge != 0 && Input.mousePosition.y <= Screen.height * panEdge)
+                {
+                    transform.Translate(Vector3.forward * Time.deltaTime * -PanSpeed, Space.Self);
+                }
+
+            }
         }
     }
 }

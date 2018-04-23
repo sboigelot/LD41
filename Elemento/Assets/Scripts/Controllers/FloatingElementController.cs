@@ -20,7 +20,12 @@ namespace Assets.Scripts.Controllers
         public MeshRenderer FrontFace;
         public MeshRenderer BackFace;
 
-        public bool CollectOnMouseOver;
+        public bool Collected;
+        public float FloatUpOnCollectedTime = 0.5f;
+        public float FloatUpOnCollectedSpeed = 35f;
+        private float floatUpOnCollectedStart;
+
+        public bool CollectOnMouseClick;
 
         public void Build()
         {
@@ -40,11 +45,25 @@ namespace Assets.Scripts.Controllers
 
         public void FixedUpdate()
         {
-            if (CollectOnMouseOver && IsThisUnderMouse())
+            if (!Collected && 
+                CollectOnMouseClick && 
+                Input.GetMouseButton(0) && 
+                IsThisUnderMouse())
             {
                 GameManager.Instance.Game.Player.AddElement(Element);
                 UiManager.Instance.ElementList.ReBuild();
-                Destroy(gameObject);
+                
+                Collected = true;
+                floatUpOnCollectedStart = Time.time;
+            }
+
+            if (Collected)
+            {
+                if (Time.time - floatUpOnCollectedStart >= FloatUpOnCollectedTime)
+                {
+                    Destroy(gameObject);
+                }
+                transform.position = transform.position + new Vector3(0, FloatUpOnCollectedSpeed * Time.deltaTime, 0);
             }
         }
 

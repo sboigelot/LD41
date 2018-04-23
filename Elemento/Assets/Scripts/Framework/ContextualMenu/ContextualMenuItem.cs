@@ -33,8 +33,8 @@ namespace Assets.Scripts
         {
             if (Info != null && Info.OnClick != null)
             {
-                Info.OnClick.Invoke(menu, menu.Instanciator, transform.parent.position);
                 menu.gameObject.SetActive(false);
+                Info.OnClick.Invoke(menu, menu.Instanciator, transform.parent.position);
             }
         }
     }

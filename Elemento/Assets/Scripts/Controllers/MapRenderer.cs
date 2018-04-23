@@ -232,14 +232,14 @@ namespace Assets.Scripts.Controllers.Game
         }
         #endregion
 
-        public GameObject InstanciateFloatingElement(Vector3 position, Element element, bool collectOnMouseOver)
+        public GameObject InstanciateFloatingElement(Vector3 position, Element element, bool collectOnMouseClick)
         {
             var prefab = PrefabManager.Instance.GetPrefab("floatingelement");
             var floating = Instantiate(prefab, position, Quaternion.identity, transform);
             var floatingController = floating.GetComponent<FloatingElementController>();
             floatingController.ElementPrototype = PrototypeManager.Instance.GetPrototype<ElementPrototype>(element.Uri);
             floatingController.Element = element;
-            floatingController.CollectOnMouseOver = collectOnMouseOver;
+            floatingController.CollectOnMouseClick = collectOnMouseClick;
             floatingController.Build();
             return floating;
         }

@@ -14,6 +14,8 @@ namespace Assets.Scripts.Managers.DialogBoxes
 
         public bool IsOpen { get; set; }
 
+        public CT Context { get; set; }
+
         public void OpenDialog(object context)
         {
             gameObject.SetActive(true);
@@ -26,7 +28,10 @@ namespace Assets.Scripts.Managers.DialogBoxes
         public void CloseDialog()
         {
             gameObject.SetActive(false);
+            OnScreenClose(Context);
             IsOpen = false;
         }
+
+        protected abstract void OnScreenClose(CT context);
     }
 }

@@ -26,7 +26,10 @@ namespace Assets.Scripts.Managers.DialogBoxes
         public void CloseDialog()
         {
             gameObject.SetActive(false);
+            OnDialogClose();
             IsOpen = false;
         }
+
+        protected abstract void OnDialogClose();
     }
 }

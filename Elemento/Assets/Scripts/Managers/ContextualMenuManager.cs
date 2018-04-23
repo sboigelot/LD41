@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Assets.Scripts.Controllers;
+using Assets.Scripts.Controllers.Framework.ContextualMenu;
 using Assets.Scripts.Models;
 using Assets.Scripts.UI.Controls.ContextualMenu;
 using UnityEngine;
@@ -12,6 +13,10 @@ namespace Assets.Scripts.Managers
     public class ContextualMenuManager: MonoBehaviourSingleton<ContextualMenuManager>, IContextualMenuItemInfoProvider
     {
         public Sprite DefaultContextualMenuItemSprite;
+
+        public ContextualMenuHost ContextualMenuHost;
+
+        private GameObject lastInteractable;
 
         private bool RaycastAll(Ray ray, out RaycastHit hit)
         {
@@ -26,14 +31,16 @@ namespace Assets.Scripts.Managers
             return true;
         }
 
-        public virtual IEnumerable<ContextualMenuItemInfo> GetContextualMenuInfo()
+        public virtual IEnumerable<ContextualMenuItemInfo> GetContextualMenuInfo(bool reOpen)
         {
-            var interactable = GetInteractableUnderMouse();
+            var interactable = reOpen ? lastInteractable : GetInteractableUnderMouse();
 
             if (interactable == null)
             {
                 yield break;
             }
+
+            lastInteractable = interactable;
 
             var plotController = interactable.GetComponentInChildren<TowerPlotController>();
 
@@ -83,6 +90,10 @@ namespace Assets.Scripts.Managers
                                     Count = 1,
                                     Uri = element.Uri
                                 });
+                                if (plotController.Plot.Tower == null)
+                                {
+                                    ContextualMenuHost.ReOpen();
+                                }
                             }
                         };
                     }

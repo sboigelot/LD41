@@ -4,6 +4,6 @@ namespace Assets.Scripts.UI.Controls.ContextualMenu
 {
     public interface IContextualMenuItemInfoProvider
     {
-        IEnumerable<ContextualMenuItemInfo> GetContextualMenuInfo();
+        IEnumerable<ContextualMenuItemInfo> GetContextualMenuInfo(bool reOpen);
     }
 }
