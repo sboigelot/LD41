@@ -21,7 +21,8 @@ GameObject:
   - component: {fileID: 4901615713344996}
   - component: {fileID: 33767240000552476}
   - component: {fileID: 23626271398196594}
-  - component: {fileID: 114353445401598556}
+  - component: {fileID: 65161893171608790}
+  - component: {fileID: 114056555185741930}
   m_Layer: 0
   m_Name: stronghold
   m_TagString: Untagged
@@ -81,7 +82,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1781952391542880}
   m_Mesh: {fileID: 4300002, guid: 57e90048093d4474fa3c9691fb9c1b46, type: 3}
---- !u!114 &114353445401598556
+--- !u!65 &65161893171608790
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1781952391542880}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 4, z: 1}
+  m_Center: {x: 0, y: 4, z: 0}
+--- !u!114 &114056555185741930
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -89,9 +102,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1781952391542880}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: 1dada0bd720f8954da3570c8174bbf52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0.90344834, g: 1, b: 0, a: 0.5}
-  m_EffectDistance: {x: 1, y: -1}
-  m_UseGraphicAlpha: 1
+  content: The Academy

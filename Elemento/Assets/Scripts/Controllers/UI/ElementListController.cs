@@ -31,7 +31,9 @@ namespace Assets.Scripts.Controllers.Game.UI
             StartCoroutine(SpriteManager.Set(itemObject.GetComponentInChildren<Image>(), "Images/Elements", elementPrototype.SpritePath));
             var itemController = itemObject.AddComponent<ElementListItemController>();
             itemController.Element = data;
+            itemController.ElementPrototype = elementPrototype;
             itemController.Text = itemObject.GetComponentInChildren<Text>();
+            itemController.TooltipProvider = itemObject.GetComponentInChildren<TooltipProvider>();
         }
     }
 }

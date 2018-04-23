@@ -102,13 +102,13 @@
                 StartTime="17"
                 IsJanitor="true"
                 IsBook="false"
-                Text="Hopefully we still have a defencive tower nearby, but it may not suffice in the future. There is some tower plots around the Academy, you should build more towers!"/>
+                Text="Hopefully we still have a defencive tower nearby, but it may not suffice in the future. There is some tower foundation around the Academy, you should build more towers!"/>
 
   <TutorialStep Index="12"
                 StartTime="17"
                 IsJanitor="false"
                 IsBook="true"
-                Text="To build a Tower, you need to infuse a tower plot with 3 elements: the fondation, the body and the weapon. (Long click on a tower plot to add elements to it)"/>
+                Text="To build a Tower, you need to infuse a tower foundation with 3 elements: the pedestal, the body and the weapon. (Long click on a tower foundation to add elements to it)"/>
 
   <TutorialStep Index="13"
                 StartTime="17"
