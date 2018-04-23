@@ -134,5 +134,15 @@ namespace Assets.Scripts.Managers
                 EndGame(false);
             }
         }
+
+        public void Pause(bool value)
+        {
+            Game.Paused = value;
+        }
+
+        public void SpeedUp(bool value)
+        {
+            Game.GameTime = value ? 2 : 1;
+        }
     }
 }

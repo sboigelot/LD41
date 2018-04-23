@@ -90,7 +90,7 @@ namespace Assets.Scripts.Controllers.Game
 
             //Direction to the next waypoint
             Vector3 dir = (currentDestination - transform.position).normalized;
-            dir *= Speed * Time.fixedDeltaTime * /*TimeLineManager.Current.SimulationSpeed*/ 1;
+            dir *= Speed * Time.fixedDeltaTime * GameManager.Instance.Game.GameSpeed;
             //dir.y = 0f;
             controller.Move(dir);
         }

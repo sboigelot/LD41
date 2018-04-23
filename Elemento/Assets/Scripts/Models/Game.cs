@@ -10,11 +10,26 @@ namespace Assets.Scripts.Models
     public class Game
     {
         public float GameTime;
-        public bool Paused = true;
+        private bool paused = true;
+
+        public int GameSpeed = 1;
 
         public Player Player;
         public Level CurrentLevel;
-        
+
+        public bool Paused
+        {
+            get
+            {
+                return paused;
+            }
+            set
+            {
+                paused = value;
+                UiManager.Instance.PauseText.SetActive(value);
+            }
+        }
+
         public void Initialize()
         {
             Paused = false;
@@ -24,7 +39,7 @@ namespace Assets.Scripts.Models
         {
             if (!Paused && PrototypeManager.Instance.Loaded && CurrentLevel != null)
             {
-                GameTime += Time.deltaTime;
+                GameTime += Time.deltaTime * GameSpeed;
                 CurrentLevel.Update(deltaTime);
             }
         }      
