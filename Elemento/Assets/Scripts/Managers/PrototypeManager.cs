@@ -93,6 +93,7 @@ namespace Assets.Scripts.Managers
                 yield return s;
             }
 
+            Prototypes = new List<LoadedPrototype>();
             foreach (var protoypeIndex in Index.Where(i=>filter(i.ProtoypeType)))
             {
                 var index = protoypeIndex;

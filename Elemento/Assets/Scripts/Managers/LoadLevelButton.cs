@@ -9,11 +9,15 @@ namespace Assets.Scripts.Managers
         public Text Title;
         public Level Level;
 
+        public void Awake()
+        {
+            StartCoroutine(SpriteManager.Set(Image, "Data/Levels", Level.PreviewPicPath));
+        }
+
         public void Build(Level level)
         {
             Level = level;
             Title.text = level.Name;
-            StartCoroutine(SpriteManager.Set(Image, "Data/Levels", level.PreviewPicPath));
         }
 
         public void Load()
