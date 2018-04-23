@@ -3283,6 +3283,7 @@ GameObject:
   - component: {fileID: 1291442213}
   - component: {fileID: 1291442212}
   - component: {fileID: 1291442214}
+  - component: {fileID: 1291442215}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -3335,6 +3336,8 @@ MonoBehaviour:
       MonsterPaths: []
       MonsterWaves: []
       ElementalNodes: []
+      TutorialSteps: []
+      TutorialIndex: 0
   PrototypeManager:
     Index: []
     Prototypes: []
@@ -3405,6 +3408,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DefaultContextualMenuItemSprite: {fileID: 21300000, guid: d208dd3a25af65048a660acd233a41bd,
     type: 3}
+--- !u!114 &1291442215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1291442209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd2abe5b3c3c17c4da65b94cabe4ab2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  JanitorSprite: {fileID: 21300000, guid: c08e7460650a55441bbddc455e6507d3, type: 3}
+  BookSprite: {fileID: 21300000, guid: 62677f24cc2ba794e8f423bc2820acdc, type: 3}
 --- !u!1 &1347434932
 GameObject:
   m_ObjectHideFlags: 0

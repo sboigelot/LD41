@@ -44,7 +44,7 @@ namespace Assets.Scripts.Controllers.Game
 
         public void FixedUpdate()
         {
-            if (CurrentPath == null)
+            if (CurrentPath == null || GameManager.Instance.Game.Paused)
             {
                 //We have no path to move after yet
                 return;

@@ -62,8 +62,6 @@ namespace Assets.Scripts.Managers
                 HpSlider.minValue = 0;
                 HpSlider.value = HpSlider.maxValue;
             }
-
-            DialogPanelController.Instance.Open(null, "this is a test", null, null);
         }
 
         public void EndGame(bool win)

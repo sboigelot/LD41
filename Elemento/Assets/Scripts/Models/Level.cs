@@ -121,9 +121,16 @@ namespace Assets.Scripts.Models
 
         [XmlElement("ElementalNode")]
         public List<ElementalNode> ElementalNodes;
+
+        [XmlElement("TutorialStep")]
+        public List<TutorialStep> TutorialSteps;
+
+        [XmlIgnore]
+        public int TutorialIndex = -1;
         
         public void Update(float deltaTime)
         {
+            TutorialManager.Instance.UpdateTutorial(this);
             UpdateMonsterWaves(deltaTime);
         }
 
