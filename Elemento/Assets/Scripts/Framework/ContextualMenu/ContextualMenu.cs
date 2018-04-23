@@ -5,6 +5,7 @@ using Assets.Scripts.UI.Controls.ContextualMenu;
 using Assets.Scripts.Utils;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI.Extensions;
 
 namespace Assets.Scripts
 {
@@ -18,6 +19,8 @@ namespace Assets.Scripts
         private GameObject itemTemplate;
         public Action OnClose;
         public GameObject OverrideProvider;
+        public AnimationCurve FdAnimationCurve;
+        public float EstimatedMaxChildren;
 
         public void OnPointerExit(PointerEventData eventData)
         {
@@ -55,6 +58,10 @@ namespace Assets.Scripts
 
             RebuildChildren();
             transform.position = position;
+
+            float fdeval = (float)itemPanel.transform.childCount / EstimatedMaxChildren;
+            itemPanel.GetComponent<RadialLayout>().FDistanceMultiplier = FdAnimationCurve.Evaluate(fdeval);
+
             gameObject.SetActive(true);
 
             transform.SetAsLastSibling();

@@ -1443,6 +1443,11 @@ Prefab:
       propertyPath: m_Animations.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114836913499999284, guid: bf17c9c90620ebe4ab7ee31a8138476f,
+        type: 2}
+      propertyPath: FdAnimationCurve.m_Curve.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 224843220503222740, guid: bf17c9c90620ebe4ab7ee31a8138476f,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -1597,6 +1602,96 @@ Prefab:
         type: 2}
       propertyPath: m_Colors.m_DisabledColor.b
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114836913499999284, guid: bf17c9c90620ebe4ab7ee31a8138476f,
+        type: 2}
+      propertyPath: FdAnimationCurve.m_Curve.Array.data[1].time
+      value: 0.26969212
+      objectReference: {fileID: 0}
+    - target: {fileID: 114836913499999284, guid: bf17c9c90620ebe4ab7ee31a8138476f,
+        type: 2}
+      propertyPath: FdAnimationCurve.m_Curve.Array.data[1].value
+      value: 0.7492302
+      objectReference: {fileID: 0}
+    - target: {fileID: 114836913499999284, guid: bf17c9c90620ebe4ab7ee31a8138476f,
+        type: 2}
+      propertyPath: FdAnimationCurve.m_Curve.Array.data[1].inSlope
+      value: 0.62555075
+      objectReference: {fileID: 0}
+    - target: {fileID: 114836913499999284, guid: bf17c9c90620ebe4ab7ee31a8138476f,
+        type: 2}
+      propertyPath: FdAnimationCurve.m_Curve.Array.data[1].outSlope
+      value: 0.62555075
+      objectReference: {fileID: 0}
+    - target: {fileID: 114836913499999284, guid: bf17c9c90620ebe4ab7ee31a8138476f,
+        type: 2}
+      propertyPath: FdAnimationCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114836913499999284, guid: bf17c9c90620ebe4ab7ee31a8138476f,
+        type: 2}
+      propertyPath: EstimatedMaxChildren
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114836913499999284, guid: bf17c9c90620ebe4ab7ee31a8138476f,
+        type: 2}
+      propertyPath: FdAnimationCurve.m_Curve.Array.data[0].time
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114836913499999284, guid: bf17c9c90620ebe4ab7ee31a8138476f,
+        type: 2}
+      propertyPath: FdAnimationCurve.m_Curve.Array.data[0].value
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114836913499999284, guid: bf17c9c90620ebe4ab7ee31a8138476f,
+        type: 2}
+      propertyPath: FdAnimationCurve.m_Curve.Array.data[2].time
+      value: 0.55102146
+      objectReference: {fileID: 0}
+    - target: {fileID: 114836913499999284, guid: bf17c9c90620ebe4ab7ee31a8138476f,
+        type: 2}
+      propertyPath: FdAnimationCurve.m_Curve.Array.data[2].value
+      value: 0.88109964
+      objectReference: {fileID: 0}
+    - target: {fileID: 114836913499999284, guid: bf17c9c90620ebe4ab7ee31a8138476f,
+        type: 2}
+      propertyPath: FdAnimationCurve.m_Curve.Array.data[2].inSlope
+      value: 0.2786517
+      objectReference: {fileID: 0}
+    - target: {fileID: 114836913499999284, guid: bf17c9c90620ebe4ab7ee31a8138476f,
+        type: 2}
+      propertyPath: FdAnimationCurve.m_Curve.Array.data[2].outSlope
+      value: 0.2786517
+      objectReference: {fileID: 0}
+    - target: {fileID: 114836913499999284, guid: bf17c9c90620ebe4ab7ee31a8138476f,
+        type: 2}
+      propertyPath: FdAnimationCurve.m_Curve.Array.data[0].inSlope
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114836913499999284, guid: bf17c9c90620ebe4ab7ee31a8138476f,
+        type: 2}
+      propertyPath: FdAnimationCurve.m_Curve.Array.data[0].outSlope
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114836913499999284, guid: bf17c9c90620ebe4ab7ee31a8138476f,
+        type: 2}
+      propertyPath: FdAnimationCurve.m_Curve.Array.data[3].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114836913499999284, guid: bf17c9c90620ebe4ab7ee31a8138476f,
+        type: 2}
+      propertyPath: FdAnimationCurve.m_Curve.Array.data[3].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114836913499999284, guid: bf17c9c90620ebe4ab7ee31a8138476f,
+        type: 2}
+      propertyPath: FdAnimationCurve.m_Curve.Array.data[3].inSlope
+      value: 0.33772355
+      objectReference: {fileID: 0}
+    - target: {fileID: 114836913499999284, guid: bf17c9c90620ebe4ab7ee31a8138476f,
+        type: 2}
+      propertyPath: FdAnimationCurve.m_Curve.Array.data[3].outSlope
+      value: 0.33772355
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bf17c9c90620ebe4ab7ee31a8138476f, type: 2}

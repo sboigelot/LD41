@@ -56,9 +56,20 @@ namespace Assets.Scripts.Managers
                 }
                 else
                 {
+                    var buildingStage = plotController.BuildingElements == null ||
+                                        plotController.BuildingElements.Count == 0 ? TowerSlotType.Base :
+                                        plotController.BuildingElements.Count == 1 ? TowerSlotType.Body :  
+                                        TowerSlotType.Weapon;
                     foreach (var element in GameManager.Instance.Game.Player.Elements)
                     {
                         var prototype = PrototypeManager.Instance.GetPrototype<ElementPrototype>(element.Uri);
+
+                        if (prototype.ElementStats == null ||
+                            prototype.ElementStats.All(s => s.InSlot != buildingStage))
+                        {
+                            continue;
+                        }
+
                         yield return new ContextualMenuItemInfo
                         {
                             Image = SpriteManager.Instance.GetChached("Images/Elements", prototype.SpritePath),
@@ -67,7 +78,6 @@ namespace Assets.Scripts.Managers
                             TooltipText = "Add Element " + prototype.Name,
                             OnClick = (contextualMenu, gameObject, vector3) =>
                             {
-                                //TODO from player remove
                                 plotController.AddElement(new Element
                                 {
                                     Count = 1,

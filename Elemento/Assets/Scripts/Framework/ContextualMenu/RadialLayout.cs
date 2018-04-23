@@ -28,6 +28,8 @@ namespace UnityEngine.UI.Extensions
     {
         public float FDistance;
 
+        public float FDistanceMultiplier = 1f;
+
         [Range(0f, 360f)]
         public float MinAngle, MaxAngle, StartAngle;
 
@@ -86,7 +88,7 @@ namespace UnityEngine.UI.Extensions
                         DrivenTransformProperties.Anchors | DrivenTransformProperties.AnchoredPosition | DrivenTransformProperties.Pivot);
 
                     var vPos = new Vector3(Mathf.Cos(fAngle * Mathf.Deg2Rad), Mathf.Sin(fAngle * Mathf.Deg2Rad), 0);
-                    child.localPosition = vPos * FDistance;
+                    child.localPosition = vPos * FDistance * FDistanceMultiplier;
 
                     // Force objects to be center aligned, this can be changed however I'd suggest you keep all of the objects with the same anchor points.
                     child.anchorMin = child.anchorMax = child.pivot = new Vector2(0.5f, 0.5f);
