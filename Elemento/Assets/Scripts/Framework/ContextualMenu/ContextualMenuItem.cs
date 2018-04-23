@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.UI;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Assets.Scripts
@@ -24,6 +25,12 @@ namespace Assets.Scripts
             if (button != null && Info != null)
             {
                 button.onClick.AddListener(() => OnButtonClick());
+            }
+
+            var tooltip = GetComponent<TooltipProvider>() ?? GetComponentInChildren<TooltipProvider>();
+            if (tooltip != null && info != null)
+            {
+                tooltip.content = info.TooltipText;
             }
 
             button.enabled = Info == null || Info.IsEnable == null || Info.IsEnable();

@@ -6,6 +6,7 @@ using System.Text;
 using Assets.Scripts.Framework;
 using Assets.Scripts.Managers;
 using Assets.Scripts.Models;
+using Assets.Scripts.UI;
 using UnityEngine;
 
 namespace Assets.Scripts.Controllers
@@ -41,6 +42,9 @@ namespace Assets.Scripts.Controllers
 
             var sprite = SpriteManager.Instance.GetChached("Images/Elements", ElementPrototype.SpritePath);
             FrontFace.material.SetTexture("_MainTex", sprite.texture);
+
+            var tooltip = gameObject.AddComponent<WorldTooltipProvider>();
+            tooltip.content = "Wild element: " + ElementPrototype.Name + " <i>(click to collect)</i>";
         }
 
         public void FixedUpdate()

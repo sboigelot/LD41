@@ -67,6 +67,12 @@ namespace Assets.Scripts.Managers
                                         plotController.BuildingElements.Count == 0 ? TowerSlotType.Base :
                                         plotController.BuildingElements.Count == 1 ? TowerSlotType.Body :  
                                         TowerSlotType.Weapon;
+                    var partNames = new Dictionary<TowerSlotType, string>
+                    {
+                        {TowerSlotType.Base, "pedestal"},
+                        {TowerSlotType.Body, "body"},
+                        {TowerSlotType.Weapon, "weapon"},
+                    };
                     foreach (var element in GameManager.Instance.Game.Player.Elements)
                     {
                         var prototype = PrototypeManager.Instance.GetPrototype<ElementPrototype>(element.Uri);
@@ -82,7 +88,7 @@ namespace Assets.Scripts.Managers
                             Image = SpriteManager.Instance.GetChached("Images/Elements", prototype.SpritePath),
                             IsEnable = () => element.Count > 0,
                             Name = "AddElement" + prototype.Name,
-                            TooltipText = "Add Element " + prototype.Name,
+                            TooltipText = "Infuse " + prototype.Name + " as "+ partNames[buildingStage],
                             OnClick = (contextualMenu, gameObject, vector3) =>
                             {
                                 plotController.AddElement(new Element

@@ -42,7 +42,7 @@
                 StartTime="0"
                 IsJanitor="true"
                 IsBook="false"
-                Text="Since the great attack, few are thoses interested by the arts great wizard used to practice here"/>
+                Text="Since the great cataclysm, few are thoses interested by the arts of great wizards"/>
 
   <TutorialStep Index="2"
                 StartTime="0"
@@ -54,7 +54,7 @@
                 StartTime="0"
                 IsJanitor="true"
                 IsBook="false"
-                Text="Unfortunatly I know nothing about the elements, I'm just the Janitor. I stayed here and took care of the place after everyone left"/>
+                Text="Unfortunatly I know nothing about the elements, I'm just the Janitor. I stayed here and took care of the place after everyone left..."/>
 
   <TutorialStep Index="4"
                 StartTime="0"
@@ -72,25 +72,25 @@
                 StartTime="0"
                 IsJanitor="false"
                 IsBook="true"
-                Text="On the rigth side of this book, the young apprentice (you) will find all elements he knows and store"/>
+                Text="On the rigth side of the screen, you will find all elements that belongs to you"/>
 
   <TutorialStep Index="7"
                 StartTime="0"
                 IsJanitor="false"
                 IsBook="true"
-                Text="He will be able to use those to create towers in the world, but starting elements are weak. The easiest way to have better towers is to combine elements and create improved ones!"/>
+                Text="You will be able to use those to create towers in the world, but starting elements are weak and not really good for it. The have better elements you have combine them and create improved ones!"/>
 
   <TutorialStep Index="8"
                 StartTime="0"
                 IsJanitor="false"
                 IsBook="true"
-                Text="The young apprentice will now try to combine Water and Earth together to create Clay. (Drag and Drop elements in the Combination tool then click on the result)"/>
+                Text="Try to combine Water and Earth together to create Clay. (Drag and Drop elements in the Combination tool then click on the result)"/>
 
   <TutorialStep Index="9"
                 StartTime="3"
                 IsJanitor="true"
                 IsBook="false"
-                Text="Did you already finished reading? Wow, well I let you train a bit. Ho and, I saw some element in the wild, you may want to catch them if you see them. (click over the element elements floating on the map to collect)"/>
+                Text="Did you already finished reading? Wow, well I let you train a bit. Ho and, I saw some elements in the wild, you may want to catch them if you see them. (click on the elements floating on the map to collect them)"/>
 
   <TutorialStep Index="10"
                 StartTime="17"
@@ -102,7 +102,7 @@
                 StartTime="17"
                 IsJanitor="true"
                 IsBook="false"
-                Text="Hopefully we still have a defencive tower nearby, but it may not suffice in the future. There is some tower foundation around the Academy, you should build more towers!"/>
+                Text="Hopefully we still have a defencive tower nearby, but it may not suffice in the future. There is some tower foundations around the Academy, you should build more towers! (next for 'how to')"/>
 
   <TutorialStep Index="12"
                 StartTime="17"
@@ -114,7 +114,7 @@
                 StartTime="17"
                 IsJanitor="false"
                 IsBook="true"
-                Text="Every element provide different bonus to each part of a tower. You can find more info about them once you built a tower. (Long click on a tower - select 'info')"/>
+                Text="More complex elements will build more powerfull tower! So try to combine elements before using them to build!"/>
 
   <TutorialStep Index="14"
                 StartTime="17"

@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33294589230892596}
   - component: {fileID: 23944720649726000}
   - component: {fileID: 64330513812949902}
+  - component: {fileID: 114860804666830462}
   m_Layer: 0
   m_Name: towerplot
   m_TagString: Untagged
@@ -95,3 +96,15 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 5fc61728e48aba64397a82a5e6e2535f, type: 3}
+--- !u!114 &114860804666830462
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1003953868161976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dada0bd720f8954da3570c8174bbf52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: Tower foundation

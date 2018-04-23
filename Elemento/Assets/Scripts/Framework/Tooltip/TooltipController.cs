@@ -14,17 +14,23 @@ namespace Assets.Scripts.UI
         public Vector3 LeftOffset;
         public Vector3 RigthOffset;
         public float TooltipDuration;
+        public bool StaticTooltip;
 
         public void Update()
         {
-            transform.position = Input.mousePosition + GetOffset();
+            if (!StaticTooltip)
+            {
+                transform.position = Input.mousePosition + GetOffset();
+            }
         }
 
         public void Show(string content)
         {
             Text.text = content;
-            //Text.alignment = OnTheRigth() ? TextAnchor.MiddleRight: TextAnchor.MiddleLeft;
-            transform.position = Input.mousePosition + GetOffset();
+            if (!StaticTooltip)
+            {
+                transform.position = Input.mousePosition + GetOffset();
+            }
             gameObject.SetActive(true);
             //StartCoroutine(HideTooltip());
         }
