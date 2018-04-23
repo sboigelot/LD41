@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.Controllers.Game;
+using Assets.Scripts.Controllers.UI;
 using Assets.Scripts.Models;
 using Assets.Scripts.UI;
 using Assets.Scripts.UI.Controls.ContextualMenu;
@@ -61,6 +62,8 @@ namespace Assets.Scripts.Managers
                 HpSlider.minValue = 0;
                 HpSlider.value = HpSlider.maxValue;
             }
+
+            DialogPanelController.Instance.Open(null, "this is a test", null, null);
         }
 
         public void EndGame(bool win)
