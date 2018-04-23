@@ -87,37 +87,37 @@
                 Text="Did you already finished reading? Wow, well I let you train a bit. Ho and, I saw some elements in the wild, you may want to catch them if you see them. (click on the elements floating on the map to collect them)"/>
 
   <TutorialStep Index="9"
-                StartTime="17"
+                StartTime="15"
                 IsJanitor="true"
                 IsBook="false"
                 Text="HEEEELP!!! Using elements again awoke the nearby portal, monsters are coming to attack us!"/>
 
   <TutorialStep Index="10"
-                StartTime="17"
+                StartTime="15"
                 IsJanitor="true"
                 IsBook="false"
                 Text="Hopefully we still have a defencive tower nearby, but it may not suffice in the future. There is some tower foundations around the Academy, you should build more towers! (next for 'how to')"/>
 
   <TutorialStep Index="11"
-                StartTime="17"
+                StartTime="15"
                 IsJanitor="false"
                 IsBook="true"
                 Text="To build a Tower, you need to infuse a tower foundation with 3 elements: the pedestal, the body and the weapon. (Long click on a tower foundation to add elements to it)"/>
 
   <TutorialStep Index="12"
-                StartTime="17"
+                StartTime="15"
                 IsJanitor="false"
                 IsBook="true"
                 Text="More complex elements will build more powerfull tower! So try to combine elements before using them to build!"/>
 
-  <TutorialStep Index="12"
-                StartTime="17"
+  <TutorialStep Index="13"
+                StartTime="15"
                 IsJanitor="false"
                 IsBook="true"
                 Text="Each elements brings different damage, range and speed to a tower. For instance a Fire Weapon does more damage than clay, but clay provide more range then earth when used for a Body"/>
 
   <TutorialStep Index="14"
-                StartTime="17"
+                StartTime="15"
                 IsJanitor="true"
                 IsBook="false"
                 Text="Well, what are you waiting for?! If the monsters reach us: the Academy will take damage... and once it's gone, we are next. Help us survive!"/>
@@ -149,7 +149,7 @@
   </MonsterPath>
   
   <MonsterWave SpawnpointId="0"
-               TriggerDeltaTime="15"
+               TriggerDeltaTime="10"
                DeltaTimeBetweenSpawn="2">
     <Spawn MonsterPrototypeUri="monster:marshmallow"
            Count="2"/>

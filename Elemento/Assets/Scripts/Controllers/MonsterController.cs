@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.Managers;
@@ -16,6 +17,8 @@ namespace Assets.Scripts.Controllers.Game
         public float Speed = 0.7f;
         public float DestinationReachedThreshold = 0.4f;
         public float Hp;
+
+        public GameObject Healthbar;
 
         private CharacterController controller;
 
@@ -117,6 +120,20 @@ namespace Assets.Scripts.Controllers.Game
             {
                 Die();
             }
+            else
+            {
+                var healBarRender = Healthbar.GetComponent<MeshRenderer>();
+
+                var percent = Hp / MonsterPrototype.Hp;
+                Healthbar.transform.localScale = new Vector3(1f * percent, 0.1f, 0.1f);
+
+                healBarRender.material.color =
+                    percent >= 0.8f ? Color.green :
+                    percent >= 0.6f ? Color.yellow :
+                    percent >= 0.3f ? new Color(255,165,0) : 
+                    Color.red;
+                Healthbar.SetActive(Math.Abs(Hp - MonsterPrototype.Hp) > 0.1f);
+            }
         }
 
         private float CompensateArmor(DamageType damageType, float amount)
@@ -155,6 +172,21 @@ namespace Assets.Scripts.Controllers.Game
                   transform.position.z);
                 MapRenderer.Instance.InstanciateFloatingElement(position, loot, true);
             }
+        }
+
+        public void AddHealthBar()
+        {
+            Healthbar = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            var healBarRender = Healthbar.GetComponent<MeshRenderer>();
+            
+            Healthbar.transform.localScale = new Vector3(1f, 0.1f, 0.1f);
+
+            healBarRender.material.color = Color.green;
+            
+            Healthbar.transform.position = gameObject.transform.position + new Vector3(0, 1.4f, 0);
+            Healthbar.transform.SetParent(gameObject.transform);
+
+            Healthbar.SetActive(false);
         }
     }
 }

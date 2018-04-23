@@ -117,6 +117,7 @@ namespace Assets.Scripts.Managers
             monsterController.CurrentPath = spawnPoint.GetAnyDestinationPath(Game.CurrentLevel);
             monsterController.Speed = monsterPrototype.Speed;
             monsterController.Hp = monsterPrototype.Hp;
+            monsterController.AddHealthBar();
             CurrentMonsters.Add(monster);
         }
 
@@ -142,7 +143,7 @@ namespace Assets.Scripts.Managers
 
         public void SpeedUp(bool value)
         {
-            Game.GameTime = value ? 2 : 1;
+            Game.GameSpeed = value ? 2 : 1;
         }
     }
 }

@@ -16,6 +16,13 @@ namespace Assets.Scripts.Managers.DialogBoxes
 
         public CT Context { get; set; }
 
+        public void OpenDialog()
+        {
+            gameObject.SetActive(true);
+            OnScreenOpen(new CT());
+            IsOpen = true;
+        }
+
         public void OpenDialog(object context)
         {
             gameObject.SetActive(true);
