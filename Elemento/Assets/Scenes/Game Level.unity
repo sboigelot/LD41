@@ -5380,6 +5380,12 @@ MonoBehaviour:
     Prefab: {fileID: 100000, guid: fb1918024ff3dff4dafb46b8d65b922c, type: 3}
   - Name: tower:weapon:fire
     Prefab: {fileID: 100000, guid: a3b0b16d7af08c74d9c7513fbc87a2b7, type: 3}
+  - Name: marshmallow:green
+    Prefab: {fileID: 1246047951027622, guid: db5410fe59cd70644ace6fc479694150, type: 2}
+  - Name: marshmallow:blue
+    Prefab: {fileID: 1553962356601426, guid: 87cdd00c201e50b4982a8964f6a31982, type: 2}
+  - Name: marshmallow:big
+    Prefab: {fileID: 1278038604335354, guid: f70dd63772d621a45906cdf2b928aa62, type: 2}
 --- !u!114 &1291442213
 MonoBehaviour:
   m_ObjectHideFlags: 0

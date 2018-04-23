@@ -152,7 +152,7 @@
   <MonsterWave SpawnpointId="0"
                TriggerDeltaTime="10"
                DeltaTimeBetweenSpawn="2">
-    <Spawn MonsterPrototypeUri="monster:marshmallow"
+    <Spawn MonsterPrototypeUri="monster:marshmallow:green"
            Count="2"/>
   </MonsterWave>
   

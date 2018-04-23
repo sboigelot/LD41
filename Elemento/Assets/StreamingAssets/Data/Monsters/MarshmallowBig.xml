@@ -1,0 +1,10 @@
+<MonsterPrototype PrefabName="marshmallow:big"
+                  Speed="1"
+                  Hp="7"
+                  DamageOnStronghold="2">
+  <Armor DamageType="Burning" FlatAmount="0.3" Percent="0"/>
+  <Loot Uri="element:water" Count="2"/>
+  <Loot Uri="element:air" Count="1"/>
+  <Loot Uri="element:lava" Count="1"/>
+</MonsterPrototype>
+                  
