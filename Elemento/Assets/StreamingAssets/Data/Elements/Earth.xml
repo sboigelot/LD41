@@ -4,7 +4,7 @@
         DamageType="Blunt"
         DamageAmount="1"
         SpeedBonus="0"
-        RangeBonus="5"
+        RangeBonus="4"
         AmmoSpeedBonus="0"
         ModelPrefab="tower:base:dirt"/>
   <Stat InSlot="Body"

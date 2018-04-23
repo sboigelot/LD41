@@ -2,7 +2,7 @@
                   SpritePath="fire">
   <Stat InSlot="Weapon"
         DamageType="Burning"
-        DamageAmount="3"
+        DamageAmount="5"
         SpeedBonus="5"
         RangeBonus="-2"
         AmmoSpeedBonus="35"
