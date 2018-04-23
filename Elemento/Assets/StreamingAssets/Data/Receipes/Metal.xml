@@ -1,0 +1,3 @@
+<ElementPrototypeReceipe Element1="element:lava"
+                         Element2="element:time"
+                         ElementResult="element:metal"/>

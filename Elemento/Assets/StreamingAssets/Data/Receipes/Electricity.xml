@@ -1,0 +1,3 @@
+<ElementPrototypeReceipe Element1="element:metal"
+                         Element2="element:air"
+                         ElementResult="element:electricity"/>

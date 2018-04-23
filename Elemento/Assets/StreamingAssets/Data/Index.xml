@@ -9,7 +9,37 @@
   <ProtoypeIndex Uri="element:fire" Path="Elements/Fire.xml"/>
   <ProtoypeIndex Uri="element:air" Path="Elements/Air.xml"/>
 
+  <ProtoypeIndex Uri="receipe:brick" Path="Receipes/Brick.xml"/>
+  <ProtoypeIndex Uri="element:brick" Path="Elements/Brick.xml"/>
+
   <ProtoypeIndex Uri="receipe:clay" Path="Receipes/Clay.xml"/>
   <ProtoypeIndex Uri="element:clay" Path="Elements/Clay.xml"/>
+
+  <ProtoypeIndex Uri="receipe:death" Path="Receipes/Death.xml"/>
+  <ProtoypeIndex Uri="element:death" Path="Elements/Death.xml"/>
+
+  <ProtoypeIndex Uri="receipe:electricity" Path="Receipes/Electricity.xml"/>
+  <ProtoypeIndex Uri="element:electricity" Path="Elements/Electricity.xml"/>
+
+  <ProtoypeIndex Uri="receipe:lava" Path="Receipes/Lava.xml"/>
+  <ProtoypeIndex Uri="element:lava" Path="Elements/Lava.xml"/>
+
+  <ProtoypeIndex Uri="receipe:life" Path="Receipes/Life.xml"/>
+  <ProtoypeIndex Uri="element:life" Path="Elements/Life.xml"/>
+
+  <ProtoypeIndex Uri="receipe:metal" Path="Receipes/Metal.xml"/>
+  <ProtoypeIndex Uri="element:metal" Path="Elements/Metal.xml"/>
+
+  <ProtoypeIndex Uri="receipe:obsidian" Path="Receipes/Obsidian.xml"/>
+  <ProtoypeIndex Uri="element:obsidian" Path="Elements/Obsidian.xml"/>
+
+  <ProtoypeIndex Uri="receipe:stone" Path="Receipes/Stone.xml"/>
+  <ProtoypeIndex Uri="element:stone" Path="Elements/Stone.xml"/>
+
+  <ProtoypeIndex Uri="receipe:time" Path="Receipes/Time.xml"/>
+  <ProtoypeIndex Uri="element:time" Path="Elements/Time.xml"/>
+
+  <ProtoypeIndex Uri="receipe:wood" Path="Receipes/Wood.xml"/>
+  <ProtoypeIndex Uri="element:wood" Path="Elements/Wood.xml"/>
 
 </ArrayOfProtoypeIndex>

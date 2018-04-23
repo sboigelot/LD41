@@ -1,5 +1,5 @@
-<ElementPrototype Name="Air" 
-                  SpritePath="air">
+<ElementPrototype Name="Metal"
+                  SpritePath="metal">
   <Stat InSlot="Weapon"
         DamageType="Blunt"
         DamageAmount="3"

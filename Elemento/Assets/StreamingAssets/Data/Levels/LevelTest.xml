@@ -164,9 +164,10 @@
   </MonsterWave>
 
   <StartingElement Uri="element:water" Count="5"/>
-  <StartingElement Uri="element:earth" Count="4"/>
-  <StartingElement Uri="element:fire" Count="2"/>
-  <StartingElement Uri="element:air" Count="6"/>
+  <StartingElement Uri="element:earth" Count="5"/>
+  <StartingElement Uri="element:fire" Count="8"/>
+  <StartingElement Uri="element:air" Count="8"/>
+  <StartingElement Uri="element:life" Count="2"/>
   
   <TileString>
     0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,

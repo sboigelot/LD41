@@ -1,0 +1,19 @@
+﻿<!--
+Air
+Earth
+Fire
+Water
+
+Earth + Water = Clay
+Clay + Fire = Brick
+Earth + Fire = Lava
+Lava + Water = Obsidian
+Laval + Air = Stone
+Clay + Water = Life
+Life + Water = Wood
+Life + Fire = Death
+Death + Life = Time
+Lava + Time = Metal
+Metal + Air = Electricity
+
+-->

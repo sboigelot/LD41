@@ -1,0 +1,3 @@
+<ElementPrototypeReceipe Element1="element:water"
+                         Element2="element:clay"
+                         ElementResult="element:life"/>

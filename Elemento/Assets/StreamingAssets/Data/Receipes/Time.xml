@@ -1,0 +1,3 @@
+<ElementPrototypeReceipe Element1="element:death"
+                         Element2="element:life"
+                         ElementResult="element:time"/>
