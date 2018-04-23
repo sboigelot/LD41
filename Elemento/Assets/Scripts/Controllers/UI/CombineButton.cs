@@ -83,6 +83,7 @@ namespace Assets.Scripts.Controllers.Game.UI
 
             if (player.HasElement(ingredient1) && player.HasElement(ingredient2))
             {
+                SoundController.Instance.PlaySound(SoundController.Instance.Scan);
                 player.RemoveElement(ingredient1);
                 player.RemoveElement(ingredient2);
                 player.AddElement(new Element { Count = 1, Uri = matchingReceipe.ElementResult });

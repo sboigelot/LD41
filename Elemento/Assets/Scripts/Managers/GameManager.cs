@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Assets.Scripts.Controllers;
 using Assets.Scripts.Controllers.Game;
 using Assets.Scripts.Controllers.UI;
 using Assets.Scripts.Models;
@@ -21,6 +22,7 @@ namespace Assets.Scripts.Managers
 
         public QuitDialogController GameWonPanel;
         public QuitDialogController GameOverPanel;
+        public float SoundVolume = 0.5f;
 
         public void Start()
         {
@@ -72,10 +74,12 @@ namespace Assets.Scripts.Managers
             Game.Paused = true;
             if (win)
             {
+                SoundController.Instance.PlaySound(SoundController.Instance.GameWon);
                 GameWonPanel.OpenDialog();
             }
             else
             {
+                SoundController.Instance.PlaySound(SoundController.Instance.GameOver);
                 GameOverPanel.OpenDialog();
             }
         }
@@ -98,6 +102,7 @@ namespace Assets.Scripts.Managers
         
         public void SpawnMonster(int spawnpointId, MonsterPrototype monsterPrototype)
         {
+            SoundController.Instance.PlaySound(SoundController.Instance.Popup);
             var monsterPrefab = PrefabManager.Instance.GetPrefab(monsterPrototype.PrefabName);
             var spawnPoint = Game.CurrentLevel.SpawnPoints.FirstOrDefault(s => s.Id == spawnpointId);
 

@@ -48,13 +48,13 @@ namespace Assets.Scripts.Models
         {
             float value = 10f;
             Aggregate(s => value -= s.SpeedBonus);
-            return value;
+            return value >= 0.1f ? value : 0.1f;
         }
 
         public float GetRange()
         {
-            float value = .5f;
-            Aggregate(s => value += s.RangeBonus);
+            float value = 2.5f;
+            Aggregate(s => value += (s.RangeBonus*1.1f));
             return value;
         }
 

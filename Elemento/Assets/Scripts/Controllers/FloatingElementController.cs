@@ -54,6 +54,7 @@ namespace Assets.Scripts.Controllers
                 Input.GetMouseButton(0) && 
                 IsThisUnderMouse())
             {
+                SoundController.Instance.PlaySound(SoundController.Instance.Water);
                 GameManager.Instance.Game.Player.AddElement(Element);
                 UiManager.Instance.ElementList.ReBuild();
                 

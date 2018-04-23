@@ -10,7 +10,7 @@ namespace Assets.Scripts.Managers
     {
         protected override List<Level> GetData()
         {
-            return MainMenuManager.Instance.PrototypeManager.GetAllPrototypes<Level>().ToList();
+            return MainMenuManager.Instance.PrototypeManager.GetAllPrototypes<Level>().OrderBy(l=>l.Order).ToList();
         }
 
         protected override void Prepare(GameObject itemObject, Level data)

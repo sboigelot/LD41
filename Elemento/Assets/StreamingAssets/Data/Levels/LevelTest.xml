@@ -1,7 +1,6 @@
 <Level Name="Tutorial"
        PreviewPicPath="LevelTest"
        Order="0"
-       ModelName="Plane10x10"
        SizeX="30"
        SizeZ="30"
        StrongholdHp="10">

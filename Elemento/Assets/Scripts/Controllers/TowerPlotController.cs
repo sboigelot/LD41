@@ -21,6 +21,7 @@ namespace Assets.Scripts.Controllers
 
         public void DestroyTower()
         {
+            SoundController.Instance.PlaySound(SoundController.Instance.Build);
             Destroy(gameObject);
             Plot.Tower = null;
             MapRenderer.Instance.InstanciatePlot(Plot);
@@ -40,6 +41,7 @@ namespace Assets.Scripts.Controllers
                 BuildingElements.Add(element.Uri);
                 if (BuildingElements.Count >= 3)
                 {
+                    SoundController.Instance.PlaySound(SoundController.Instance.Build);
                     Plot.Tower = new Tower
                     {
                         BaseElementUri = BuildingElements[0],
@@ -161,7 +163,8 @@ namespace Assets.Scripts.Controllers
             {
                 return;
             }
-            
+
+            SoundController.Instance.PlaySound(SoundController.Instance.Explosion);
             var ammoInfo = Plot.Tower.ShootAtTarget(ennemyInRange);
             ammoInfo.Origin = new Vector3(transform.position.x, WeaponCenter, transform.position.z);
 
