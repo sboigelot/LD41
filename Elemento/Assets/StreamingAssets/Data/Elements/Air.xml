@@ -7,10 +7,4 @@
         RangeBonus="1"
         AmmoSpeedBonus="0"
         ModelPrefab="tower:weapon"/>
-  <Stat InSlot="Enchant"
-        DamageType="Blunt"
-        DamageAmount="1"
-        SpeedBonus="1"
-        RangeBonus="1"
-        AmmoSpeedBonus="0"/>
 </ElementPrototype>

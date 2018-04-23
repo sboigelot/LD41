@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4901615713344996}
   - component: {fileID: 33767240000552476}
   - component: {fileID: 23626271398196594}
-  - component: {fileID: 64652597097127182}
   m_Layer: 0
   m_Name: stronghold
   m_TagString: Untagged
@@ -36,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1781952391542880}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.099999994, y: 0, z: 0.29999998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -80,18 +79,4 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1781952391542880}
-  m_Mesh: {fileID: 4300000, guid: 57e90048093d4474fa3c9691fb9c1b46, type: 3}
---- !u!64 &64652597097127182
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1781952391542880}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 57e90048093d4474fa3c9691fb9c1b46, type: 3}
+  m_Mesh: {fileID: 4300002, guid: 57e90048093d4474fa3c9691fb9c1b46, type: 3}

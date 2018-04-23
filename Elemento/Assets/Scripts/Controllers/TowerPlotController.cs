@@ -17,6 +17,7 @@ namespace Assets.Scripts.Controllers
 
         public List<GameObject> FloatingElements = new List<GameObject>();
         public GameObject Weapon;
+        public float WeaponCenter;
 
         public void DestroyTower()
         {
@@ -94,6 +95,7 @@ namespace Assets.Scripts.Controllers
             if (rangeSphere == null)
             {
                 rangeSphere = Instantiate(PrefabManager.Instance.GetPrefab("rangesphere"), transform);
+                rangeSphere.transform.localPosition = new Vector3(0, WeaponCenter, 0);
             }
 
             rangeSphere.SetActive(visible);
@@ -159,10 +161,9 @@ namespace Assets.Scripts.Controllers
             {
                 return;
             }
-
-            const float towerHeight = 2.5f;
+            
             var ammoInfo = Plot.Tower.ShootAtTarget(ennemyInRange);
-            ammoInfo.Origin = new Vector3(transform.position.x, transform.position.y + towerHeight, transform.position.z);
+            ammoInfo.Origin = new Vector3(transform.position.x, WeaponCenter, transform.position.z);
 
             var prefab = PrefabManager.Instance.GetPrefab(ammoInfo.PrefabName);
             var ammoObject = Instantiate(prefab, ammoInfo.Origin, Quaternion.identity);

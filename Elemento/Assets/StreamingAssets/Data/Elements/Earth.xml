@@ -6,25 +6,12 @@
         SpeedBonus="0"
         RangeBonus="5"
         AmmoSpeedBonus="0"
-        ModelPrefab="tower:base"/>
+        ModelPrefab="tower:base:dirt"/>
   <Stat InSlot="Body"
         DamageType="Blunt"
         DamageAmount="-1"
         SpeedBonus="0"
         RangeBonus="5"
         AmmoSpeedBonus="0"
-        ModelPrefab="tower:body"/>
-  <Stat InSlot="Weapon"
-        DamageType="Blunt"
-        DamageAmount="3"
-        SpeedBonus="1"
-        RangeBonus="1"
-        AmmoSpeedBonus="0"
-        ModelPrefab="tower:weapon"/>
-  <Stat InSlot="Enchant"
-        DamageType="Blunt"
-        DamageAmount="1"
-        SpeedBonus="1"
-        RangeBonus="1"
-        AmmoSpeedBonus="0"/>
+        ModelPrefab="tower:body:dirt"/>
 </ElementPrototype>

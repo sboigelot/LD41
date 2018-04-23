@@ -20,9 +20,9 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
-  m_AmbientEquatorColor: {r: 0.17301036, g: 0.49854288, b: 0.7352941, a: 1}
-  m_AmbientGroundColor: {r: 0, g: 0, b: 0, a: 1}
+  m_AmbientSkyColor: {r: 0.37467563, g: 0.40293935, b: 0.46323532, a: 1}
+  m_AmbientEquatorColor: {r: 1, g: 1, b: 1, a: 1}
+  m_AmbientGroundColor: {r: 0.60294116, g: 0.60294116, b: 0.60294116, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 1
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
@@ -864,48 +864,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 304540759}
---- !u!1001 &323360586
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4780246745197104, guid: 51f5c106f2905734dab95cadcf29b4fa, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0.049999952
-      objectReference: {fileID: 0}
-    - target: {fileID: 4780246745197104, guid: 51f5c106f2905734dab95cadcf29b4fa, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 1.6999999
-      objectReference: {fileID: 0}
-    - target: {fileID: 4780246745197104, guid: 51f5c106f2905734dab95cadcf29b4fa, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -0.14999998
-      objectReference: {fileID: 0}
-    - target: {fileID: 4780246745197104, guid: 51f5c106f2905734dab95cadcf29b4fa, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4780246745197104, guid: 51f5c106f2905734dab95cadcf29b4fa, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4780246745197104, guid: 51f5c106f2905734dab95cadcf29b4fa, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4780246745197104, guid: 51f5c106f2905734dab95cadcf29b4fa, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4780246745197104, guid: 51f5c106f2905734dab95cadcf29b4fa, type: 2}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 51f5c106f2905734dab95cadcf29b4fa, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &328897145
 GameObject:
   m_ObjectHideFlags: 0
@@ -3383,6 +3341,12 @@ MonoBehaviour:
     Prefab: {fileID: 1877271924049738, guid: e91c717265fa7c948bdd2899bda1de40, type: 2}
   - Name: tower:weapon
     Prefab: {fileID: 1877271924049738, guid: e91c717265fa7c948bdd2899bda1de40, type: 2}
+  - Name: tower:base:dirt
+    Prefab: {fileID: 100000, guid: e14bff4a535c8084aaf378f6822e7a3c, type: 3}
+  - Name: tower:body:dirt
+    Prefab: {fileID: 100000, guid: fb1918024ff3dff4dafb46b8d65b922c, type: 3}
+  - Name: tower:weapon:fire
+    Prefab: {fileID: 100000, guid: a3b0b16d7af08c74d9c7513fbc87a2b7, type: 3}
 --- !u!114 &1291442213
 MonoBehaviour:
   m_ObjectHideFlags: 0

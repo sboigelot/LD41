@@ -119,10 +119,7 @@ namespace Assets.Scripts.Controllers.Game
         public void InstanciateTower(TowerPlot plot)
         {
             var position = new Vector3(plot.X * ModelScale, GetHeight(plot.X, plot.Z), plot.Z * ModelScale);
-
-
             var prefab = PrefabManager.Instance.GetPrefab(plot.Tower.IsStronghold ? "stronghold": "tower");
-           
             var instance = Instantiate(prefab, position, Quaternion.identity);
 
             var plotController = instance.AddComponent<TowerPlotController>();
@@ -130,9 +127,12 @@ namespace Assets.Scripts.Controllers.Game
 
             if (!plot.Tower.IsStronghold)
             {
-                AddTowerPart(plot.Tower.BaseElementUri, TowerSlotType.Base, position, instance);
-                AddTowerPart(plot.Tower.BaseElementUri, TowerSlotType.Body, position + new Vector3(0, 1, 0), instance);
-                plotController.Weapon = AddTowerPart(plot.Tower.BaseElementUri, TowerSlotType.Weapon, position + new Vector3(0, 2, 0), instance);
+                var basePart = AddTowerPart(plot.Tower.BaseElementUri, TowerSlotType.Base, position, instance);
+                var h = basePart.GetComponent<Renderer>().bounds.size.y;
+                var bodyPart = AddTowerPart(plot.Tower.BodyElementUri, TowerSlotType.Body, position + new Vector3(0, h, 0), instance);
+                h += bodyPart.GetComponent<Renderer>().bounds.size.y;
+                plotController.Weapon = AddTowerPart(plot.Tower.WeaponElementUri, TowerSlotType.Weapon, position + new Vector3(0, h, 0), instance);
+                plotController.WeaponCenter = h + plotController.Weapon.GetComponent<Renderer>().bounds.size.y / 2;
             }
             
             MapChildren.Add(instance);
@@ -141,7 +141,17 @@ namespace Assets.Scripts.Controllers.Game
         private GameObject AddTowerPart(string elementuri, TowerSlotType slotType, Vector3 position, GameObject instance)
         {
             var elementPrototype = PrototypeManager.Instance.GetPrototype<ElementPrototype>(elementuri);
-            var prefab = PrefabManager.Instance.GetPrefab(elementPrototype.ElementStats.First(s => s.InSlot == slotType).ModelPrefab);
+            var stat = elementPrototype.ElementStats.FirstOrDefault(s => s.InSlot == slotType);
+            string prefabName = "tower:base";
+            if (stat == null)
+            {
+                Debug.LogWarningFormat("AddTowerPart Failed for {0} part not found {1}", elementPrototype.Name, slotType);
+            }
+            else
+            {
+                prefabName = stat.ModelPrefab;
+            }
+            var prefab = PrefabManager.Instance.GetPrefab(prefabName);
             return Instantiate(prefab, position, Quaternion.identity, instance.transform);
         }
 

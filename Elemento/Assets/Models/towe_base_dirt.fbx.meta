@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 57e90048093d4474fa3c9691fb9c1b46
-timeCreated: 1524322040
+guid: e14bff4a535c8084aaf378f6822e7a3c
+timeCreated: 1524448861
 licenseType: Pro
 ModelImporter:
   serializedVersion: 21
@@ -9,8 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: stronghold
-    4300002: Matrix_2
+    4300000: treetile_2
   materials:
     importMaterials: 1
     materialName: 0

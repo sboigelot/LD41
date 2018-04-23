@@ -1,19 +1,5 @@
 <ElementPrototype Name="Water" 
                   SpritePath="water">
-  <Stat InSlot="Base"
-        DamageType="Blunt"
-        DamageAmount="1"
-        SpeedBonus="0"
-        RangeBonus="1"
-        AmmoSpeedBonus="0"
-        ModelPrefab="tower:base"/>
-  <Stat InSlot="Body"
-        DamageType="Blunt"
-        DamageAmount="-1"
-        SpeedBonus="0"
-        RangeBonus="10"
-        AmmoSpeedBonus="0"
-        ModelPrefab="tower:body"/>
   <Stat InSlot="Weapon"
         DamageType="Blunt"
         DamageAmount="3"
@@ -21,10 +7,4 @@
         RangeBonus="1"
         AmmoSpeedBonus="0"
         ModelPrefab="tower:weapon"/>
-  <Stat InSlot="Enchant"
-        DamageType="Blunt"
-        DamageAmount="1"
-        SpeedBonus="1"
-        RangeBonus="1"
-        AmmoSpeedBonus="0"/>
 </ElementPrototype>
