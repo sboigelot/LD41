@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.Controllers;
 using Assets.Scripts.Controllers.Game;
@@ -46,9 +47,9 @@ namespace Assets.Scripts.Managers
 
         public void NewGame()
         {
-            // StartScreenPanel.SetActive(true);
-            // GameOverPanel.SetActive(false);
-            // GameWonPanel.SetActive(false);
+            StartCoroutine(PreloadSprites());
+            GameOverPanel.gameObject.SetActive(false);
+            GameWonPanel.gameObject.SetActive(false);
 
             CurrentMonsters = new List<GameObject>();
             Game = new Game();
@@ -66,6 +67,22 @@ namespace Assets.Scripts.Managers
                 HpSlider.maxValue = Game.CurrentLevel.StrongholdHp;
                 HpSlider.minValue = 0;
                 HpSlider.value = HpSlider.maxValue;
+            }
+        }
+
+        private IEnumerator PreloadSprites()
+        {
+            var allImages = PrototypeManager
+                .Instance
+                .GetAllPrototypes<ElementPrototype>()
+                .Select(a => a.SpritePath)
+                .ToList();
+
+            foreach (var path in allImages)
+            {
+                Debug.Log("Preloading image: " + path);
+                StartCoroutine(SpriteManager.Set(sprite => { }, "Images/Elements", path));
+                yield return null;
             }
         }
 
