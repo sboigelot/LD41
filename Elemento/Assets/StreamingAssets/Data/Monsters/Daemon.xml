@@ -1,0 +1,7 @@
+<MonsterPrototype PrefabName="daemon"
+                  Speed="3"
+                  Hp="20"
+                  DamageOnStronghold="5">
+  <Armor DamageType="Burning" FlatAmount="0.3" Percent="0"/>
+  <Loot Uri="element:water" Count="1"/>
+</MonsterPrototype>

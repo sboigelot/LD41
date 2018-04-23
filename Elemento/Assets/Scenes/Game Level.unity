@@ -5386,6 +5386,16 @@ MonoBehaviour:
     Prefab: {fileID: 1553962356601426, guid: 87cdd00c201e50b4982a8964f6a31982, type: 2}
   - Name: marshmallow:big
     Prefab: {fileID: 1278038604335354, guid: f70dd63772d621a45906cdf2b928aa62, type: 2}
+  - Name: spider
+    Prefab: {fileID: 1540818315254710, guid: ccd979bc3aa9c8a44b6bb435c831fc54, type: 2}
+  - Name: spider:red
+    Prefab: {fileID: 1694267819284520, guid: 5f2e1f1ba8c44d84dba876fac79b274d, type: 2}
+  - Name: spider:cyan
+    Prefab: {fileID: 1991017598138348, guid: 4d18b0fdfcb70f14f9c5fddd81468520, type: 2}
+  - Name: spider:big
+    Prefab: {fileID: 1506342939409656, guid: 1ab268c9af2d17a4e9551adab05dc146, type: 2}
+  - Name: deamon
+    Prefab: {fileID: 1869117126684390, guid: 175ee347173dfd047846359392024aef, type: 2}
 --- !u!114 &1291442213
 MonoBehaviour:
   m_ObjectHideFlags: 0

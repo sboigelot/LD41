@@ -7,6 +7,13 @@
   <ProtoypeIndex Uri="monster:marshmallow:blue" Path="Monsters/MarshmallowBlue.xml"/>
   <ProtoypeIndex Uri="monster:marshmallow:green" Path="Monsters/MarshmallowGreen.xml"/>
 
+  <ProtoypeIndex Uri="monster:spider" Path="Monsters/Spider.xml"/>
+  <ProtoypeIndex Uri="monster:spider:big" Path="Monsters/SpiderBig.xml"/>
+  <ProtoypeIndex Uri="monster:spider:cyan" Path="Monsters/SpiderCyan.xml"/>
+  <ProtoypeIndex Uri="monster:spider:red" Path="Monsters/SpiderRed.xml"/>
+
+  <ProtoypeIndex Uri="monster:daemon" Path="Monsters/Daemon.xml"/>
+  
   <ProtoypeIndex Uri="element:water" Path="Elements/Water.xml"/>
   <ProtoypeIndex Uri="element:earth" Path="Elements/Earth.xml"/>
   <ProtoypeIndex Uri="element:fire" Path="Elements/Fire.xml"/>

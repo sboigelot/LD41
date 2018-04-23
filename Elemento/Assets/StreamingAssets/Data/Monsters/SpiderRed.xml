@@ -1,0 +1,7 @@
+<MonsterPrototype PrefabName="spider:red"
+                  Speed="3.4"
+                  Hp="8"
+                  DamageOnStronghold="1.7">
+  <Armor DamageType="Burning" FlatAmount="0.3" Percent="0"/>
+  <Loot Uri="element:water" Count="1"/>
+</MonsterPrototype>

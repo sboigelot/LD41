@@ -1,0 +1,146 @@
+fileFormatVersion: 2
+guid: 4fe87ad44c71175429783a829b3837e8
+timeCreated: 1524500045
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: Camera
+    100002: //RootNode
+    100004: SpiderBody
+    100006: SpiderHead
+    100008: SpiderL1
+    100010: SpiderL2
+    100012: SpiderR1
+    100014: SpiderR2
+    100016: Sun
+    400000: Camera
+    400002: //RootNode
+    400004: SpiderBody
+    400006: SpiderHead
+    400008: SpiderL1
+    400010: SpiderL2
+    400012: SpiderR1
+    400014: SpiderR2
+    400016: Sun
+    2000000: Camera
+    2300000: SpiderBody
+    2300002: SpiderHead
+    2300004: SpiderL1
+    2300006: SpiderL2
+    2300008: SpiderR1
+    2300010: SpiderR2
+    3300000: SpiderBody
+    3300002: SpiderHead
+    3300004: SpiderL1
+    3300006: SpiderL2
+    3300008: SpiderR1
+    3300010: SpiderR2
+    4300000: SpiderHead
+    4300002: SpiderR2
+    4300004: SpiderR1
+    4300006: SpiderL2
+    4300008: SpiderL1
+    4300010: SpiderBody
+    7400000: SpiderHead|SpiderHeadAction
+    7400002: SpiderHead|SpiderL1Action
+    7400004: SpiderHead|SpiderL2Action
+    7400006: SpiderHead|SpiderR1Action
+    7400008: SpiderHead|SpiderR2Action
+    7400010: SpiderR2|SpiderHeadAction
+    7400012: SpiderR2|SpiderL1Action
+    7400014: SpiderR2|SpiderL2Action
+    7400016: SpiderR2|SpiderR1Action
+    7400018: SpiderR2|SpiderR2Action
+    7400020: SpiderR1|SpiderHeadAction
+    7400022: SpiderR1|SpiderL1Action
+    7400024: SpiderR1|SpiderL2Action
+    7400026: SpiderR1|SpiderR1Action
+    7400028: SpiderR1|SpiderR2Action
+    7400030: SpiderL2|SpiderHeadAction
+    7400032: SpiderL2|SpiderL1Action
+    7400034: SpiderL2|SpiderL2Action
+    7400036: SpiderL2|SpiderR1Action
+    7400038: SpiderL2|SpiderR2Action
+    7400040: SpiderL1|SpiderHeadAction
+    7400042: SpiderL1|SpiderL1Action
+    7400044: SpiderL1|SpiderL2Action
+    7400046: SpiderL1|SpiderR1Action
+    7400048: SpiderL1|SpiderR2Action
+    9500000: //RootNode
+    10800000: Sun
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
