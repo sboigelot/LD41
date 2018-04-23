@@ -1,12 +1,12 @@
 <ElementPrototype Name="Death"
                   SpritePath="death">
   <Stat InSlot="Weapon"
-        DamageType="Blunt"
-        DamageAmount="3"
+        DamageType="Magic"
+        DamageAmount="10"
         SpeedBonus="1"
-        RangeBonus="1"
-        AmmoSpeedBonus="0"
-        ModelPrefab="tower:weapon"/>
+        RangeBonus="4"
+        AmmoSpeedBonus="45"
+        ModelPrefab="tower:weapon:fire"/>
 </ElementPrototype>
 
 

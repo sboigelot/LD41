@@ -8,12 +8,52 @@ Earth + Water = Clay
 Clay + Fire = Brick
 Earth + Fire = Lava
 Lava + Water = Obsidian
-Laval + Air = Stone
+Lava + Air = Stone
 Clay + Water = Life
 Life + Water = Wood
 Life + Fire = Death
 Death + Life = Time
 Lava + Time = Metal
 Metal + Air = Electricity
+
+
+Valid Base		Range		Speed		Damage+		DamageType
+Earth			1			1			0			
+Clay			2			2			0.5			Blunt
+Brick			3			2			0.6			Blunt
+Stone			2.5			1.5			0.5			Blunt
+Obsidian		2.5			2			0.8			Blunt
+Wood			3			5			0.2			Blunt
+Metal			3			2.5			1			Blunt
+
+Valid Body
+Earth			1			1			-1			
+Clay			2			1			0.5			Blunt
+Brick			3			1			0.6			Blunt
+Stone			2.5			1			0.5			Blunt
+Obsidian		2.5			1.5			0.8			Blunt
+Wood			3			1			0.2			Blunt
+Metal			3			2			1			Blunt
+
+Valid Weapon													AmmoSpeed
+Fire			5			-2			5			Burning		35
+Lava			5			-1			7			Burning		35
+Life			6			2			8			Magic		45
+Stone			2.5			0			3			Blunt		30			
+Wood			6			2			7			Blunt		45
+Death			4			1			10			Magic		15
+Electricity		4			-5			20			Zap			100
+
+
+					Speed	Hp		RBlunt		RMagic		RZap	RBurning	Loot	DS
+Daemon				2		25		25%			25%			15		25%			Air		20
+SpiderBig			2.5		15		25%			12.5%		10		25%			Air		5
+SpiderRed			3		10		12.5%		0.3			0		0.3+0%		Air		3
+SpiderCyan			2.5		8		0			0			0		0.3+0%		Air		2
+Spider				2.5		6		1			1			0		1			?		1
+MarshmallowBig		1.4		15		25%			12.5%		10		25%			?		3
+MarshmallowBlue		2.5		8		1			1			0		1+0%		Water	2
+MarshmallowGreen	2.5		5		1			1			0		1+0%		Life	1
+Marshmallow			1.8		7		0			0			0		0.3+0%		Air		1
 
 -->

@@ -2,11 +2,11 @@
                   SpritePath="wood">
   <Stat InSlot="Weapon"
         DamageType="Blunt"
-        DamageAmount="3"
-        SpeedBonus="1"
-        RangeBonus="1"
-        AmmoSpeedBonus="0"
-        ModelPrefab="tower:weapon"/>
+        DamageAmount="7"
+        SpeedBonus="2"
+        RangeBonus="6"
+        AmmoSpeedBonus="45"
+        ModelPrefab="tower:weapon:fire"/>
 </ElementPrototype>
 
 

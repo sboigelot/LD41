@@ -1,8 +1,12 @@
 <MonsterPrototype PrefabName="marshmallow"
-                  Speed="1.8"
-                  Hp="7"
+                  Speed="2.5"
+                  Hp="8"
                   DamageOnStronghold="2">
-  <Armor DamageType="Burning" FlatAmount="0.3" Percent="0"/>
-  <Loot Uri="element:water" Count="1"/>
+  <Armor DamageType="Blunt" FlatAmount="1" Percent="0"/>
+  <Armor DamageType="Magic" FlatAmount="1" Percent="0"/>
+  <Armor DamageType="Zap" FlatAmount="0" Percent="0"/>
+  <Armor DamageType="Burning" FlatAmount="1" Percent="0"/>
+  <Loot Uri="element:fire" Count="1"/>
+  <Loot Uri="element:air" Count="1"/>
 </MonsterPrototype>
                   

@@ -2,16 +2,16 @@
                   SpritePath="clay">
   <Stat InSlot="Base"
         DamageType="Blunt"
-        DamageAmount="1"
-        SpeedBonus="0"
-        RangeBonus="5"
+        DamageAmount="0.5"
+        SpeedBonus="2"
+        RangeBonus="2"
         AmmoSpeedBonus="0"
         ModelPrefab="tower:base"/>
   <Stat InSlot="Body"
         DamageType="Blunt"
-        DamageAmount="3"
-        SpeedBonus="0"
-        RangeBonus="3"
+        DamageAmount="0.5"
+        SpeedBonus="1"
+        RangeBonus="2"
         AmmoSpeedBonus="0"
         ModelPrefab="tower:body"/>
 </ElementPrototype>

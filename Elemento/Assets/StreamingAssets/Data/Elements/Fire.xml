@@ -3,8 +3,8 @@
   <Stat InSlot="Weapon"
         DamageType="Burning"
         DamageAmount="5"
-        SpeedBonus="5"
-        RangeBonus="-2"
+        SpeedBonus="-2"
+        RangeBonus="5"
         AmmoSpeedBonus="35"
         ModelPrefab="tower:weapon:fire"/>
 </ElementPrototype>

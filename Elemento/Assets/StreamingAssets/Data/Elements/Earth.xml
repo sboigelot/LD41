@@ -1,17 +1,17 @@
-<ElementPrototype Name="Earth" 
+²<ElementPrototype Name="Earth" 
                   SpritePath="earth">
   <Stat InSlot="Base"
         DamageType="Blunt"
-        DamageAmount="1"
-        SpeedBonus="0"
-        RangeBonus="4"
+        DamageAmount="0.5"
+        SpeedBonus="1"
+        RangeBonus="1"
         AmmoSpeedBonus="0"
         ModelPrefab="tower:base:dirt"/>
   <Stat InSlot="Body"
         DamageType="Blunt"
         DamageAmount="-1"
         SpeedBonus="0"
-        RangeBonus="5"
+        RangeBonus="1"
         AmmoSpeedBonus="0"
         ModelPrefab="tower:body:dirt"/>
 </ElementPrototype>

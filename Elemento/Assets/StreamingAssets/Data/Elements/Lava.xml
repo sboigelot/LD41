@@ -1,12 +1,12 @@
 <ElementPrototype Name="Lava"
                   SpritePath="lava">
   <Stat InSlot="Weapon"
-        DamageType="Blunt"
-        DamageAmount="3"
-        SpeedBonus="1"
-        RangeBonus="1"
-        AmmoSpeedBonus="0"
-        ModelPrefab="tower:weapon"/>
+        DamageType="Burning"
+        DamageAmount="7"
+        SpeedBonus="-1"
+        RangeBonus="5"
+        AmmoSpeedBonus="35"
+        ModelPrefab="tower:weapon:fire"/>
 </ElementPrototype>
 
 

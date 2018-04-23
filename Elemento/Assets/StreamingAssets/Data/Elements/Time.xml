@@ -1,12 +1,5 @@
 <ElementPrototype Name="Time"
                   SpritePath="time">
-  <Stat InSlot="Weapon"
-        DamageType="Blunt"
-        DamageAmount="3"
-        SpeedBonus="1"
-        RangeBonus="1"
-        AmmoSpeedBonus="0"
-        ModelPrefab="tower:weapon"/>
 </ElementPrototype>
 
 

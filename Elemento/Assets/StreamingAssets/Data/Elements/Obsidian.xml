@@ -1,12 +1,19 @@
 <ElementPrototype Name="Obsidian"
                   SpritePath="obsidian">
-  <Stat InSlot="Weapon"
+  <Stat InSlot="Base"
         DamageType="Blunt"
-        DamageAmount="3"
-        SpeedBonus="1"
-        RangeBonus="1"
+        DamageAmount="0.8"
+        SpeedBonus="2"
+        RangeBonus="2.5"
         AmmoSpeedBonus="0"
-        ModelPrefab="tower:weapon"/>
+        ModelPrefab="tower:base"/>
+  <Stat InSlot="Body"
+        DamageType="Blunt"
+        DamageAmount="0.5"
+        SpeedBonus="1.5"
+        RangeBonus="2.5"
+        AmmoSpeedBonus="0"
+        ModelPrefab="tower:body"/>
 </ElementPrototype>
 
 

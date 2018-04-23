@@ -1,7 +1,10 @@
 <MonsterPrototype PrefabName="spider:red"
-                  Speed="3.4"
-                  Hp="8"
-                  DamageOnStronghold="1.7">
+                  Speed="3"
+                  Hp="10"
+                  DamageOnStronghold="3">
+  <Armor DamageType="Blunt" FlatAmount="0" Percent="12.5"/>
+  <Armor DamageType="Magic" FlatAmount="0.3" Percent="0"/>
+  <Armor DamageType="Zap" FlatAmount="0" Percent="0"/>
   <Armor DamageType="Burning" FlatAmount="0.3" Percent="0"/>
-  <Loot Uri="element:water" Count="1"/>
+  <Loot Uri="element:lava" Count="1"/>
 </MonsterPrototype>

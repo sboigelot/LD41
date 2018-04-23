@@ -1,12 +1,12 @@
 <ElementPrototype Name="Electricity"
                   SpritePath="electricity">
   <Stat InSlot="Weapon"
-        DamageType="Blunt"
-        DamageAmount="3"
-        SpeedBonus="1"
-        RangeBonus="1"
-        AmmoSpeedBonus="0"
-        ModelPrefab="tower:weapon"/>
+        DamageType="Zap"
+        DamageAmount="20"
+        SpeedBonus="-5"
+        RangeBonus="4"
+        AmmoSpeedBonus="100"
+        ModelPrefab="tower:weapon:fire"/>
 </ElementPrototype>
 
 

@@ -1,12 +1,12 @@
 <ElementPrototype Name="Life"
                   SpritePath="life">
   <Stat InSlot="Weapon"
-        DamageType="Blunt"
-        DamageAmount="3"
-        SpeedBonus="1"
-        RangeBonus="1"
-        AmmoSpeedBonus="0"
-        ModelPrefab="tower:weapon"/>
+        DamageType="Magic"
+        DamageAmount="8"
+        SpeedBonus="2"
+        RangeBonus="6"
+        AmmoSpeedBonus="45"
+        ModelPrefab="tower:weapon:fire"/>
 </ElementPrototype>
 
 

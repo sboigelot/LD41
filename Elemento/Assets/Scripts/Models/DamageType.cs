@@ -7,6 +7,7 @@ namespace Assets.Scripts.Models
     {
         Blunt,
         Burning,
-        //...
+        Magic,
+        Zap
     }
 }

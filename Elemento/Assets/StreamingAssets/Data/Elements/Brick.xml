@@ -1,12 +1,19 @@
 <ElementPrototype Name="Brick"
                   SpritePath="brick">
-  <Stat InSlot="Weapon"
+  <Stat InSlot="Base"
         DamageType="Blunt"
-        DamageAmount="3"
-        SpeedBonus="1"
-        RangeBonus="1"
+        DamageAmount="0.6"
+        SpeedBonus="2"
+        RangeBonus="3"
         AmmoSpeedBonus="0"
-        ModelPrefab="tower:weapon"/>
+        ModelPrefab="tower:base"/>
+  <Stat InSlot="Body"
+        DamageType="Blunt"
+        DamageAmount="0.6"
+        SpeedBonus="1"
+        RangeBonus="3"
+        AmmoSpeedBonus="0"
+        ModelPrefab="tower:body"/>
 </ElementPrototype>
 
 

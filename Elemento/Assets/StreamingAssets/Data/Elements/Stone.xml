@@ -1,12 +1,26 @@
 <ElementPrototype Name="stone"
                   SpritePath="stone">
+  <Stat InSlot="Base"
+        DamageType="Blunt"
+        DamageAmount="0.5"
+        SpeedBonus="1.5"
+        RangeBonus="2.5"
+        AmmoSpeedBonus="0"
+        ModelPrefab="tower:base"/>
+  <Stat InSlot="Body"
+        DamageType="Blunt"
+        DamageAmount="0.5"
+        SpeedBonus="1"
+        RangeBonus="2.5"
+        AmmoSpeedBonus="0"
+        ModelPrefab="tower:body"/>
   <Stat InSlot="Weapon"
         DamageType="Blunt"
         DamageAmount="3"
-        SpeedBonus="1"
-        RangeBonus="1"
-        AmmoSpeedBonus="0"
-        ModelPrefab="tower:weapon"/>
+        SpeedBonus="0"
+        RangeBonus="2.5"
+        AmmoSpeedBonus="30"
+        ModelPrefab="tower:weapon:fire"/>
 </ElementPrototype>
 
 
