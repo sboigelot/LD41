@@ -192,7 +192,35 @@
     <Spawn MonsterPrototypeUri="monster:spider:big"
            Count="1"/>
   </MonsterWave>
-  
+
+  <MonsterWave SpawnpointId="1"
+               TriggerDeltaTime="170"
+               DeltaTimeBetweenSpawn="2">
+    <Spawn MonsterPrototypeUri="monster:spider:red"
+           Count="10"/>
+  </MonsterWave>
+
+  <MonsterWave SpawnpointId="2"
+               TriggerDeltaTime="170"
+               DeltaTimeBetweenSpawn="2">
+    <Spawn MonsterPrototypeUri="monster:spider:cyan"
+           Count="10"/>
+  </MonsterWave>
+
+  <MonsterWave SpawnpointId="3"
+               TriggerDeltaTime="190"
+               DeltaTimeBetweenSpawn="5">
+    <Spawn MonsterPrototypeUri="monster:spider:big"
+           Count="3"/>
+  </MonsterWave>
+
+  <MonsterWave SpawnpointId="1"
+               TriggerDeltaTime="220"
+               DeltaTimeBetweenSpawn="2">
+    <Spawn MonsterPrototypeUri="monster:deamon"
+           Count="10"/>
+  </MonsterWave>
+
   <StartingElement Uri="element:water" Count="5"/>
   <StartingElement Uri="element:earth" Count="5"/>
   <StartingElement Uri="element:fire" Count="8"/>

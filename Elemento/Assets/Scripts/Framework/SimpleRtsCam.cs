@@ -99,7 +99,9 @@ namespace PyralisStudio.TheCorp.Engine.Camera
                     (Screen.height * 0.5f),
                     Space.World);
 
-                var panEdge = ScrollEdge;
+            }
+
+            var panEdge = ScrollEdge;
 #if UNITY_EDITOR
                 panEdge = 0;
 #endif
@@ -123,8 +125,6 @@ namespace PyralisStudio.TheCorp.Engine.Camera
                 {
                     transform.Translate(Vector3.forward * Time.deltaTime * -PanSpeed, Space.Self);
                 }
-
-            }
         }
     }
 }
