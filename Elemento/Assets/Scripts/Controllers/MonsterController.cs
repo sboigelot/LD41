@@ -170,7 +170,7 @@ namespace Assets.Scripts.Controllers.Game
                   transform.position.x,
                   transform.position.y + 1f,
                   transform.position.z);
-                MapRenderer.Instance.InstanciateFloatingElement(position, loot, true);
+                MapRenderer.Instance.InstanciateFloatingElement(position, loot, true, null);
             }
         }
 

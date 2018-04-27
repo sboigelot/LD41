@@ -30,7 +30,7 @@ namespace Assets.Scripts
             var tooltip = GetComponent<TooltipProvider>() ?? GetComponentInChildren<TooltipProvider>();
             if (tooltip != null && info != null)
             {
-                tooltip.content = info.TooltipText;
+                tooltip.Content = info.TooltipText;
             }
 
             button.enabled = Info == null || Info.IsEnable == null || Info.IsEnable();

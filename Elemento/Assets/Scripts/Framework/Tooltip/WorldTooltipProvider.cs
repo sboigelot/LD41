@@ -1,10 +1,12 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace Assets.Scripts.UI
 {
     public class WorldTooltipProvider : MonoBehaviour
     {
         public string content;
+        public Dictionary<string, string> MultipleContent;
         private bool underMouse;
 
         public void FixedUpdate()
@@ -12,12 +14,32 @@ namespace Assets.Scripts.UI
             if (IsThisUnderMouse())
             {
                 underMouse = true;
-                TooltipController.Instance.Show(content);
+                if (MultipleContent != null)
+                {
+                    foreach (var item in MultipleContent)
+                    {
+                        TooltipController.Instances[item.Key].Show(item.Value);
+                    }
+                }
+                else
+                {
+                    TooltipController.Instance.Show(content);
+                }
             }
             else if(underMouse)
             {
                 underMouse = false;
-                TooltipController.Instance.Hide();
+                if (MultipleContent != null)
+                {
+                    foreach (var item in MultipleContent)
+                    {
+                        TooltipController.Instances[item.Key].Hide();
+                    }
+                }
+                else
+                {
+                    TooltipController.Instance.Hide();
+                }
             }
         }
 

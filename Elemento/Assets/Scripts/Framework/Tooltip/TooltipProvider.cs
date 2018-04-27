@@ -1,20 +1,43 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace Assets.Scripts.UI
 {
     public class TooltipProvider : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
-        public string content;
+        public string Content;
+        
+        public Dictionary<string, string> MultipleContent;
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            TooltipController.Instance.Show(content);
+            if (MultipleContent != null)
+            {
+                foreach (var item in MultipleContent)
+                {
+                    TooltipController.Instances[item.Key].Show(item.Value);
+                }
+            }
+            else
+            {
+                TooltipController.Instance.Show(Content);
+            }
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            TooltipController.Instance.Hide();
+            if (MultipleContent != null)
+            {
+                foreach (var item in MultipleContent)
+                {
+                    TooltipController.Instances[item.Key].Hide();
+                }
+            }
+            else
+            {
+                TooltipController.Instance.Hide();
+            }
         }
     }
 }

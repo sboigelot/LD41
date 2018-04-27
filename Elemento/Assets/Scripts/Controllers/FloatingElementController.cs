@@ -26,7 +26,9 @@ namespace Assets.Scripts.Controllers
         public float FloatUpOnCollectedSpeed = 35f;
         private float floatUpOnCollectedStart;
 
-        public bool CollectOnMouseClick;
+        public bool CollectOnMouseClick = true;
+
+        public Action<FloatingElementController> OnCollect;
 
         public void Build()
         {
@@ -49,7 +51,8 @@ namespace Assets.Scripts.Controllers
 
         public void FixedUpdate()
         {
-            if (!Collected && 
+            if (!Draggable.IsDragging && 
+                !Collected && 
                 CollectOnMouseClick && 
                 Input.GetMouseButton(0) && 
                 IsThisUnderMouse())
@@ -57,7 +60,12 @@ namespace Assets.Scripts.Controllers
                 SoundController.Instance.PlaySound(SoundController.Instance.Water);
                 GameManager.Instance.Game.Player.AddElement(Element);
                 UiManager.Instance.ElementList.ReBuild();
-                
+
+                if (OnCollect != null)
+                {
+                    OnCollect(this);
+                }
+
                 Collected = true;
                 floatUpOnCollectedStart = Time.time;
             }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Assets.Scripts.UI.Controls.ContextualMenu;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace Assets.Scripts.Controllers.Framework.ContextualMenu
@@ -15,7 +9,7 @@ namespace Assets.Scripts.Controllers.Framework.ContextualMenu
         private PointerEventData pressEventData;
         private Vector2 pressStartPosition;
         private float pressStart = float.MaxValue;
-        private float pressActionThreshold = .25f;
+        private float pressActionThreshold = .15f;
         public Vector3 prevPosition;
 
         public void OnPointerDown(PointerEventData eventData)

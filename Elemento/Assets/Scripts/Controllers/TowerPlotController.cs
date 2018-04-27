@@ -1,13 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.Controllers.Game;
+using Assets.Scripts.Controllers.Game.UI;
 using Assets.Scripts.Managers;
 using Assets.Scripts.Models;
+using Assets.Scripts.UI;
 using UnityEngine;
 
 namespace Assets.Scripts.Controllers
 {
-    public class TowerPlotController : MonoBehaviour
+    public class TowerPlotController : DropZone
     {
         public TowerPlot Plot;
 
@@ -27,10 +30,48 @@ namespace Assets.Scripts.Controllers
             MapRenderer.Instance.InstanciatePlot(Plot);
         }
 
+        public override void OnDrop(Draggable draggable)
+        {
+            var item = draggable.gameObject.GetComponent<ElementListItemController>();
+            if (item == null)
+            {
+                return;
+            }
+
+            if (item.Element.Count < 1)
+            {
+                SoundController.Instance.PlaySound(SoundController.Instance.Explosion);
+                return;
+            }
+
+            var buildingStage = BuildingElements == null ||
+                                       BuildingElements.Count == 0 ? TowerSlotType.Base :
+                                       BuildingElements.Count == 1 ? TowerSlotType.Body :
+                                       TowerSlotType.Weapon;
+
+            var prototype = PrototypeManager.Instance.GetPrototype<ElementPrototype>(item.Element.Uri);
+            if (prototype.ElementStats == null ||
+                prototype.ElementStats.All(s => s.InSlot != buildingStage))
+            {
+                SoundController.Instance.PlaySound(SoundController.Instance.Explosion);
+                return;
+            }
+
+            var cost = new Element
+            {
+                Count = 1,
+                Uri = item.Element.Uri
+            };
+
+            AddElement(cost);
+            GameManager.Instance.Game.Player.RemoveElement(cost);
+        }
+
         public void AddElement(Element element)
         {
             if (Plot.Tower == null)
             {
+                SoundController.Instance.PlaySound(SoundController.Instance.Scan);
                 UiManager.Instance.ElementList.ReBuild();
 
                 BuildingElements.Add(element.Uri);
@@ -68,8 +109,31 @@ namespace Assets.Scripts.Controllers
                 transform.position.x,
                 transform.position.y + 1.5f * FloatingElements.Count + 1f,
                 transform.position.z);
-            var floating = MapRenderer.Instance.InstanciateFloatingElement(position, element, false);
+            var floating = MapRenderer.Instance.InstanciateFloatingElement(position, element, true, OnCollectFloatingElement);
+            
             FloatingElements.Add(floating);
+        }
+
+        private void OnCollectFloatingElement(FloatingElementController floating)
+        {
+            BuildingElements.Remove(BuildingElements.FirstOrDefault(e => e == floating.Element.Uri));
+            FloatingElements.Remove(floating.gameObject);
+            StartCoroutine(MoveFloatingElementsDown());
+            ContextualMenuManager.Instance.ContextualMenuHost.ReOpen();
+        }
+
+        private IEnumerator MoveFloatingElementsDown()
+        {
+            yield return new WaitForSeconds(0.4f);
+            for (var index = 0; index < FloatingElements.Count; index++)
+            {
+                var position = new Vector3(
+                    transform.position.x,
+                    transform.position.y + 1.5f * index + 1f,
+                    transform.position.z);
+                var floatingElement = FloatingElements[index];
+                floatingElement.transform.position = position;
+            }
         }
 
         public void Update()

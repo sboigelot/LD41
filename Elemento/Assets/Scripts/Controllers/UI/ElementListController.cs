@@ -34,6 +34,7 @@ namespace Assets.Scripts.Controllers.Game.UI
             itemController.ElementPrototype = elementPrototype;
             itemController.Text = itemObject.GetComponentInChildren<Text>();
             itemController.TooltipProvider = itemObject.GetComponentInChildren<TooltipProvider>();
+            itemController.Build();
         }
     }
 }

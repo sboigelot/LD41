@@ -7,6 +7,8 @@ namespace Assets.Scripts.UI
     [RequireComponent(typeof(CanvasGroup))]
     public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
+        public static bool IsDragging;
+
         [HideInInspector]
         public Transform parentToReturnTo = null;
 
@@ -16,6 +18,8 @@ namespace Assets.Scripts.UI
         private GameObject placeHolder = null;
 
         public Transform DefaultDragParent;
+
+        public bool Allow3dWorld = true;
 
         public bool placeHolderHoldCopy;
 
@@ -48,6 +52,8 @@ namespace Assets.Scripts.UI
             {
                 cg.blocksRaycasts = false;
             }
+
+            IsDragging = true;
         }
 
         public void OnDrag(PointerEventData eventData)
@@ -88,6 +94,49 @@ namespace Assets.Scripts.UI
                 cg.blocksRaycasts = true;
             }
             Destroy(placeHolder);
+            IsDragging = false;
+
+            if (!Allow3dWorld)
+            {
+                return;
+            }
+
+            var interactable = GetInteractableUnderMouse();
+            if (interactable == null)
+            {
+                return;
+            }
+
+            var dropZone = interactable.GetComponent<DropZone>();
+            if (dropZone != null)
+            {
+                dropZone.OnDrop(this);
+            }
+        }
+        
+        private GameObject GetInteractableUnderMouse()
+        {
+            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (RaycastAll(ray, out hit))
+            {
+                return hit.collider.gameObject;
+            }
+            return null;
+        }
+
+        private bool RaycastAll(Ray ray, out RaycastHit hit)
+        {
+            // LayerMask layermask = new LayerMask {value = terrainGameObject.layer};
+
+            hit = new RaycastHit();
+            if (!Physics.Raycast(ray, out hit, 1000/*, layermask*/))
+            {
+                Debug.LogWarning("Raycast failed");
+                return false;
+            }
+            return true;
         }
     }
 }

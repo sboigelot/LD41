@@ -49,6 +49,19 @@ namespace Assets.Scripts.Models
                     return tiles;
                 }
 
+                if (string.IsNullOrEmpty(TileString))
+                {
+                    for (int nx = 0; nx < SizeX; nx++)
+                    {
+                        tiles[nx] = new int[SizeZ];
+                        for (int nz = 0; nz < SizeZ; nz++)
+                        {
+                            tiles[nx][nz] = 1;
+                        }
+                    }
+                    return tiles;
+                }
+
                 tiles = new int[SizeX][];
 
                 var split = TileString.Replace(Environment.NewLine,"").Trim().Split(',').ToList();
@@ -89,6 +102,19 @@ namespace Assets.Scripts.Models
                 }
 
                 heightmap = new float[SizeX][];
+
+                if (string.IsNullOrEmpty(HeightmapString))
+                {
+                    for (int nx = 0; nx < SizeX; nx++)
+                    {
+                        heightmap[nx] = new float[SizeZ];
+                        for (int nz = 0; nz < SizeZ; nz++)
+                        {
+                            heightmap[nx][nz] = 1;
+                        }
+                    }
+                    return heightmap;
+                }
 
                 var split = HeightmapString.Replace(Environment.NewLine, "").Trim().Split(',').ToList();
 

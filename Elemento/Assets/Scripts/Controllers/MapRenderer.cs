@@ -143,8 +143,28 @@ namespace Assets.Scripts.Controllers.Game
 
 
                 var tooltip = instance.AddComponent<WorldTooltipProvider>();
-                tooltip.content = string.Format("Tower: {0}, {1}, {2}", baseElementPrototype.Name,
+
+                var title = string.Format("Tower: {0}, {1}, {2}", baseElementPrototype.Name,
                     bodyElementPrototype.Name, weaponElementPrototype.Name);
+                
+                string stats = "Range: " + plot.Tower.GetRange() + Environment.NewLine +
+                    "Speed: " + plot.Tower.GetSpeed() + Environment.NewLine +
+                    "Damages: " + Environment.NewLine;
+                var damages = plot.Tower.GetDamage();
+                foreach (var damage in damages)
+                {
+                    if (damage.Value != 0)
+                    {
+                        stats += "\t" + damage.Value + " " + damage.Key + Environment.NewLine;
+                    }
+                }
+
+                tooltip.MultipleContent = new Dictionary<string, string>
+                {
+                    {"default", title},
+                    { "ElementsStats", stats }
+                };
+                    
 
             }
 
@@ -245,7 +265,7 @@ namespace Assets.Scripts.Controllers.Game
         }
         #endregion
 
-        public GameObject InstanciateFloatingElement(Vector3 position, Element element, bool collectOnMouseClick)
+        public GameObject InstanciateFloatingElement(Vector3 position, Element element, bool collectOnMouseClick, Action<FloatingElementController> onCollect)
         {
             var prefab = PrefabManager.Instance.GetPrefab("floatingelement");
             var floating = Instantiate(prefab, position, Quaternion.identity, transform);
@@ -253,6 +273,7 @@ namespace Assets.Scripts.Controllers.Game
             floatingController.ElementPrototype = PrototypeManager.Instance.GetPrototype<ElementPrototype>(element.Uri);
             floatingController.Element = element;
             floatingController.CollectOnMouseClick = collectOnMouseClick;
+            floatingController.OnCollect = onCollect;
             floatingController.Build();
             return floating;
         }

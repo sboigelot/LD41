@@ -10,11 +10,25 @@ namespace Assets.Scripts.UI
 {
     public class TooltipController : MonoBehaviourSingleton<TooltipController>
     {
+        public static Dictionary<string, TooltipController> Instances;
+
+        public string TooltipIdentifier;
         public Text Text;
         public Vector3 LeftOffset;
         public Vector3 RigthOffset;
         public float TooltipDuration;
         public bool StaticTooltip;
+
+        public void Start()
+        {
+            if (Instances == null)
+            {
+                Instances = new Dictionary<string, TooltipController>();
+            }
+
+            Instances.Add(TooltipIdentifier, this);
+            Hide();
+        }
 
         public void Update()
         {

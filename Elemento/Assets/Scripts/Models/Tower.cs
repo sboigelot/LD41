@@ -38,7 +38,10 @@ namespace Assets.Scripts.Models
                     dictionary.Add(s.DamageType, 0);
                 }
 
-                dictionary[s.DamageType] += s.DamageAmount;
+                var newValue = dictionary[s.DamageType] + s.DamageAmount;
+                if (newValue < 0)
+                    newValue = 0;
+                dictionary[s.DamageType] = newValue;
             });
 
             return dictionary;
