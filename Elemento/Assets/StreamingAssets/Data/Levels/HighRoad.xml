@@ -217,8 +217,8 @@
   <MonsterWave SpawnpointId="1"
                TriggerDeltaTime="220"
                DeltaTimeBetweenSpawn="2">
-    <Spawn MonsterPrototypeUri="monster:deamon"
-           Count="10"/>
+    <Spawn MonsterPrototypeUri="monster:daemon"
+           Count="3"/>
   </MonsterWave>
 
   <StartingElement Uri="element:water" Count="5"/>

@@ -17,6 +17,11 @@ namespace Assets.Scripts.Controllers.Game.UI
 
         public TooltipProvider TooltipProvider;
 
+        public void Update()
+        {
+            Text.text = "" + Element.Count;
+        }
+
         public void Build()
         {
             var partNames = new Dictionary<TowerSlotType, string>
@@ -25,9 +30,7 @@ namespace Assets.Scripts.Controllers.Game.UI
                         {TowerSlotType.Body, "body"},
                         {TowerSlotType.Weapon, "weapon"},
                     };
-
-            Text.text = "" + Element.Count;
-
+            
             string stats = ElementPrototype.Name + Environment.NewLine;
 
             if (ElementPrototype.ElementStats == null || !ElementPrototype.ElementStats.Any())
