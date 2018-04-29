@@ -13,7 +13,7 @@
   <ProtoypeIndex Uri="monster:spider:cyan" Path="Monsters/SpiderCyan.xml"/>
   <ProtoypeIndex Uri="monster:spider:red" Path="Monsters/SpiderRed.xml"/>
 
-  <ProtoypeIndex Uri="monster:deamon" Path="Monsters/Daemon.xml"/>
+  <ProtoypeIndex Uri="monster:daemon" Path="Monsters/Daemon.xml"/>
   
   <ProtoypeIndex Uri="element:water" Path="Elements/Water.xml"/>
   <ProtoypeIndex Uri="element:earth" Path="Elements/Earth.xml"/>

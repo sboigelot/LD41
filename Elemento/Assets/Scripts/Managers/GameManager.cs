@@ -84,6 +84,19 @@ namespace Assets.Scripts.Managers
                 StartCoroutine(SpriteManager.Set(sprite => { }, "Images/Elements", path));
                 yield return null;
             }
+
+            var allLevelPreviews = PrototypeManager
+                .Instance
+                .GetAllPrototypes<Level>()
+                .Select(a => a.PreviewPicPath)
+                .ToList();
+
+            foreach (var path in allLevelPreviews)
+            {
+                //Debug.Log("Preloading image: " + path);
+                StartCoroutine(SpriteManager.Set(sprite => { }, "Data/Levels", path));
+                yield return null;
+            }
         }
 
         private bool alreadyEnded = false;

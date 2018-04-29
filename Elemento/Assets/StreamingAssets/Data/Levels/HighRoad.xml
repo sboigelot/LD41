@@ -56,7 +56,7 @@
                  SpawnDelay="30"/>
   
   <SpawnPoint Id="1" X="5" Z="5">
-    <DestinationPath>1</DestinationPath>
+    <DestinationPath>0</DestinationPath>
   </SpawnPoint>
   <SpawnPoint Id="2" X="24" Z="25">
     <DestinationPath>5</DestinationPath>

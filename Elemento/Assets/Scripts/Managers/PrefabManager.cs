@@ -10,6 +10,8 @@ namespace Assets.Scripts.Managers
     {
         public List<GameObject> TilePrefabs;
 
+        public Material ProgressMaterial;
+
         [Serializable]
         public class PrefabInfo
         {

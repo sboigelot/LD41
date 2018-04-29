@@ -5764,6 +5764,7 @@ MonoBehaviour:
   - {fileID: 100000, guid: 17564717db87cbd409b9710952551c1e, type: 3}
   - {fileID: 100000, guid: 756e01c1796704b44a75d1f75ac29c31, type: 3}
   - {fileID: 100000, guid: 7410c5a5e41fc0b42be5755275bbd8fd, type: 3}
+  ProgressMaterial: {fileID: 2100000, guid: 0fb67731b56edda47a20c70ea1d52f82, type: 2}
   Prefabs:
   - Name: towerplot
     Prefab: {fileID: 1003953868161976, guid: 07bbcf1692221e84c92de7febf6ff0f8, type: 2}
@@ -5809,7 +5810,7 @@ MonoBehaviour:
     Prefab: {fileID: 1991017598138348, guid: 4d18b0fdfcb70f14f9c5fddd81468520, type: 2}
   - Name: spider:big
     Prefab: {fileID: 1506342939409656, guid: 1ab268c9af2d17a4e9551adab05dc146, type: 2}
-  - Name: deamon
+  - Name: daemon
     Prefab: {fileID: 1869117126684390, guid: 175ee347173dfd047846359392024aef, type: 2}
   - Name: tower:base:brick
     Prefab: {fileID: 100000, guid: b5df0c450fafa7c42ae76102f0ed440d, type: 3}

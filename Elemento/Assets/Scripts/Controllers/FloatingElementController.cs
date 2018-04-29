@@ -44,6 +44,7 @@ namespace Assets.Scripts.Controllers
 
             var sprite = SpriteManager.Instance.GetChached("Images/Elements", ElementPrototype.SpritePath);
             FrontFace.material.SetTexture("_MainTex", sprite.texture);
+            BackFace.material.SetTexture("_MainTex", sprite.texture);
 
             var tooltip = gameObject.AddComponent<WorldTooltipProvider>();
             tooltip.content = "Wild element: " + ElementPrototype.Name + " <i>(click to collect)</i>";

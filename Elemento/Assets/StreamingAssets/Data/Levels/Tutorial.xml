@@ -121,21 +121,27 @@
                 StartTime="15"
                 IsJanitor="false"
                 IsBook="true"
-                Text="To build a Tower, you need to infuse a tower foundation with 3 elements: the pedestal, the body and the weapon. (Long click on a tower foundation to add elements to it)"/>
+                Text="To build a Tower, you need to infuse a tower foundation with 3 elements: the pedestal, the body and the weapon. (Drag and drop 3 elements on a tower foundation to add elements)"/>
 
   <TutorialStep Index="12"
                 StartTime="15"
                 IsJanitor="false"
                 IsBook="true"
-                Text="More complex elements will build more powerfull tower! So try to combine elements before using them to build!"/>
+                Text="(You can also build a tower by making a long click on a tower foundation and select 3 elements on the menu, destroying towers works the same way)"/>
 
   <TutorialStep Index="13"
                 StartTime="15"
                 IsJanitor="false"
                 IsBook="true"
-                Text="Each elements brings different damage, range and speed to a tower. For instance a Fire Weapon does more damage than clay, but clay provide more range then earth when used for a Body"/>
+                Text="More complex elements will build more powerfull tower! So try to combine elements before using them to build!"/>
 
   <TutorialStep Index="14"
+                StartTime="15"
+                IsJanitor="false"
+                IsBook="true"
+                Text="Each elements brings different damage, range and speed to a tower. For instance a Fire Weapon does more damage than clay, but clay provide more range then earth when used for a Body"/>
+
+  <TutorialStep Index="15"
                 StartTime="15"
                 IsJanitor="true"
                 IsBook="false"
@@ -159,7 +165,7 @@
   <MonsterWave SpawnpointId="0"
                TriggerDeltaTime="10"
                DeltaTimeBetweenSpawn="2">
-    <Spawn MonsterPrototypeUri="monster:marshmallow:green"
+    <Spawn MonsterPrototypeUri="monster:marshmallow"
            Count="2"/>
   </MonsterWave>
 

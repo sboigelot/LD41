@@ -122,17 +122,7 @@ namespace Assets.Scripts.Controllers.Game
             }
             else
             {
-                var healBarRender = Healthbar.GetComponent<MeshRenderer>();
-
-                var percent = Hp / MonsterPrototype.Hp;
-                Healthbar.transform.localScale = new Vector3(1f * percent, 0.1f, 0.1f);
-
-                healBarRender.material.color =
-                    percent >= 0.8f ? Color.green :
-                    percent >= 0.6f ? Color.yellow :
-                    percent >= 0.3f ? new Color(255,165,0) : 
-                    Color.red;
-                Healthbar.SetActive(Math.Abs(Hp - MonsterPrototype.Hp) > 0.1f);
+                UpdateHealthBar();
             }
         }
 
@@ -187,6 +177,21 @@ namespace Assets.Scripts.Controllers.Game
             Healthbar.transform.SetParent(gameObject.transform);
 
             Healthbar.SetActive(false);
+        }
+
+        private void UpdateHealthBar()
+        {
+            var healBarRender = Healthbar.GetComponent<MeshRenderer>();
+
+            var percent = Hp / MonsterPrototype.Hp;
+            Healthbar.transform.localScale = new Vector3(1f * percent, 0.1f, 0.1f);
+
+            healBarRender.material.color =
+                percent >= 0.8f ? Color.green :
+                percent >= 0.6f ? Color.yellow :
+                percent >= 0.3f ? new Color(255, 165, 0) :
+                Color.red;
+            Healthbar.SetActive(Math.Abs(Hp - MonsterPrototype.Hp) > 0.1f);
         }
     }
 }

@@ -121,71 +121,13 @@ namespace Assets.Scripts.Controllers.Game
         public void InstanciateTower(TowerPlot plot)
         {
             var position = new Vector3(plot.X * ModelScale, GetHeight(plot.X, plot.Z), plot.Z * ModelScale);
-            var prefab = PrefabManager.Instance.GetPrefab(plot.Tower.IsStronghold ? "stronghold": "tower");
+            var prefab = PrefabManager.Instance.GetPrefab(plot.Tower.IsStronghold ? "stronghold" : "tower");
             var instance = Instantiate(prefab, position, Quaternion.identity);
 
             var plotController = instance.AddComponent<TowerPlotController>();
-            plotController.Plot = plot;
-
-            if (!plot.Tower.IsStronghold)
-            {
-                var baseElementPrototype = PrototypeManager.Instance.GetPrototype<ElementPrototype>(plot.Tower.BaseElementUri);
-                var basePart = AddTowerPart(baseElementPrototype, TowerSlotType.Base, position, instance);
-
-                var h = basePart.GetComponent<Renderer>().bounds.size.y;
-                var bodyElementPrototype = PrototypeManager.Instance.GetPrototype<ElementPrototype>(plot.Tower.BodyElementUri);
-                var bodyPart = AddTowerPart(bodyElementPrototype, TowerSlotType.Body, position + new Vector3(0, h, 0), instance);
-
-                h += bodyPart.GetComponent<Renderer>().bounds.size.y;
-                var weaponElementPrototype = PrototypeManager.Instance.GetPrototype<ElementPrototype>(plot.Tower.WeaponElementUri);
-                plotController.Weapon = AddTowerPart(weaponElementPrototype, TowerSlotType.Weapon, position + new Vector3(0, h, 0), instance);
-                plotController.WeaponCenter = h + plotController.Weapon.GetComponent<Renderer>().bounds.size.y / 2;
-
-
-                var tooltip = instance.AddComponent<WorldTooltipProvider>();
-
-                var title = string.Format("Tower: {0}, {1}, {2}", baseElementPrototype.Name,
-                    bodyElementPrototype.Name, weaponElementPrototype.Name);
-                
-                string stats = "Range: " + plot.Tower.GetRange() + Environment.NewLine +
-                    "Speed: " + plot.Tower.GetSpeed() + Environment.NewLine +
-                    "Damages: " + Environment.NewLine;
-                var damages = plot.Tower.GetDamage();
-                foreach (var damage in damages)
-                {
-                    if (damage.Value != 0)
-                    {
-                        stats += "\t" + damage.Value + " " + damage.Key + Environment.NewLine;
-                    }
-                }
-
-                tooltip.MultipleContent = new Dictionary<string, string>
-                {
-                    {"default", title},
-                    { "ElementsStats", stats }
-                };
-                    
-
-            }
+            plotController.Build(plot, position, instance, plotController);
 
             MapChildren.Add(instance);
-        }
-
-        private GameObject AddTowerPart(ElementPrototype elementPrototype, TowerSlotType slotType, Vector3 position, GameObject instance)
-        {
-            var stat = elementPrototype.ElementStats.FirstOrDefault(s => s.InSlot == slotType);
-            string prefabName = "tower:base";
-            if (stat == null)
-            {
-                Debug.LogWarningFormat("AddTowerPart Failed for {0} part not found {1}", elementPrototype.Name, slotType);
-            }
-            else
-            {
-                prefabName = stat.ModelPrefab;
-            }
-            var prefab = PrefabManager.Instance.GetPrefab(prefabName);
-            var part = Instantiate(prefab, position, Quaternion.identity, instance.transform);
-            return part;
         }
 
         public void InstanciatePlot(TowerPlot plot)

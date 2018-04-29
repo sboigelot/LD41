@@ -25,7 +25,8 @@ namespace Assets.Scripts.Models
         [XmlAttribute]
         public string EnchantElementUri;
         
-        private float lastShot;
+        [XmlIgnore]
+        public float LastShot;
 
         public Dictionary<DamageType, float> GetDamage()
         {
@@ -78,7 +79,7 @@ namespace Assets.Scripts.Models
 
         public bool ReadyToShoot
         {
-            get { return lastShot + GetSpeed() < GameManager.Instance.Game.GameTime; }
+            get { return LastShot + GetSpeed() < GameManager.Instance.Game.GameTime; }
         }
 
         private static void AggregateSingleElement(Action<ElementPrototypeStat> onStat, string uri, TowerSlotType slot)
@@ -105,7 +106,7 @@ namespace Assets.Scripts.Models
 
         public AmmoSpawnInfo ShootAtTarget(GameObject ennemyInRange)
         {
-            lastShot = GameManager.Instance.Game.GameTime;
+            LastShot = GameManager.Instance.Game.GameTime;
             var prototype = PrototypeManager.Instance.GetPrototype<ElementPrototype>(WeaponElementUri);
             var stat = prototype.ElementStats.First(s => s.InSlot == TowerSlotType.Weapon);
             return new AmmoSpawnInfo
