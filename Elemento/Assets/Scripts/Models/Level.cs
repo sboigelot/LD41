@@ -171,11 +171,25 @@ namespace Assets.Scripts.Models
             var allEnded = true;
             if (MonsterWaves != null)
             {
+                var index = 0;
+                int next = -1;
                 foreach (var monsterWave in MonsterWaves)
                 {
                     monsterWave.Update(deltaTime);
+                    if (monsterWave.TriggerDeltaTime < GameManager.Instance.Game.GameTime)
+                    {
+                        index++;
+                    }
+                    else
+                    {
+                        if (next == -1)
+                        {
+                            next = (int)(monsterWave.TriggerDeltaTime - GameManager.Instance.Game.GameTime);
+                        }
+                    }
                     allEnded &= monsterWave.Done;
                 }
+                GameManager.Instance.UpdateNextWaveInfo(index, MonsterWaves.Count, next);
             }
 
             if (allEnded)

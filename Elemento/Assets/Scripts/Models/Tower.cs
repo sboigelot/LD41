@@ -50,15 +50,15 @@ namespace Assets.Scripts.Models
 
         public float GetSpeed()
         {
-            float value = 10f;
-            Aggregate(s => value -= (s.SpeedBonus*1.5f));
+            float value = 8f;
+            Aggregate(s => value -= (s.SpeedBonus*1f));
             return value >= 0.1f ? value : 0.1f;
         }
 
         public float GetRange()
         {
             float value = 2.5f;
-            Aggregate(s => value += (s.RangeBonus*1.1f));
+            Aggregate(s => value += (s.RangeBonus*1f));
             return value;
         }
 
@@ -79,7 +79,7 @@ namespace Assets.Scripts.Models
 
         public bool ReadyToShoot
         {
-            get { return LastShot + GetSpeed() < GameManager.Instance.Game.GameTime; }
+            get { return LastShot < GameManager.Instance.Game.GameTime - GetSpeed(); }
         }
 
         private static void AggregateSingleElement(Action<ElementPrototypeStat> onStat, string uri, TowerSlotType slot)

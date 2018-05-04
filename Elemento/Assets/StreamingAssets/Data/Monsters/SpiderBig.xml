@@ -1,5 +1,5 @@
 <MonsterPrototype PrefabName="spider:big"
-                  Speed="2.5"
+                  Speed="1.2"
                   Hp="15"
                   DamageOnStronghold="5">
   <Armor DamageType="Blunt" FlatAmount="0" Percent="25"/>

@@ -1,5 +1,5 @@
 <MonsterPrototype PrefabName="daemon"
-                  Speed="2"
+                  Speed="1.5"
                   Hp="25"
                   DamageOnStronghold="20">
   <Armor DamageType="Blunt" FlatAmount="0" Percent="25"/>

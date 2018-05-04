@@ -1,5 +1,5 @@
 <MonsterPrototype PrefabName="marshmallow:big"
-                  Speed="1.4"
+                  Speed="0.8"
                   Hp="15"
                   DamageOnStronghold="3">
   <Armor DamageType="Blunt" FlatAmount="0" Percent="25"/>

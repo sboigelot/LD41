@@ -2933,7 +2933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa8790b2d60817944b4ae50d5c434dde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Content: 
+  Content: Two times faster
 --- !u!1 &749783223
 GameObject:
   m_ObjectHideFlags: 0
@@ -4024,6 +4024,7 @@ RectTransform:
   m_Children:
   - {fileID: 478008029}
   - {fileID: 1180692988}
+  - {fileID: 1793756858}
   m_Father: {fileID: 1803162661}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4671,7 +4672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa8790b2d60817944b4ae50d5c434dde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Content: 
+  Content: Pause the game
 --- !u!1 &1083148915
 GameObject:
   m_ObjectHideFlags: 0
@@ -5743,6 +5744,7 @@ MonoBehaviour:
     Loaded: 0
   CurrentMonsters: []
   HpSlider: {fileID: 1180692990}
+  WaveText: {fileID: 1793756860}
   GameWonPanel: {fileID: 624862438}
   GameOverPanel: {fileID: 561424764}
   SoundVolume: 0.5
@@ -7100,7 +7102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa8790b2d60817944b4ae50d5c434dde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Content: 
+  Content: Open settings
 --- !u!1 &1610255592
 GameObject:
   m_ObjectHideFlags: 0
@@ -7435,7 +7437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa8790b2d60817944b4ae50d5c434dde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Content: 
+  Content: Exit level
 --- !u!1 &1739210078
 GameObject:
   m_ObjectHideFlags: 0
@@ -7883,6 +7885,100 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1789034498}
+--- !u!1 &1793756857
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1793756858}
+  - component: {fileID: 1793756861}
+  - component: {fileID: 1793756860}
+  - component: {fileID: 1793756859}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1793756858
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1793756857}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 977562211}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 7.899994, y: -11.299999}
+  m_SizeDelta: {x: 159.57, y: 20}
+  m_Pivot: {x: 1, y: 0}
+--- !u!114 &1793756859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1793756857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1679637790, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 1
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
+--- !u!114 &1793756860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1793756857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 12
+    m_FontStyle: 2
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 40
+    m_Alignment: 2
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Wave X of Y, Next in XX sec
+--- !u!222 &1793756861
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1793756857}
 --- !u!1 &1803162657
 GameObject:
   m_ObjectHideFlags: 0

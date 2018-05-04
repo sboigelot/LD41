@@ -21,6 +21,8 @@ namespace Assets.Scripts.Managers
 
         public Slider HpSlider;
 
+        public Text WaveText;
+
         public QuitDialogController GameWonPanel;
         public QuitDialogController GameOverPanel;
         public float SoundVolume = 0.5f;
@@ -187,6 +189,23 @@ namespace Assets.Scripts.Managers
         public void SpeedUp(bool value)
         {
             Game.GameSpeed = value ? 2 : 1;
+        }
+
+        public void UpdateNextWaveInfo(int waveIndex, int totalWaves, int nextWaveTimer)
+        {
+            if (waveIndex == 0)
+            {
+                WaveText.text = string.Format("{0} Waves starts in {1} sec", totalWaves, nextWaveTimer);
+                return;
+            }
+
+            if (waveIndex == totalWaves)
+            {
+                WaveText.text = string.Format("Wave {0} of {1}, last wave!!!", waveIndex, totalWaves);
+                return;
+            }
+
+            WaveText.text = string.Format("Wave {0} of {1}, Next in {2} sec", waveIndex, totalWaves, nextWaveTimer);
         }
     }
 }

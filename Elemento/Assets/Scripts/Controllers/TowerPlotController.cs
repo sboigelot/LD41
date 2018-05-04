@@ -224,6 +224,12 @@ namespace Assets.Scripts.Controllers
             }
 
             DisplayRangeSphere();
+            
+            //var baseElementPrototype = PrototypeManager.Instance.GetPrototype<ElementPrototype>(Plot.Tower.BaseElementUri);
+            //var bodyElementPrototype = PrototypeManager.Instance.GetPrototype<ElementPrototype>(Plot.Tower.BodyElementUri);
+            //var weaponElementPrototype = PrototypeManager.Instance.GetPrototype<ElementPrototype>(Plot.Tower.WeaponElementUri);
+            //UpdateTooltip(baseElementPrototype, bodyElementPrototype, weaponElementPrototype);
+            UpdateSpeedBar();
         }
 
         private void DisplayRangeSphere()
@@ -282,12 +288,6 @@ namespace Assets.Scripts.Controllers
                 return;
             }
 
-            var baseElementPrototype = PrototypeManager.Instance.GetPrototype<ElementPrototype>(Plot.Tower.BaseElementUri);
-            var bodyElementPrototype = PrototypeManager.Instance.GetPrototype<ElementPrototype>(Plot.Tower.BodyElementUri);
-            var weaponElementPrototype = PrototypeManager.Instance.GetPrototype<ElementPrototype>(Plot.Tower.WeaponElementUri);
-            UpdateTooltip(baseElementPrototype, bodyElementPrototype, weaponElementPrototype);
-            UpdateSpeedBar();
-
             var ennemyInRange = Plot.Tower.FindTarget(transform.position);
             if (ennemyInRange == null)
             {
@@ -300,8 +300,7 @@ namespace Assets.Scripts.Controllers
             newRotation.x = 0;
             newRotation.z = 0;
             Weapon.transform.rotation = newRotation;
-
-
+            
             if (!Plot.Tower.ReadyToShoot)
             {
                 return;
@@ -328,6 +327,7 @@ namespace Assets.Scripts.Controllers
             }
 
             var percent = (GameManager.Instance.Game.GameTime - Plot.Tower.LastShot) / Plot.Tower.GetSpeed();
+            percent /= 4f;
             if (percent > 1f) percent = 1f;
 
             for (var i = 0; i < transform.childCount; i++)
@@ -335,7 +335,7 @@ namespace Assets.Scripts.Controllers
                 var child = transform.GetChild(i).gameObject;
                 var partRenderer = child.GetComponent<MeshRenderer>();
                 var shiftY = transform.position.y + (maxY) * percent;
-                partRenderer.material.SetFloat("shiftY",shiftY);
+                partRenderer.material.SetFloat("shiftY", shiftY);
             }
         }
     }
